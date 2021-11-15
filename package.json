@@ -21,31 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:pre-commit": "eslint -c ./.eslintrc.js $(git diff --cached --name-only --diff-filter=AM | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint",
-    "lint:pre-push": "eslint -c ./.eslintrc.js $(git diff --name-only --diff-filter=AM main | grep  -E \"(.js$|.ts$)\") --cache --cache-location node_modules/.cache/eslint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "bash scripts/pre-push.sh && lint-prepush",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-prepush": {
-    "base": "main",
-    "tasks": {
-      "*.{js,jsx,ts,tsx}": [
-        "npx prettier --check",
-        "yarn lint:pre-push",
-        "jest --bail --findRelatedTests --maxWorkers=50% --silent"
-      ]
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "npx prettier --check",
-      "yarn lint:pre-commit"
-    ]
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
@@ -60,6 +36,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "eslint": "^7.27.0",
@@ -71,13 +49,9 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4",
+    "husky": "^7.0.4",
     "prettier": "^2.3.0",
     "prettier-eslint": "^9.0.1",
-    "prettier-eslint-cli": "^5.0.0",
-    "@commitlint/cli": "^12.0.1",
-    "@commitlint/config-conventional": "^12.0.1",
-    "husky": "^4.3.0",
-    "lint-prepush": "^2.1.0",
-    "lint-staged": "^10.5.3"
+    "prettier-eslint-cli": "^5.0.0"
   }
 }
