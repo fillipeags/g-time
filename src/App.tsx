@@ -1,10 +1,14 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import SideBar from './components/SideBar';
+import Routes from './routes';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <BrowserRouter>
+      <SideBar />
+      <Routes />
+    </BrowserRouter>
   );
 };
 
