@@ -2,7 +2,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* width: 30%;
+  width: 400px;
   height: 100vh;
-  background: blue; */
+
+  color: white;
+
+  border-right: 1px solid white;
 `;

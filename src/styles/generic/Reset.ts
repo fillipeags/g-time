@@ -1,8 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
-const Reset = createGlobalStyle`
+export const Reset = createGlobalStyle`
   html {
     scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
   }
 
   @media (max-width: 1080px) {
@@ -30,6 +31,8 @@ const Reset = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    background-color: black;
   }
 
   button {
@@ -45,4 +48,9 @@ const Reset = createGlobalStyle`
 
 `;
 
-export default Reset;
+export const Container = styled.main`
+  width: 100vw;
+  display: flex;
+
+  color: white;
+`;
