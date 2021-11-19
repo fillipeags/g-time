@@ -1,15 +1,11 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Logo, MenuItem, OptionContainer } from './styles';
 import SideBarMenu from './SideBarMenu';
+import usePathName from '../../hooks/usePathName';
 
 const SideBar: React.FC = () => {
-  const usePathname = () => {
-    const location = useLocation();
-    return location.pathname;
-  };
-
-  const currentPath = usePathname();
+  const currentPath = usePathName();
 
   return (
     <Container>
