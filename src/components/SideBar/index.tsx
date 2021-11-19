@@ -1,21 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Container } from './styles';
-import SideBarMenu from './nav';
+import { Container, Logo, MenuItem } from './styles';
+import SideBarMenu from './SideBarMenu';
 
 const SideBar: React.FC = () => {
   return (
     <Container>
+      <Logo />
+
       <nav>
         <ul>
           {SideBarMenu.map(item => {
             return (
-              <li>
+              <MenuItem>
                 <Link to={item.path}>
                   <span>{item.title}</span>
                 </Link>
-              </li>
+              </MenuItem>
             );
           })}
         </ul>

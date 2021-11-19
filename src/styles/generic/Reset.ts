@@ -32,6 +32,7 @@ export const Reset = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 
+    color: white;
     background-color: black;
   }
 
@@ -45,12 +46,22 @@ export const Reset = createGlobalStyle`
     text-decoration: none;
   }
 
-
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
-export const Container = styled.main`
+export const Container = styled.div`
   width: 100vw;
-  display: flex;
+  height: 100vh;
 
-  color: white;
+  display: flex;
+`;
+
+export const Content = styled.main`
+  display: flex;
+  flex-direction: column;
+
+  width: 75%;
 `;

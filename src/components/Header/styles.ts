@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  width: 100vw;
   height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   margin: 40px 50px;
 
