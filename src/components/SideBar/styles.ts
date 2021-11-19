@@ -1,5 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ReactComponent as LogoImg } from '../../assets/logo.svg';
+
+interface MenuItemProps {
+  active: boolean;
+}
 
 export const Container = styled.div`
   width: 25%;
@@ -21,15 +25,16 @@ export const Logo = styled(LogoImg)`
   margin-bottom: 50px;
 `;
 
-export const MenuItem = styled.li`
+export const MenuItem = styled.li<MenuItemProps>`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 
   margin-bottom: 30px;
-  margin-left: 90px;
+  margin-left: 40px;
 
-  width: 250px;
+  padding: 4px 40px;
+
+  width: 180px;
   height: 50px;
 
   text-transform: uppercase;
@@ -39,6 +44,27 @@ export const MenuItem = styled.li`
     font-size: 24px;
     font-weight: medium;
   }
+
+  ${({ active }) =>
+    active &&
+    css`
+      background: linear-gradient(
+        83.93deg,
+        #4316db -6.08%,
+        rgba(70, 27, 214, 0.445656) 67.34%,
+        rgba(58, 0, 255, 0) 158.91%
+      );
+      filter: drop-shadow(0px 4px 9px rgba(0, 0, 0, 0.25));
+      border-radius: 15px;
+    `}
+
+  ${({ active }) =>
+    !active &&
+    css`
+      &:hover {
+        opacity: 0.8;
+      }
+    `}
 `;
 
 export const OptionContainer = styled.div`
@@ -46,9 +72,4 @@ export const OptionContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 30px;
-
-  &:hover {
-    transition: 0.3s ease-in-out;
-    color: ${({ theme }) => theme.colors.primary.medium};
-  }
 `;

@@ -1,9 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Container, Logo, MenuItem, OptionContainer } from './styles';
 import SideBarMenu from './SideBarMenu';
 
 const SideBar: React.FC = () => {
+  const usePathname = () => {
+    const location = useLocation();
+    return location.pathname;
+  };
+
+  const currentPath = usePathname();
+
   return (
     <Container>
       <Logo />
@@ -12,7 +19,7 @@ const SideBar: React.FC = () => {
         <ul>
           {SideBarMenu.map(item => {
             return (
-              <MenuItem>
+              <MenuItem active={currentPath === item.path}>
                 <Link to={item.path}>
                   <OptionContainer>
                     {item.icon}

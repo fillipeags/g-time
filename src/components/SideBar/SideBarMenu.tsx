@@ -25,7 +25,7 @@ const SideBarMenu: SideBarMenuProps[] = [
   },
   {
     title: 'News',
-    path: '/mygames',
+    path: '/news',
     icon: <FiFileText size={24} />,
   },
 ];
