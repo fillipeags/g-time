@@ -7,12 +7,8 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
-
-  color: white;
-
-  border-right: 1px solid white;
+  align-items: center;
 `;
 
 export const Logo = styled(LogoImg)`
@@ -20,22 +16,39 @@ export const Logo = styled(LogoImg)`
   align-items: center;
   justify-content: center;
 
-  width: 164px;
-  height: 212px;
+  width: 120px;
 
-  margin-top: 25px;
-  margin-bottom: 90px;
+  margin-bottom: 50px;
 `;
 
 export const MenuItem = styled.li`
-  /* width: 250px; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin-bottom: 30px;
+  margin-left: 90px;
+
+  width: 250px;
   height: 50px;
 
   text-transform: uppercase;
-
   list-style-type: none;
 
+  span {
+    font-size: 24px;
+    font-weight: medium;
+  }
+`;
+
+export const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 30px;
+
+  &:hover {
+    transition: 0.3s ease-in-out;
+    color: ${({ theme }) => theme.colors.primary.medium};
+  }
 `;

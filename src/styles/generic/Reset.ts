@@ -64,4 +64,6 @@ export const Content = styled.main`
   flex-direction: column;
 
   width: 75%;
+
+  margin: 40px 50px;
 `;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import { Container, Logo, MenuItem } from './styles';
+import { Container, Logo, MenuItem, OptionContainer } from './styles';
 import SideBarMenu from './SideBarMenu';
 
 const SideBar: React.FC = () => {
@@ -15,7 +14,10 @@ const SideBar: React.FC = () => {
             return (
               <MenuItem>
                 <Link to={item.path}>
-                  <span>{item.title}</span>
+                  <OptionContainer>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </OptionContainer>
                 </Link>
               </MenuItem>
             );

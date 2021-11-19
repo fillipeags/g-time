@@ -6,11 +6,6 @@ const Home: React.FC = () => {
   return (
     <>
       <Header />
-
-      <h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1>
     </>
   );
 };

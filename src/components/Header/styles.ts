@@ -1,18 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  height: 70px;
+  height: 60px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  margin: 40px 50px;
-
   h1 {
     color: ${({ theme }) => theme.colors.gray[100]};
 
-    font-size: 36px;
+    font-size: 28px;
+    font-weight: medium;
 
     strong {
       color: ${({ theme }) => theme.colors.primary.medium};
@@ -27,9 +26,9 @@ export const AvatarContainer = styled.div`
   gap: 10px;
 
   img {
-    width: 70px;
-    height: 70px;
+    width: 54px;
+    height: 54px;
 
-    border-radius: 15px;
+    border-radius: 10px;
   }
 `;

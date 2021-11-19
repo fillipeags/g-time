@@ -16,7 +16,7 @@ const Header: React.FC = () => {
           alt="User Avatar"
         />
 
-        <FiChevronDown size={30} />
+        <FiChevronDown size={24} />
       </AvatarContainer>
     </Container>
   );
