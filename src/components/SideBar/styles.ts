@@ -21,8 +21,13 @@ export const Logo = styled(LogoImg)`
   justify-content: center;
 
   width: 120px;
-
   margin-bottom: 50px;
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const MenuItem = styled.li<MenuItemProps>`
@@ -30,12 +35,10 @@ export const MenuItem = styled.li<MenuItemProps>`
   align-items: center;
 
   margin-bottom: 30px;
-  margin-left: 40px;
 
-  padding: 4px 40px;
+  padding: 14px 40px;
 
-  width: 180px;
-  height: 50px;
+  width: 200px;
 
   text-transform: uppercase;
   list-style-type: none;
@@ -56,6 +59,10 @@ export const MenuItem = styled.li<MenuItemProps>`
       );
       filter: drop-shadow(0px 4px 9px rgba(0, 0, 0, 0.25));
       border-radius: 15px;
+
+      &:hover {
+        opacity: 0.8;
+      }
     `}
 
   ${({ active }) =>
@@ -71,5 +78,14 @@ export const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
+`;
+
+export const CollapseContainer = styled.div`
+  margin-top: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
 `;

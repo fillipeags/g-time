@@ -1,6 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Logo, MenuItem, OptionContainer } from './styles';
+
+import { FiChevronsLeft } from 'react-icons/fi';
+
+import {
+  Container,
+  Logo,
+  MenuItem,
+  OptionContainer,
+  Nav,
+  CollapseContainer,
+} from './styles';
+
 import SideBarMenu from './SideBarMenu';
 import usePathName from '../../hooks/usePathName';
 
@@ -11,11 +22,11 @@ const SideBar: React.FC = () => {
     <Container>
       <Logo />
 
-      <nav>
+      <Nav>
         <ul>
           {SideBarMenu.map(item => {
             return (
-              <MenuItem active={currentPath === item.path}>
+              <MenuItem active={currentPath === item.path} key={item.path}>
                 <Link to={item.path}>
                   <OptionContainer>
                     {item.icon}
@@ -26,7 +37,12 @@ const SideBar: React.FC = () => {
             );
           })}
         </ul>
-      </nav>
+      </Nav>
+
+      <CollapseContainer>
+        <FiChevronsLeft size={18} />
+        <a href="/">collapse</a>
+      </CollapseContainer>
     </Container>
   );
 };
