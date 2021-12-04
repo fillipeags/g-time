@@ -27,7 +27,7 @@ const SideBar: React.FC = () => {
     if (isExpanded) {
       setIsExpanded(false);
 
-      localStorage.setItem('repositories', JSON.stringify(true));
+      localStorage.setItem('sidebar-collapsed', JSON.stringify(true));
       return;
     }
     setIsExpanded(true);
@@ -48,7 +48,7 @@ const SideBar: React.FC = () => {
                 <MenuItem
                   active={currentPath === item.path}
                   key={item.path}
-                  collapsed={isExpanded}
+                  isExpanded={isExpanded}
                 >
                   <Link to={item.path}>
                     <OptionContainer>
