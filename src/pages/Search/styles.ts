@@ -5,7 +5,9 @@ interface IFilterButtonProps {
   active?: boolean;
 }
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+`;
 
 export const HeaderContainer = styled.div`
   height: 60px;
@@ -13,6 +15,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 40px;
 
   margin-bottom: 20px;
 `;

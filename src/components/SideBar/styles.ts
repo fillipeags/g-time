@@ -135,8 +135,7 @@ export const OptionContainer = styled.div`
 
 export const CollapseContainer = styled.div`
   margin-top: 60px;
-  margin-left: 40px;
-
+  margin-left: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
