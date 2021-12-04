@@ -1,48 +1,20 @@
-import { Container, Content, GameInfo } from './styles';
+import { AiOutlineStar } from 'react-icons/ai';
+import { Container, Content, GameInfo, Rating } from './styles';
 
 const MediumCard: React.FC = () => {
   return (
-    <>
+    <Container>
       <h2>Category</h2>
-      <Container>
-        <Content>
-          <GameInfo>
-            <p>Game Title</p>
+      <Content>
+        <GameInfo>
+          <h4>Game Title</h4>
+          <Rating>
             <p>7.4</p>
-          </GameInfo>
-        </Content>
-        <Content>
-          <GameInfo>
-            <p>Game Title</p>
-            <p>7.4</p>
-          </GameInfo>
-        </Content>
-        <Content>
-          <GameInfo>
-            <p>Game Title</p>
-            <p>7.4</p>
-          </GameInfo>
-        </Content>
-        <Content>
-          <GameInfo>
-            <p>Game Title</p>
-            <p>7.4</p>
-          </GameInfo>
-        </Content>
-        <Content>
-          <GameInfo>
-            <p>Game Title</p>
-            <p>7.4</p>
-          </GameInfo>
-        </Content>
-        <Content>
-          <GameInfo>
-            <p>Game Title</p>
-            <p>7.4</p>
-          </GameInfo>
-        </Content>
-      </Container>
-    </>
+            <AiOutlineStar size={24} color="yellow" />
+          </Rating>
+        </GameInfo>
+      </Content>
+    </Container>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import LargeCard from '../../components/Cards/LargeCard';
 import MediumCard from '../../components/Cards/MediumCard';
 
 import Header from '../../components/Header';
@@ -11,6 +12,9 @@ const Home: React.FC = () => {
       <MainBanner />
 
       <MediumCard />
+      <MediumCard />
+
+      <LargeCard />
     </>
   );
 };
