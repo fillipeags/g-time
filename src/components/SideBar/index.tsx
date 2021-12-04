@@ -20,7 +20,9 @@ const SideBar: React.FC = () => {
 
   return (
     <Container>
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
 
       <Nav>
         <ul>

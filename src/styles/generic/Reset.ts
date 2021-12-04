@@ -18,14 +18,14 @@ export const Reset = createGlobalStyle`
     }
   }
 
-  h1,h2,h3,h4,h5,h6,p,img,span, button{
+  /* h1,h2,h3,h4,h5,h6,p,img,span, button{
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
+  } */
 
   body {
     margin: 0;
@@ -53,9 +53,7 @@ export const Reset = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  width: 100vw;
   height: 100vh;
-
   display: flex;
 `;
 
@@ -63,7 +61,7 @@ export const Content = styled.main`
   display: flex;
   flex-direction: column;
 
-  width: 75%;
+  width: 75vw;
 
   margin: 40px 50px;
 `;
