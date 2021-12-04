@@ -6,6 +6,7 @@ import { Container, Content } from './styles/generic/Reset';
 import SideBar from './components/SideBar';
 import Routes from './routes';
 import defaultTheme from './styles/themes';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
           <SideBar />
           <Content>
             <Routes />
+            <Footer />
           </Content>
         </Container>
       </ThemeProvider>

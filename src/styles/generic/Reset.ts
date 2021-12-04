@@ -60,6 +60,7 @@ export const Container = styled.div`
 export const Content = styled.main`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   width: 75vw;
 
