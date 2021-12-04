@@ -1,10 +1,14 @@
 import React from 'react';
+import MyProfile from '../../components/MyProfile';
+import SearchInput from '../../components/SearchInput';
+import { Container } from './styles';
 
 const Search: React.FC = () => {
   return (
-    <div>
-      <h1>Search</h1>
-    </div>
+    <Container>
+      <SearchInput />
+      <MyProfile />
+    </Container>
   );
 };
 

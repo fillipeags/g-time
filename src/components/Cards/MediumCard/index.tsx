@@ -1,4 +1,5 @@
 import { AiOutlineStar } from 'react-icons/ai';
+
 import { Container, Content, GameInfo, Rating } from './styles';
 
 interface IMediumCardProps {
