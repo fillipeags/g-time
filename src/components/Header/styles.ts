@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.header`
+const Container = styled.header`
   height: 60px;
 
   display: flex;
@@ -19,16 +19,4 @@ export const Container = styled.header`
   }
 `;
 
-export const AvatarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  img {
-    width: 54px;
-    height: 54px;
-
-    border-radius: 10px;
-  }
-`;
+export default Container;

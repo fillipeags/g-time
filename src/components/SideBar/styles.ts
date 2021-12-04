@@ -1,27 +1,55 @@
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { ReactComponent as LogoImg } from '../../assets/logo.svg';
 
 interface MenuItemProps {
-  active: boolean;
+  active?: boolean;
+  isExpanded?: boolean;
 }
 
-export const Container = styled.div`
-  width: 25%;
+export const Container = styled.div<MenuItemProps>`
+  width: ${({ isExpanded }) => (isExpanded ? '25%' : '10%')};
+
   height: 100vh;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  transition: 0.3s ease-in;
 `;
 
-export const Logo = styled(LogoImg)`
+export const Content = styled.div`
+  position: fixed;
+`;
+
+export const BackHome = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
 
-  width: 120px;
-  margin-bottom: 50px;
+export const Logo = styled(LogoImg)<MenuItemProps>`
+  ${({ isExpanded }) =>
+    isExpanded
+      ? css`
+          width: 120px;
+          margin-bottom: 50px;
+          margin-left: 50px;
+        `
+      : css`
+          width: 80px;
+          margin-bottom: 20px;
+          margin-left: 30px;
+        `}
+
+  @media screen and (max-width: 1400px) {
+    width: 80px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    transition: 0.3s ease-in;
+  }
 `;
 
 export const Nav = styled.nav`
@@ -38,7 +66,20 @@ export const MenuItem = styled.li<MenuItemProps>`
 
   padding: 14px 40px;
 
-  width: 200px;
+  ${({ isExpanded }) =>
+    isExpanded
+      ? css`
+          width: 200px;
+          margin-left: 50px;
+        `
+      : css`
+          width: 30px;
+          margin-left: 40px;
+
+          span {
+            display: none;
+          }
+        `}
 
   text-transform: uppercase;
   list-style-type: none;
@@ -72,6 +113,17 @@ export const MenuItem = styled.li<MenuItemProps>`
         opacity: 0.8;
       }
     `}
+
+    @media screen and (max-width: 1400px) {
+    width: 30px;
+    margin-left: 40px;
+
+    span {
+      display: none;
+    }
+
+    transition: 0.3s ease-in;
+  }
 `;
 
 export const OptionContainer = styled.div`
@@ -83,9 +135,15 @@ export const OptionContainer = styled.div`
 
 export const CollapseContainer = styled.div`
   margin-top: 60px;
-
+  margin-left: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 10px;
+
+  cursor: pointer;
+
+  @media screen and (max-width: 1400px) {
+    display: none;
+  }
 `;

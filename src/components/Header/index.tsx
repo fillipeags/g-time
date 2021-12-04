@@ -1,7 +1,7 @@
 import React from 'react';
+import MyProfile from '../MyProfile';
 
-import { FiChevronDown } from 'react-icons/fi';
-import { AvatarContainer, Container } from './styles';
+import Container from './styles';
 
 const Header: React.FC = () => {
   return (
@@ -10,14 +10,7 @@ const Header: React.FC = () => {
         Welcome Back, <strong>John</strong>
       </h1>
 
-      <AvatarContainer>
-        <img
-          src="https://pickaface.net/gallery/avatar/unr_example_170227_1250_yq2lr.png"
-          alt="User Avatar"
-        />
-
-        <FiChevronDown size={24} />
-      </AvatarContainer>
+      <MyProfile />
     </Container>
   );
 };
