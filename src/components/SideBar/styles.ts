@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { ReactComponent as LogoImg } from '../../assets/logo.svg';
 
@@ -15,11 +16,17 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Logo = styled(LogoImg)`
+export const Content = styled.div`
+  position: fixed;
+`;
+
+export const BackHome = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
 
+export const Logo = styled(LogoImg)`
   width: 120px;
   margin-bottom: 50px;
 `;
