@@ -2,26 +2,10 @@ import styled from 'styled-components';
 
 import MiranhaImg from '../../assets/miranha.png';
 
-export const BackLine = styled.div`
-  width: 45%;
-  height: 500px;
-
-  border: 4px solid rgba(67, 22, 219, 1);
-  border-radius: 20px;
-
-  margin-left: 375px;
-  margin-top: 120px;
-
-  position: absolute;
-
-  z-index: -1;
-`;
-
 export const Container = styled.div`
-  margin-top: 90px;
-
+  margin-top: 60px;
+  margin-bottom: 40px;
   width: 100%;
-  height: 450px;
 
   border-radius: 25px;
 
@@ -47,6 +31,8 @@ export const Container = styled.div`
 export const Content = styled.div`
   padding-top: 80px;
   padding-left: 80px;
+
+  padding-bottom: 40px;
 
   h1 {
     font-weight: bold;
@@ -75,12 +61,12 @@ export const PlatformsContainer = styled.div`
 
   gap: 18px;
 
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 `;
 
 export const Button = styled.button`
   width: 200px;
-  padding: 26px 0px;
+  padding: 20px 0px;
   border-radius: 15px;
   border: none;
 
