@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
-import mediumCardImg from '../../../assets/mediumCardEx.png';
-
 export const Container = styled.div`
   width: 100%;
 
-  h2 {
-    margin-bottom: 25px;
-  }
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Content = styled.div`
@@ -17,13 +14,6 @@ export const Content = styled.div`
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
 
   background-size: cover;
-  background-image: linear-gradient(
-      65deg,
-      rgba(0, 0, 0, 1) 2%,
-      rgba(0, 0, 0, 1) 8%,
-      rgba(0, 0, 0, 0.22452731092436973) 76%
-    ),
-    url(${mediumCardImg});
 
   display: flex;
   align-items: flex-end;
