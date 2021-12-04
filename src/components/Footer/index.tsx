@@ -9,8 +9,12 @@ const FooterContent = styled.footer`
 const Footer: React.FC = () => {
   return (
     <FooterContent>
-      <p>GET IN TOUCH - mail@mail.com</p>
-      <p>Data Provided By - RAWG API</p>
+      <p>
+        <strong>GET IN TOUCH</strong> - mail@mail.com
+      </p>
+      <p>
+        <strong>Data Provided By</strong> - RAWG API
+      </p>
     </FooterContent>
   );
 };

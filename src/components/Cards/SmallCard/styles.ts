@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-`;
-
-export const Content = styled.div`
   width: 280px;
   height: 300px;
   border-radius: 40px;
@@ -16,7 +12,10 @@ export const Content = styled.div`
   align-items: flex-end;
 
   margin-bottom: 40px;
+  margin-left: 10px;
 `;
+
+export const Content = styled.div``;
 
 export const GameInfo = styled.div`
   h4 {

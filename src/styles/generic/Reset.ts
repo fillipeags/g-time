@@ -63,6 +63,7 @@ export const Content = styled.main`
   justify-content: space-between;
 
   width: 75vw;
+  height: 100vh;
 
   margin: 40px 50px;
 `;
