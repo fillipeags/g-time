@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { FiChevronsLeft } from 'react-icons/fi';
+import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi';
 
 import {
   Container,
@@ -20,18 +20,36 @@ import usePathName from '../../hooks/usePathName';
 const SideBar: React.FC = () => {
   const currentPath = usePathName();
 
+  const sideBarCollapsed = localStorage.getItem('sidebar-collapsed');
+  const [isExpanded, setIsExpanded] = useState(!sideBarCollapsed);
+
+  const handleToggler = () => {
+    if (isExpanded) {
+      setIsExpanded(false);
+
+      localStorage.setItem('repositories', JSON.stringify(true));
+      return;
+    }
+    setIsExpanded(true);
+    localStorage.removeItem('sidebar-collapsed');
+  };
+
   return (
-    <Container>
+    <Container isExpanded={isExpanded}>
       <Content>
         <BackHome to="/">
-          <Logo />
+          <Logo isExpanded={isExpanded} />
         </BackHome>
 
         <Nav>
           <ul>
             {SideBarMenu.map(item => {
               return (
-                <MenuItem active={currentPath === item.path} key={item.path}>
+                <MenuItem
+                  active={currentPath === item.path}
+                  key={item.path}
+                  collapsed={isExpanded}
+                >
                   <Link to={item.path}>
                     <OptionContainer>
                       {item.icon}
@@ -44,9 +62,13 @@ const SideBar: React.FC = () => {
           </ul>
         </Nav>
 
-        <CollapseContainer>
-          <FiChevronsLeft size={18} />
-          <a href="/">collapse</a>
+        <CollapseContainer onClick={handleToggler}>
+          {isExpanded ? (
+            <FiChevronsLeft size={18} />
+          ) : (
+            <FiChevronsRight size={18} />
+          )}
+          <p>{isExpanded ? 'collapse' : 'expand'}</p>
         </CollapseContainer>
       </Content>
     </Container>

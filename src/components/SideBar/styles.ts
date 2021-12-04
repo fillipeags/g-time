@@ -4,16 +4,24 @@ import { ReactComponent as LogoImg } from '../../assets/logo.svg';
 
 interface MenuItemProps {
   active: boolean;
+  collapsed: boolean;
 }
 
-export const Container = styled.div`
-  width: 25%;
+interface IsExpandedProps {
+  isExpanded: boolean;
+}
+
+export const Container = styled.div<IsExpandedProps>`
+  width: ${({ isExpanded }) => (isExpanded ? '25%' : '10%')};
+
   height: 100vh;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  transition: 0.3s ease-in;
 `;
 
 export const Content = styled.div`
@@ -26,9 +34,11 @@ export const BackHome = styled(Link)`
   justify-content: center;
 `;
 
-export const Logo = styled(LogoImg)`
+export const Logo = styled(LogoImg)<IsExpandedProps>`
   width: 120px;
-  margin-bottom: 50px;
+  width: ${({ isExpanded }) => (isExpanded ? '120px' : '80px')};
+  margin-bottom: ${({ isExpanded }) => (isExpanded ? '50px' : '20px')};
+  margin-left: ${({ isExpanded }) => (isExpanded ? '50px' : '30px')};
 `;
 
 export const Nav = styled.nav`
@@ -45,7 +55,12 @@ export const MenuItem = styled.li<MenuItemProps>`
 
   padding: 14px 40px;
 
-  width: 200px;
+  width: ${({ collapsed }) => (collapsed ? '200px' : '30px')};
+  margin-left: ${({ collapsed }) => (collapsed ? '50px' : '40px')};
+
+  span {
+    display: ${({ collapsed }) => !collapsed && 'none'};
+  }
 
   text-transform: uppercase;
   list-style-type: none;
@@ -90,9 +105,12 @@ export const OptionContainer = styled.div`
 
 export const CollapseContainer = styled.div`
   margin-top: 60px;
+  margin-left: 40px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 10px;
+
+  cursor: pointer;
 `;
