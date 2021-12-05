@@ -41,3 +41,8 @@ export const Rating = styled.div`
   align-items: center;
   gap: 10px;
 `;
+
+export const CardsContainer = styled.div`
+  width: 72vw;
+  padding-left: 24px;
+`;
