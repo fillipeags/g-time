@@ -7,11 +7,11 @@ import MainBanner from '../../components/MainBanner';
 import data from '../../database/mock';
 
 import '../../utils/swiper-settings';
-import CardsContainer from './styles';
+import { CardsContainer, Container } from './styles';
 
 const Home: React.FC = () => {
   return (
-    <>
+    <Container>
       <Header />
       <MainBanner />
 
@@ -21,10 +21,31 @@ const Home: React.FC = () => {
         <Swiper
           slidesPerView={4}
           spaceBetween={300}
-          slidesPerGroup={1}
           loop
           loopFillGroupWithBlank
           navigation
+          breakpoints={{
+            '640': {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            '768': {
+              slidesPerView: 4,
+              spaceBetween: 50,
+            },
+            '1024': {
+              slidesPerView: 3,
+              spaceBetween: 300,
+            },
+            '1366': {
+              slidesPerView: 4,
+              spaceBetween: 300,
+            },
+            '1920': {
+              slidesPerView: 5,
+              spaceBetween: 250,
+            },
+          }}
         >
           {data.map(({ id, title, score, coverImage }) => (
             <SwiperSlide>
@@ -40,7 +61,7 @@ const Home: React.FC = () => {
       </CardsContainer>
 
       <LargeCard />
-    </>
+    </Container>
   );
 };
 
