@@ -7,13 +7,33 @@ import MainBanner from '../../components/MainBanner';
 import data from '../../database/mock';
 
 import '../../utils/swiper-settings';
-import { CardsContainer, Container } from './styles';
+import { CardsContainer, Container, MainBannerContainer } from './styles';
 
 const Home: React.FC = () => {
   return (
     <Container>
       <Header />
-      <MainBanner />
+
+      <MainBannerContainer>
+        <Swiper
+          spaceBetween={800}
+          autoplay={{
+            delay: 2500,
+          }}
+          parallax
+          speed={600}
+        >
+          {data.map(({ title, summary, coverImage }) => (
+            <SwiperSlide>
+              <MainBanner
+                title={title}
+                summary={summary}
+                coverImage={coverImage}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </MainBannerContainer>
 
       <h2>Category</h2>
 

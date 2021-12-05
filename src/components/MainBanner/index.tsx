@@ -1,16 +1,24 @@
 import { FaPlaystation, FaSteam, FaXbox } from 'react-icons/fa';
 import { Container, Content, PlatformsContainer, Button } from './styles';
+import '../../utils/swiper-settings';
 
-const MainBanner: React.FC = () => {
+interface IMainBannerProps {
+  title: string;
+  summary: string;
+  coverImage: string;
+}
+
+const MainBanner = ({ title, summary, coverImage }: IMainBannerProps) => {
   return (
-    <Container>
+    <Container
+      style={{
+        backgroundSize: 'cover',
+        backgroundImage: `linear-gradient(51deg,rgba(0, 0, 0, 1) 27%,rgba(0, 0, 0, 1) 38%,rgba(0, 0, 0, 0.22452731092436973) 100%), url(${coverImage})`,
+      }}
+    >
       <Content>
-        <h1>Spider Man</h1>
-        <p>
-          From legendary game creator Hideo Kojima comes an all-new,
-          genre-defying experience. Sam Bridges must brave a world utterly
-          transformed by the Death ...
-        </p>
+        <h1>{title}</h1>
+        <p>{summary}</p>
 
         <PlatformsContainer>
           <h3>Platforms: </h3>

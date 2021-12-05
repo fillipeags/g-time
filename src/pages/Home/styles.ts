@@ -12,3 +12,7 @@ export const CardsContainer = styled.div`
   width: 72vw;
   padding-left: 24px;
 `;
+
+export const MainBannerContainer = styled.div`
+  width: 72vw;
+`;
