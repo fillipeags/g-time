@@ -1,49 +1,45 @@
 import React from 'react';
-// import LargeCard from '../../components/Cards/LargeCard';
-// import MediumCard from '../../components/Cards/MediumCard';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import LargeCard from '../../components/Cards/LargeCard';
+import MediumCard from '../../components/Cards/MediumCard';
 import Header from '../../components/Header';
 import MainBanner from '../../components/MainBanner';
-// import mediumCardImg from '../../assets/mediumCardEx.png';
+import data from '../../database/mock';
 
-// const data = [
-//   {
-//     id: 1,
-//     title: 'Dying Light',
-//     score: 7.6,
-//     coverImage: mediumCardImg,
-//   },
-//   {
-//     id: 2,
-//     title: 'Naruto',
-//     score: 8.0,
-//     coverImage: mediumCardImg,
-//   },
-//   {
-//     id: 3,
-//     title: 'Batman Arkham City',
-//     score: 9.0,
-//     coverImage: mediumCardImg,
-//   },
-// ];
+import '../../utils/swiper-settings';
+import CardsContainer from './styles';
 
 const Home: React.FC = () => {
   return (
     <>
       <Header />
       <MainBanner />
-      {/*
+
       <h2>Category</h2>
 
-      {data.map(({ id, title, score, coverImage }) => (
-        <MediumCard
-          key={id}
-          coverImage={coverImage}
-          title={title}
-          score={score}
-        />
-      ))}
+      <CardsContainer>
+        <Swiper
+          slidesPerView={4}
+          spaceBetween={300}
+          slidesPerGroup={1}
+          loop
+          loopFillGroupWithBlank
+          navigation
+        >
+          {data.map(({ id, title, score, coverImage }) => (
+            <SwiperSlide>
+              <MediumCard
+                key={id}
+                coverImage={coverImage}
+                title={title}
+                score={score}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </CardsContainer>
+
       <LargeCard />
-      */}
     </>
   );
 };
