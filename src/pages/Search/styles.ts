@@ -27,11 +27,13 @@ export const FilterIcon = styled(FiBarChart)`
 export const Filter = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   margin-bottom: 40px;
 
   p {
     color: ${({ theme }) => theme.colors.gray[300]};
+    margin-left: -2px;
+    margin-right: 10px;
   }
 `;
 
@@ -41,7 +43,7 @@ export const FilterButton = styled.button<IFilterButtonProps>`
   background: transparent;
   border: 2px solid ${({ theme }) => theme.colors.primary.medium};
   color: ${({ theme }) => theme.colors.gray[300]};
-  border-radius: 14px;
+  border-radius: 8px;
 
   background-color: ${({ theme, active }) =>
     active && theme.colors.primary.medium};
@@ -50,4 +52,11 @@ export const FilterButton = styled.button<IFilterButtonProps>`
     opacity: 0.6;
     transition: 0.5s;
   }
+`;
+
+export const CardsContainer = styled.div`
+  display: flex;
+  gap: 0px 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 `;

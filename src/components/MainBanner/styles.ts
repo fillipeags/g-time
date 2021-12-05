@@ -1,31 +1,13 @@
 import styled from 'styled-components';
 
-import MiranhaImg from '../../assets/miranha.png';
-
 export const Container = styled.div`
   margin-top: 60px;
   margin-bottom: 40px;
   width: 100%;
-
   border-radius: 25px;
-
-  background: linear-gradient(
-    258.98deg,
-    rgba(0, 0, 0, 0) 11.89%,
-    #000000 82.8%
-  );
-
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
-
-  background-image: linear-gradient(
-      51deg,
-      rgba(0, 0, 0, 1) 27%,
-      rgba(0, 0, 0, 1) 38%,
-      rgba(0, 0, 0, 0.22452731092436973) 100%
-    ),
-    url(${MiranhaImg});
-
   background-position: center;
+  margin-left: 2px;
 `;
 
 export const Content = styled.div`
@@ -86,4 +68,8 @@ export const Button = styled.button`
     drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.2));
 
   color: ${({ theme }) => theme.colors.gray[100]};
+`;
+
+export const MainBannerContainer = styled.div`
+  width: 72vw;
 `;

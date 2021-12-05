@@ -1,27 +1,32 @@
-import { FaPlaystation, FaSteam, FaXbox } from 'react-icons/fa';
-import { Container, Content, PlatformsContainer, Button } from './styles';
+import '../../utils/swiper-settings';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import MainBannerItem from './MainBannerItem';
 
-const MainBanner: React.FC = () => {
+import data from '../../database/mock';
+import { MainBannerContainer } from './styles';
+
+const MainBanner = () => {
   return (
-    <Container>
-      <Content>
-        <h1>Spider Man</h1>
-        <p>
-          From legendary game creator Hideo Kojima comes an all-new,
-          genre-defying experience. Sam Bridges must brave a world utterly
-          transformed by the Death ...
-        </p>
-
-        <PlatformsContainer>
-          <h3>Platforms: </h3>
-          <FaPlaystation size={18} />
-          <FaSteam size={18} />
-          <FaXbox size={18} />
-        </PlatformsContainer>
-
-        <Button type="button">See More</Button>
-      </Content>
-    </Container>
+    <MainBannerContainer>
+      <Swiper
+        spaceBetween={800}
+        autoplay={{
+          delay: 2500,
+        }}
+        parallax
+        speed={600}
+      >
+        {data.map(({ title, summary, coverImage }) => (
+          <SwiperSlide>
+            <MainBannerItem
+              title={title}
+              summary={summary}
+              coverImage={coverImage}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </MainBannerContainer>
   );
 };
 
