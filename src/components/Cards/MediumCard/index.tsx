@@ -7,6 +7,8 @@ import MediumCardItem from './MediumCardItem';
 const MediumCard = () => {
   return (
     <CardsContainer>
+      <h2>Category</h2>
+
       <Swiper
         slidesPerView={4}
         spaceBetween={300}

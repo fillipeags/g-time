@@ -69,3 +69,7 @@ export const Button = styled.button`
 
   color: ${({ theme }) => theme.colors.gray[100]};
 `;
+
+export const MainBannerContainer = styled.div`
+  width: 72vw;
+`;
