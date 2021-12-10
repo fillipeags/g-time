@@ -53,10 +53,3 @@ export const FilterButton = styled.button<IFilterButtonProps>`
     transition: 0.5s;
   }
 `;
-
-export const CardsContainer = styled.div`
-  display: flex;
-  gap: 0px 10px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-`;

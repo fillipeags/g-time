@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 450px;
-
-  margin-bottom: 40px;
 `;
 
 export const Content = styled.div`
@@ -44,4 +42,6 @@ export const Rating = styled.div`
 
 export const CardsContainer = styled.div`
   width: 72vw;
+
+  margin-bottom: 40px;
 `;

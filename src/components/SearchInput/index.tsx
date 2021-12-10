@@ -6,7 +6,7 @@ const SearchInput: React.FC = () => {
   return (
     <Container>
       <Search type="text" placeholder="Search Game..." />
-      <FiSearch size={28} color="#DEE3ED" />
+      <FiSearch size={28} color="#C2C9D6" />
     </Container>
   );
 };

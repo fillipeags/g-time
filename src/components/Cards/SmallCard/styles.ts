@@ -39,3 +39,10 @@ export const Rating = styled.div`
   align-items: center;
   gap: 10px;
 `;
+
+export const CardsContainer = styled.div`
+  display: flex;
+  gap: 0px 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+`;

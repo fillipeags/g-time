@@ -1,5 +1,5 @@
-import '../../../utils/swiper-settings';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import breakpoints from '../../../utils/swiper-settings';
 import { CardsContainer } from './styles';
 import data from '../../../database/mock';
 import MediumCardItem from './MediumCardItem';
@@ -8,35 +8,13 @@ const MediumCard = () => {
   return (
     <CardsContainer>
       <h2>Category</h2>
-
       <Swiper
         slidesPerView={4}
-        spaceBetween={300}
+        spaceBetween={260}
         loop
         loopFillGroupWithBlank
         navigation
-        breakpoints={{
-          '640': {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          '768': {
-            slidesPerView: 4,
-            spaceBetween: 50,
-          },
-          '1024': {
-            slidesPerView: 3,
-            spaceBetween: 300,
-          },
-          '1366': {
-            slidesPerView: 4,
-            spaceBetween: 300,
-          },
-          '1920': {
-            slidesPerView: 5,
-            spaceBetween: 250,
-          },
-        }}
+        breakpoints={breakpoints}
       >
         {data.map(({ id, title, score, coverImage }) => (
           <SwiperSlide>

@@ -1,20 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 60px;
-  margin-bottom: 40px;
-  width: 100%;
+  margin: 60px 0px 40px 2px;
   border-radius: 25px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
   background-position: center;
-  margin-left: 2px;
 `;
 
 export const Content = styled.div`
-  padding-top: 80px;
-  padding-left: 80px;
-
-  padding-bottom: 40px;
+  padding: 80px 0px 40px 80px;
 
   h1 {
     font-weight: bold;
@@ -56,18 +50,17 @@ export const Button = styled.button`
   font-weight: medium;
   text-transform: uppercase;
 
+  color: ${({ theme }) => theme.colors.gray[100]};
+
   background: linear-gradient(
     83.93deg,
     #4316db -6.08%,
     rgba(70, 27, 214, 0.445656) 67.34%,
     rgba(58, 0, 255, 0) 158.91%
   );
-
-  filter: drop-shadow(0px 2px 20px rgba(255, 255, 255, 0.2))
-    drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.12))
-    drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.2));
-
-  color: ${({ theme }) => theme.colors.gray[100]};
+  box-shadow: 0 8px 32px 0 rgba(70, 27, 214, 0.445656);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 `;
 
 export const MainBannerContainer = styled.div`
