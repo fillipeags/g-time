@@ -112,7 +112,7 @@ export const MenuItem = styled.li<MenuItemProps>`
     `}
 
     @media screen and (max-width: 1400px) {
-    width: 30px;
+    width: 40px;
     margin-left: 40px;
 
     span {

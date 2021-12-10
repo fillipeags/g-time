@@ -42,7 +42,7 @@ export const Rating = styled.div`
 
 export const CardsContainer = styled.div`
   display: flex;
-  gap: 0px 10px;
+  gap: 10px;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 `;
