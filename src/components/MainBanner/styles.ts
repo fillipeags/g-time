@@ -63,6 +63,11 @@ export const Button = styled.button`
   box-shadow: 0 8px 32px 0 rgba(70, 27, 214, 0.445656);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+
+  &:hover {
+    opacity: 0.8;
+    transition: 0.3s ease-in-out;
+  }
 `;
 
 export const MainBannerContainer = styled.div`

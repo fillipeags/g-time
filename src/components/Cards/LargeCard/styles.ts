@@ -3,11 +3,41 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
 
-  margin-top: 40px;
-
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+`;
+
+export const Content = styled.div`
+  width: 600px;
+  height: 100%;
+`;
+
+export const CardBanner = styled.div`
+  img {
+    width: 600px;
+    border-radius: 20px;
+    box-shadow: 1px 0px 20px 1px rgba(255, 255, 255, 0.4);
+    height: 350px;
+  }
+`;
+
+export const GameInfo = styled.div`
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+`;
+
+export const Title = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const CardsContainer = styled.div`
+  width: 72vw;
+
+  margin-top: 40px;
 
   h1 {
     font-size: 28px;
@@ -25,31 +55,6 @@ export const Container = styled.div`
     text-transform: capitalize;
     text-align: center;
     margin-top: 15px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
-`;
-
-export const Content = styled.div`
-  width: 530px;
-  margin-bottom: 40px;
-`;
-
-export const CardBanner = styled.div`
-  img {
-    width: 530px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 29px 6px rgba(255, 255, 255, 0.55);
-  }
-`;
-
-export const GameInfo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const Title = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
 `;

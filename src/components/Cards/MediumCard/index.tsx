@@ -17,9 +17,8 @@ const MediumCard = () => {
         breakpoints={breakpoints}
       >
         {data.map(({ id, title, score, coverImage }) => (
-          <SwiperSlide>
+          <SwiperSlide key={id}>
             <MediumCardItem
-              key={id}
               coverImage={coverImage}
               title={title}
               score={score}

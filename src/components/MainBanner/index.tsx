@@ -15,8 +15,8 @@ const MainBanner = () => {
         }}
         speed={700}
       >
-        {data.map(({ title, summary, coverImage }) => (
-          <SwiperSlide>
+        {data.map(({ id, title, summary, coverImage }) => (
+          <SwiperSlide key={id}>
             <MainBannerItem
               title={title}
               summary={summary}
