@@ -70,7 +70,7 @@ export const MenuItem = styled.li<MenuItemProps>`
           margin-left: 50px;
         `
       : css`
-          width: 26px;
+          width: 44px;
           margin-left: 40px;
 
           span {
@@ -128,6 +128,8 @@ export const OptionContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 40px;
+
+  margin-left: 10px;
 `;
 
 export const CollapseContainer = styled.div`
