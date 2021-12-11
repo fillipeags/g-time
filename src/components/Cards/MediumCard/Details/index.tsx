@@ -1,35 +1,56 @@
-import { FaPlaystation, FaSteam, FaXbox, FaPlay } from 'react-icons/fa';
-import { PlatformsContainer } from '../../../MainBanner/styles';
-import { Container, Content, PlayContainer } from './styles';
+import { AiOutlineStar } from 'react-icons/ai';
+import { FiPlay } from 'react-icons/fi';
+import truncate from '../../../../utils/trucate';
+import PlatformsIcons from '../../../PlatformsIcons';
+import {
+  Container,
+  Content,
+  GameDetails,
+  Heading,
+  PlayButton,
+  PlayContainer,
+  Rating,
+  ActionContainer,
+  Button,
+} from './styles';
 
 interface IMediumCardDetailsProps {
   id: string;
   title: string;
+  score: number;
 }
 
-const MediumCardDetails = ({ id, title }: IMediumCardDetailsProps) => {
+const MediumCardDetails = ({ id, title, score }: IMediumCardDetailsProps) => {
   return (
     <Container id={id}>
       <PlayContainer>
-        <FaPlay size={18} />
+        <PlayButton>
+          <FiPlay size={34} color="white" />
+        </PlayButton>
       </PlayContainer>
       <Content>
-        <h4>{title}</h4>
-        <PlatformsContainer>
-          <FaPlaystation size={18} />
-          <FaSteam size={18} />
-          <FaXbox size={18} />
-        </PlatformsContainer>
+        <Heading>
+          <h4>{truncate(title, 10)}</h4>
+          <PlatformsIcons />
+        </Heading>
+        <Rating>
+          <p>{score}</p>
+          <AiOutlineStar size={24} color="yellow" />
+        </Rating>
 
-        <p>
-          Released Year <span>2020</span>
-        </p>
-        <p>
-          Genre <span>Adventure, Zombies</span>
-        </p>
+        <GameDetails>
+          <p>
+            Released Year <span>2020</span>
+          </p>
+          <p>
+            Genre <span>Adventure</span>
+          </p>
+        </GameDetails>
 
-        <button type="button">See More</button>
-        <button type="button">Add To My Games</button>
+        <ActionContainer>
+          <Button>See More</Button>
+          <Button>Add To My Games</Button>
+        </ActionContainer>
       </Content>
     </Container>
   );

@@ -33,15 +33,6 @@ export const Content = styled.div`
   }
 `;
 
-export const PlatformsContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  gap: 18px;
-
-  margin-bottom: 60px;
-`;
-
 export const Button = styled.button`
   width: 200px;
   padding: 20px 0px;
@@ -72,4 +63,14 @@ export const Button = styled.button`
 
 export const MainBannerContainer = styled.div`
   width: 72vw;
+`;
+
+export const PlatformsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 20px;
+
+  margin-bottom: 60px;
 `;

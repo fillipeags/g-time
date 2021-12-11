@@ -26,7 +26,7 @@ const MediumCardItem = ({ title, score, coverImage }: IMediumCardProps) => {
           </Rating>
         </GameInfo>
 
-        <MediumCardDetails id="cardHover" title={title} />
+        <MediumCardDetails id="cardHover" title={title} score={score} />
       </Content>
     </Container>
   );
