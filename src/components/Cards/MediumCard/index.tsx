@@ -11,8 +11,6 @@ const MediumCard = () => {
       <Swiper
         slidesPerView={4}
         spaceBetween={260}
-        loop
-        loopFillGroupWithBlank
         navigation
         breakpoints={breakpoints}
       >

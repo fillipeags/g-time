@@ -24,6 +24,10 @@ export const Container = styled.div`
     margin-right: 5px;
     font-size: 30px;
   }
+
+  .swiper-button-disabled {
+    display: none;
+  }
 `;
 
 export const Content = styled.div`

@@ -5,6 +5,20 @@ export const Container = styled.div`
   height: 450px;
 
   padding: 4px;
+
+  #cardHover {
+    display: none;
+  }
+
+  &:hover {
+    #cardHover {
+      display: block;
+    }
+
+    #gameInfo {
+      display: none;
+    }
+  }
 `;
 
 export const Content = styled.div`
