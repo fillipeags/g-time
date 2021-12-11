@@ -67,3 +67,7 @@ export const CardsContainer = styled.div`
 
   margin-bottom: 40px;
 `;
+
+export const Testecontainer = styled.div`
+  width: 70vw;
+`;
