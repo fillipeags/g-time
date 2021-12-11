@@ -30,7 +30,7 @@ const MediumCardDetails = ({ id, title, score }: IMediumCardDetailsProps) => {
       </PlayContainer>
       <Content>
         <Heading>
-          <h4>{truncate(title, 10)}</h4>
+          <h4>{truncate(title, 12)}</h4>
           <PlatformsIcons />
         </Heading>
         <Rating>

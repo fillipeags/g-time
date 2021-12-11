@@ -7,16 +7,21 @@ export const Container = styled.div`
   padding: 4px;
 
   #cardHover {
-    display: none;
+    z-index: -1;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s ease-out;
   }
 
   &:hover {
     #cardHover {
-      display: block;
+      z-index: 0;
+      transform: scaleY(1);
+      transition: transform 0.2s ease-in;
     }
 
     #gameInfo {
-      display: none;
+      z-index: -1;
     }
   }
 `;
@@ -34,6 +39,7 @@ export const Content = styled.div`
 `;
 
 export const GameInfo = styled.div`
+  position: absolute;
   h4 {
     margin-bottom: 0px;
     font-weight: 400;

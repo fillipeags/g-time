@@ -6,6 +6,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   height: 280px;
+
   background-color: ${({ theme }) => theme.colors.gray[900]};
   border-radius: 0px 0px 40px 40px;
 
@@ -13,6 +14,8 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  padding: 0px 20px;
 `;
 
 export const PlayContainer = styled.div`
@@ -33,7 +36,7 @@ export const PlayButton = styled.button`
   background: linear-gradient(
     83.93deg,
     #4316db -6.08%,
-    rgba(70, 27, 214, 0.445656) 67.34%,
+    rgba(70, 27, 214, 0.6) 67.34%,
     rgba(58, 0, 255, 0) 158.91%
   );
   border-radius: 50%;
@@ -41,12 +44,12 @@ export const PlayButton = styled.button`
 `;
 
 export const Heading = styled.div`
+  width: 100%;
+  height: 20px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 20px;
-
-  gap: 40px;
 
   h4 {
     color: ${({ theme }) => theme.colors.gray[200]};
@@ -57,25 +60,21 @@ export const Heading = styled.div`
 
 export const Rating = styled.div`
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  margin-left: 50px;
 `;
 
 export const GameDetails = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   p {
-    width: 85%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
     margin: 0px;
+
+    display: flex;
+    justify-content: space-between;
 
     span {
       color: ${({ theme }) => theme.colors.gray[500]};
@@ -85,17 +84,23 @@ export const GameDetails = styled.div`
 `;
 
 export const ActionContainer = styled.div`
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 
   gap: 10px;
 `;
+
 export const Button = styled.button`
-  width: 260px;
+  width: 100%;
   height: 50px;
+
   border-radius: 15px;
   border: none;
+
+  color: ${({ theme }) => theme.colors.gray[100]};
   background: linear-gradient(
     83.93deg,
     #4316db -6.08%,
@@ -103,7 +108,6 @@ export const Button = styled.button`
     rgba(58, 0, 255, 0) 158.91%
   );
 
-  color: ${({ theme }) => theme.colors.gray[100]};
   text-transform: uppercase;
   font-weight: bold;
   font-size: 18px;
