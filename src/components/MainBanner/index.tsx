@@ -13,11 +13,10 @@ const MainBanner = () => {
         autoplay={{
           delay: 2500,
         }}
-        parallax
-        speed={600}
+        speed={700}
       >
-        {data.map(({ title, summary, coverImage }) => (
-          <SwiperSlide>
+        {data.map(({ id, title, summary, coverImage }) => (
+          <SwiperSlide key={id}>
             <MainBannerItem
               title={title}
               summary={summary}

@@ -35,19 +35,16 @@ export const Logo = styled(LogoImg)<MenuItemProps>`
     isExpanded
       ? css`
           width: 120px;
-          margin-bottom: 50px;
-          margin-left: 50px;
+          margin: 16px 0px 50px 50px;
         `
       : css`
           width: 80px;
-          margin-bottom: 20px;
-          margin-left: 30px;
+          margin: 0px 0px 20px 30px;
         `}
 
   @media screen and (max-width: 1400px) {
     width: 80px;
-    margin-bottom: 20px;
-    margin-left: 30px;
+    margin: 0px 0px 20px 30px;
     transition: 0.3s ease-in;
   }
 `;
@@ -64,7 +61,7 @@ export const MenuItem = styled.li<MenuItemProps>`
 
   margin-bottom: 30px;
 
-  padding: 14px 40px;
+  padding: 14px;
 
   ${({ isExpanded }) =>
     isExpanded
@@ -73,7 +70,7 @@ export const MenuItem = styled.li<MenuItemProps>`
           margin-left: 50px;
         `
       : css`
-          width: 30px;
+          width: 44px;
           margin-left: 40px;
 
           span {
@@ -115,7 +112,7 @@ export const MenuItem = styled.li<MenuItemProps>`
     `}
 
     @media screen and (max-width: 1400px) {
-    width: 30px;
+    width: 40px;
     margin-left: 40px;
 
     span {
@@ -131,6 +128,8 @@ export const OptionContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 40px;
+
+  margin-left: 10px;
 `;
 
 export const CollapseContainer = styled.div`

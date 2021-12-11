@@ -1,6 +1,6 @@
-import { FaPlaystation, FaSteam, FaXbox } from 'react-icons/fa';
-import { Container, Content, PlatformsContainer, Button } from './styles';
+import { Container, Content, Button, PlatformsWrapper } from './styles';
 import '../../utils/swiper-settings';
+import PlatformsIcons from '../PlatformsIcons';
 
 interface IMainBannerProps {
   title: string;
@@ -20,12 +20,10 @@ const MainBannerItem = ({ title, summary, coverImage }: IMainBannerProps) => {
         <h1>{title}</h1>
         <p>{summary}</p>
 
-        <PlatformsContainer>
+        <PlatformsWrapper>
           <h3>Platforms: </h3>
-          <FaPlaystation size={18} />
-          <FaSteam size={18} />
-          <FaXbox size={18} />
-        </PlatformsContainer>
+          <PlatformsIcons />
+        </PlatformsWrapper>
 
         <Button type="button">See More</Button>
       </Content>

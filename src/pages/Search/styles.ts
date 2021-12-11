@@ -41,9 +41,16 @@ export const FilterButton = styled.button<IFilterButtonProps>`
   width: 150px;
   height: 40px;
   background: transparent;
-  border: 2px solid ${({ theme }) => theme.colors.primary.medium};
+  border: 2px solid;
+  border-image: linear-gradient(
+      83.93deg,
+      #4316db -6.08%,
+      rgba(70, 27, 214, 0.445656) 67.34%,
+      rgba(58, 0, 255, 0) 158.91%
+    )
+    1;
+
   color: ${({ theme }) => theme.colors.gray[300]};
-  border-radius: 8px;
 
   background-color: ${({ theme, active }) =>
     active && theme.colors.primary.medium};
@@ -52,11 +59,4 @@ export const FilterButton = styled.button<IFilterButtonProps>`
     opacity: 0.6;
     transition: 0.5s;
   }
-`;
-
-export const CardsContainer = styled.div`
-  display: flex;
-  gap: 0px 10px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
 `;

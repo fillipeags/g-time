@@ -5,14 +5,12 @@ import SmallCard from '../../components/Cards/SmallCard';
 import MyProfile from '../../components/MyProfile';
 import SearchInput from '../../components/SearchInput';
 import {
-  CardsContainer,
   Container,
   Filter,
   FilterButton,
   FilterIcon,
   HeaderContainer,
 } from './styles';
-import data from '../../database/mock';
 
 const Search: React.FC = () => {
   const [filter, setFilter] = useState(false);
@@ -54,16 +52,7 @@ const Search: React.FC = () => {
         </FilterButton>
       </Filter>
 
-      <CardsContainer>
-        {data.map(({ id, title, score, coverImage }) => (
-          <SmallCard
-            key={id}
-            title={title}
-            score={score}
-            coverImage={coverImage}
-          />
-        ))}
-      </CardsContainer>
+      <SmallCard />
     </Container>
   );
 };

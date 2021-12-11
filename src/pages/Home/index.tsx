@@ -1,22 +1,25 @@
 import React from 'react';
-import LargeCard from '../../components/Cards/LargeCard';
+// import LargeCard from '../../components/Cards/LargeCard';
 import MediumCard from '../../components/Cards/MediumCard';
 import Header from '../../components/Header';
 import MainBanner from '../../components/MainBanner';
 
 import '../../utils/swiper-settings';
-import Container from './styles';
+import { Container, Content } from './styles';
 
 const Home: React.FC = () => {
   return (
     <Container>
       <Header />
-      <MainBanner />
 
-      <MediumCard />
-      <MediumCard />
+      <Content>
+        <MainBanner />
 
-      <LargeCard />
+        <MediumCard />
+        <MediumCard />
+
+        {/* <LargeCard /> */}
+      </Content>
     </Container>
   );
 };
