@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useIsExpanded = (): any => {
+const useIsExpanded = () => {
   const sideBarCollapsed = localStorage.getItem('sidebar-collapsed');
 
   const [isExpanded, setIsExpanded] = useState(!sideBarCollapsed);

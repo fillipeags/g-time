@@ -13,11 +13,7 @@ import {
 } from './styles';
 
 const Search: React.FC = () => {
-  const [filter, setFilter] = useState(false);
-
-  function handleFilterButton() {
-    setFilter(!filter);
-  }
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <Container>
@@ -31,23 +27,15 @@ const Search: React.FC = () => {
         <p>Quick Filter</p>
         <FilterButton
           type="button"
-          active={filter}
-          onClick={handleFilterButton}
+          active={isActive}
+          onClick={() => setIsActive(isActive)}
         >
           Popular
         </FilterButton>
-        <FilterButton
-          type="button"
-          active={filter}
-          onClick={handleFilterButton}
-        >
+        <FilterButton type="button" active={isActive}>
           New Games
         </FilterButton>
-        <FilterButton
-          type="button"
-          active={filter}
-          onClick={handleFilterButton}
-        >
+        <FilterButton type="button" active={isActive}>
           Just Released
         </FilterButton>
       </Filter>
