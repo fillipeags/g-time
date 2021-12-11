@@ -47,7 +47,7 @@ export const DropDownContainer = styled.div`
   hr {
     margin: 0;
     margin-top: 6px;
-    width: 110%;
+    width: 160px;
   }
 `;
 
@@ -55,6 +55,7 @@ export const Option = styled.div`
   display: flex;
 
   align-items: center;
+  justify-content: center;
   gap: 20px;
 
   p {
