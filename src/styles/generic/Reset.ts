@@ -64,5 +64,5 @@ export const Content = styled.main`
   width: 100vw;
   height: 100vh;
 
-  margin: 40px 50px;
+  margin: 40px 40px;
 `;

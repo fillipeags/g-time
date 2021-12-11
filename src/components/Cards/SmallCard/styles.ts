@@ -13,11 +13,31 @@ export const Container = styled.div`
 
   margin-bottom: 40px;
   margin-left: 10px;
+
+  #cardHover {
+    z-index: -1;
+    transform: scaleY(0.1);
+    transform-origin: bottom;
+    transition: transform 0.4s ease-out;
+  }
+
+  &:hover {
+    #cardHover {
+      z-index: 0;
+      transform: scaleY(1);
+      transition: transform 0.2s ease-in;
+    }
+
+    #gameInfo {
+      z-index: -1;
+    }
+  }
 `;
 
 export const Content = styled.div``;
 
 export const GameInfo = styled.div`
+  position: absolute;
   h4 {
     margin-bottom: 0px;
     font-weight: 400;

@@ -8,7 +8,7 @@ export const Container = styled.div`
 
   #cardHover {
     z-index: -1;
-    transform: scaleY(0);
+    transform: scaleY(0.4);
     transform-origin: bottom;
     transition: transform 0.4s ease-out;
   }
