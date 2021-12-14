@@ -3,8 +3,14 @@ import styled from 'styled-components';
 export const AvatarContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
+`;
+
+export const AvatarContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
 
   img {
     width: 54px;
@@ -69,5 +75,22 @@ export const Option = styled.div`
   &:hover {
     opacity: 0.8;
     transition: 0.3s ease-in-out;
+  }
+`;
+
+export const Login = styled.button`
+  width: 120px;
+  height: 54px;
+  border-radius: 10px;
+  border: 1px solid ${({ theme }) => theme.colors.primary.medium};
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.gray[100]};
+
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &:hover {
+    opacity: 0.8;
+    transition: 0.4s ease-in-out;
   }
 `;

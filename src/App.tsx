@@ -8,18 +8,22 @@ import Routes from './routes';
 import defaultTheme from './styles/themes';
 import Footer from './components/Footer';
 
-const App: React.FC = () => {
+import { AuthContextProvider } from './contexts/AuthContext';
+
+const App = () => {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={defaultTheme}>
-        <Container>
-          <SideBar />
-          <Content>
-            <Routes />
-            <Footer />
-          </Content>
-        </Container>
-      </ThemeProvider>
+      <AuthContextProvider>
+        <ThemeProvider theme={defaultTheme}>
+          <Container>
+            <SideBar />
+            <Content>
+              <Routes />
+              <Footer />
+            </Content>
+          </Container>
+        </ThemeProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   );
 };
