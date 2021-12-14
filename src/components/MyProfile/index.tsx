@@ -29,30 +29,32 @@ const MyProfile = () => {
 
   return (
     <AvatarContainer>
-      {!user && <Login onClick={() => handleUserSession()}>Sign In</Login>}
-      <AvatarContent onClick={() => handleDropdownClick()}>
-        {dropdown && (
-          <DropDownContainer>
-            <Link to="/">
-              <Option>
-                <FiUser size={24} />
-                <p>Profile</p>
-              </Option>
-              <hr />
-            </Link>
-            <Link to="/">
-              <Option>
-                <FiSettings size={24} />
-                <p>Settings</p>
-              </Option>
-              <hr />
-            </Link>
-          </DropDownContainer>
-        )}
-        <img src={user ? user?.avatar : defaultAvatarImg} alt="User Avatar" />
-
-        <FiChevronDown size={24} />
-      </AvatarContent>
+      {user ? (
+        <AvatarContent onClick={() => handleDropdownClick()}>
+          {dropdown && (
+            <DropDownContainer>
+              <Link to="/">
+                <Option>
+                  <FiUser size={24} />
+                  <p>Profile</p>
+                </Option>
+                <hr />
+              </Link>
+              <Link to="/">
+                <Option>
+                  <FiSettings size={24} />
+                  <p>Settings</p>
+                </Option>
+                <hr />
+              </Link>
+            </DropDownContainer>
+          )}
+          <img src={user ? user?.avatar : defaultAvatarImg} alt="User Avatar" />
+          <FiChevronDown size={24} />
+        </AvatarContent>
+      ) : (
+        <Login onClick={() => handleUserSession()}>Sign In</Login>
+      )}
     </AvatarContainer>
   );
 };
