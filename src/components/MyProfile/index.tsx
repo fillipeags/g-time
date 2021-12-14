@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronDown, FiLogOut, FiSettings, FiUser } from 'react-icons/fi';
+import { FiChevronDown, FiSettings, FiUser } from 'react-icons/fi';
 import useAuth from '../../hooks/useAuth';
+import defaultAvatarImg from '../../assets/defaultAvatarImage.png';
 
 import {
   AvatarContainer,
+  AvatarContent,
   DropDownContainer,
+  Login,
   Option,
-  SignInButton,
 } from './styles';
 
 const MyProfile = () => {
@@ -15,7 +17,7 @@ const MyProfile = () => {
 
   const { signInWithGoogle, user } = useAuth();
 
-  async function handleSignIn() {
+  async function handleUserSession() {
     if (!user) {
       await signInWithGoogle();
     }
@@ -25,41 +27,32 @@ const MyProfile = () => {
     setDropdown(!dropdown);
   }
 
-  const defaultImage =
-    'https://pickaface.net/gallery/avatar/unr_example_170227_1250_yq2lr.png';
-
   return (
-    <AvatarContainer onClick={() => handleDropdownClick()}>
-      {dropdown && (
-        <DropDownContainer>
-          <Link to="/">
-            <Option>
-              <FiUser size={24} />
-              <p>Profile</p>
-            </Option>
-            <hr />
-          </Link>
-          <Link to="/">
-            <Option>
-              <FiSettings size={24} />
-              <p>Settings</p>
-            </Option>
-            <hr />
-          </Link>
-          <Link to="/">
-            <Option>
-              <FiLogOut size={24} />
-              <SignInButton onClick={() => handleSignIn()}>
-                <p>SignIn</p>
-              </SignInButton>
-            </Option>
-            <hr />
-          </Link>
-        </DropDownContainer>
-      )}
-      <img src={user ? user?.avatar : defaultImage} alt="User Avatar" />
+    <AvatarContainer>
+      {!user && <Login onClick={() => handleUserSession()}>Sign In</Login>}
+      <AvatarContent onClick={() => handleDropdownClick()}>
+        {dropdown && (
+          <DropDownContainer>
+            <Link to="/">
+              <Option>
+                <FiUser size={24} />
+                <p>Profile</p>
+              </Option>
+              <hr />
+            </Link>
+            <Link to="/">
+              <Option>
+                <FiSettings size={24} />
+                <p>Settings</p>
+              </Option>
+              <hr />
+            </Link>
+          </DropDownContainer>
+        )}
+        <img src={user ? user?.avatar : defaultAvatarImg} alt="User Avatar" />
 
-      <FiChevronDown size={24} />
+        <FiChevronDown size={24} />
+      </AvatarContent>
     </AvatarContainer>
   );
 };
