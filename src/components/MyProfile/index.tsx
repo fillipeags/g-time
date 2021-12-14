@@ -1,14 +1,31 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FiChevronDown, FiLogOut, FiSettings, FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { AvatarContainer, DropDownContainer, Option } from './styles';
+import { AuthContext } from '../../App';
+import {
+  AvatarContainer,
+  DropDownContainer,
+  Option,
+  SignInButton,
+} from './styles';
 
 const MyProfile = () => {
   const [dropdown, setDropdown] = useState(false);
 
+  const { signInWithGoogle, user } = useContext(AuthContext);
+
+  async function handleSignIn() {
+    if (!user) {
+      await signInWithGoogle();
+    }
+  }
+
   function handleDropdownClick() {
     setDropdown(!dropdown);
   }
+
+  const defaultImage =
+    'https://pickaface.net/gallery/avatar/unr_example_170227_1250_yq2lr.png';
 
   return (
     <AvatarContainer onClick={() => handleDropdownClick()}>
@@ -31,16 +48,15 @@ const MyProfile = () => {
           <Link to="/">
             <Option>
               <FiLogOut size={24} />
-              <p>Logout</p>
+              <SignInButton onClick={() => handleSignIn()}>
+                <p>SignIn</p>
+              </SignInButton>
             </Option>
             <hr />
           </Link>
         </DropDownContainer>
       )}
-      <img
-        src="https://pickaface.net/gallery/avatar/unr_example_170227_1250_yq2lr.png"
-        alt="User Avatar"
-      />
+      <img src={user ? user?.avatar : defaultImage} alt="User Avatar" />
 
       <FiChevronDown size={24} />
     </AvatarContainer>

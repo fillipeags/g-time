@@ -71,3 +71,10 @@ export const Option = styled.div`
     transition: 0.3s ease-in-out;
   }
 `;
+
+export const SignInButton = styled.button`
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-weight: 300;
+`;
