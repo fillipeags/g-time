@@ -1,7 +1,8 @@
-import { useContext, useState } from 'react';
-import { FiChevronDown, FiLogOut, FiSettings, FiUser } from 'react-icons/fi';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../App';
+import { FiChevronDown, FiLogOut, FiSettings, FiUser } from 'react-icons/fi';
+import useAuth from '../../hooks/useAuth';
+
 import {
   AvatarContainer,
   DropDownContainer,
@@ -12,7 +13,7 @@ import {
 const MyProfile = () => {
   const [dropdown, setDropdown] = useState(false);
 
-  const { signInWithGoogle, user } = useContext(AuthContext);
+  const { signInWithGoogle, user } = useAuth();
 
   async function handleSignIn() {
     if (!user) {
