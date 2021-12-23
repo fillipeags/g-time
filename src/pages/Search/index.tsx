@@ -12,13 +12,22 @@ import {
   HeaderContainer,
 } from './styles';
 
+export interface ISearchProps {
+  target: HTMLInputElement;
+}
+
 const Search: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearchInput = (event: ISearchProps) => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <Container>
       <HeaderContainer>
-        <SearchInput />
+        <SearchInput searchValue={handleSearchInput} />
         <MyProfile />
       </HeaderContainer>
 
@@ -40,7 +49,7 @@ const Search: React.FC = () => {
         </FilterButton>
       </Filter>
 
-      <SmallCard />
+      <SmallCard filter={searchTerm} />
     </Container>
   );
 };
