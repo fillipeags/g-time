@@ -66,3 +66,11 @@ export const CardsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `;
+
+export const ItemNotFoundContainer = styled.div`
+  height: 480px;
+
+  display: flex;
+  align-items: center;
+  justiy-content: center;
+`;

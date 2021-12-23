@@ -1,6 +1,6 @@
 import data from '../../../database/mock';
 import SmallCardItem from './SmallCardItem';
-import { CardsContainer } from './styles';
+import { CardsContainer, ItemNotFoundContainer } from './styles';
 
 interface ISmallCardProps {
   filter: string;
@@ -15,14 +15,20 @@ const SmallCard = ({ filter }: ISmallCardProps) => {
 
   return (
     <CardsContainer>
-      {results.map(({ id, title, score, coverImage }) => (
-        <SmallCardItem
-          key={id}
-          title={title}
-          score={score}
-          coverImage={coverImage}
-        />
-      ))}
+      {results.length ? (
+        results.map(({ id, title, score, coverImage }) => (
+          <SmallCardItem
+            key={id}
+            title={title}
+            score={score}
+            coverImage={coverImage}
+          />
+        ))
+      ) : (
+        <ItemNotFoundContainer>
+          <h1>Nenhum Resultado Encontrando 😢</h1>
+        </ItemNotFoundContainer>
+      )}
     </CardsContainer>
   );
 };

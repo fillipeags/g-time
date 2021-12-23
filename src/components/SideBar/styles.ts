@@ -129,7 +129,7 @@ export const OptionContainer = styled.div`
   justify-content: center;
   gap: 40px;
 
-  margin-left: 10px;
+  margin-left: 8px;
 `;
 
 export const CollapseContainer = styled.div`
