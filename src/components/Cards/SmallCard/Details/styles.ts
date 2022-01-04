@@ -22,7 +22,7 @@ export const ActionContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 
   gap: 10px;
 `;

@@ -1,4 +1,5 @@
 import { AiOutlineStar } from 'react-icons/ai';
+import truncate from '../../../utils/trucate';
 import SmallCardDetails from './Details';
 
 import { Container, GameInfo, Rating } from './styles';
@@ -18,7 +19,7 @@ const SmallCardItem = ({ title, score, coverImage }: ISmallCardProps) => {
       }}
     >
       <GameInfo id="gameInfo">
-        <h4>{title}</h4>
+        <h4>{truncate(title, 20)}</h4>
         <Rating>
           <p>{score}</p>
           <AiOutlineStar size={24} color="yellow" />
