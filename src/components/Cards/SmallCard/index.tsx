@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import data from '../../../database/mock';
 import SmallCardItem from './SmallCardItem';
 import { CardsContainer, ItemNotFoundContainer } from './styles';
@@ -19,6 +18,7 @@ const SmallCard = ({ filter }: ISmallCardProps) => {
 
   const fetch = () => {
     api.get(allGames).then(response => {
+      // eslint-disable-next-line no-console
       console.log(response);
     });
   };
