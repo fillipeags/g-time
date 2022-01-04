@@ -2,8 +2,6 @@ import data from '../../../database/mock';
 import SmallCardItem from './SmallCardItem';
 import { CardsContainer, ItemNotFoundContainer } from './styles';
 import notFoundImg from '../../../assets/notFound.svg';
-import api from '../../../services/api';
-import allGames from '../../../services/api/requests';
 
 interface ISmallCardProps {
   filter: string;
@@ -16,18 +14,15 @@ const SmallCard = ({ filter }: ISmallCardProps) => {
         cardItem.title.toLowerCase().includes(filter.toLocaleLowerCase()),
       );
 
-  const fetch = () => {
-    api.get(allGames).then(response => {
-      // eslint-disable-next-line no-console
-      console.log(response);
-    });
-  };
+  // const fetch = () => {
+  //   api.get(allGames).then(response => {
+  //     // eslint-disable-next-line no-console
+  //     console.log(response);
+  //   });
+  // };
 
   return (
     <CardsContainer>
-      <button type="button" onClick={() => fetch()}>
-        Fetch data
-      </button>
       {results.length ? (
         results.map(({ id, title, score, coverImage }) => (
           <SmallCardItem
