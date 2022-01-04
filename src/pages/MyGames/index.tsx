@@ -5,7 +5,7 @@ const MyGames: React.FC = () => {
   return (
     <div>
       <h1>MyGames</h1>
-      <LoadingSpinner />
+      <LoadingSpinner isLoading={false} />
     </div>
   );
 };

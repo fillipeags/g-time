@@ -1,6 +1,14 @@
 import { Container, Spinner } from './styles';
 
-const LoadingSpinner: React.FC = () => {
+interface ILoadingSpinner {
+  isLoading: boolean;
+}
+
+const LoadingSpinner = ({ isLoading }: ILoadingSpinner) => {
+  if (!isLoading) {
+    return null;
+  }
+
   return (
     <Container>
       <Spinner />
