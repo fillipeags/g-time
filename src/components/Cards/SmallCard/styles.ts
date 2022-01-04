@@ -64,13 +64,23 @@ export const CardsContainer = styled.div`
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  justify-content: center;
+
+  justify-content: flex-start;
+
+  margin-left: 50px;
 `;
 
 export const ItemNotFoundContainer = styled.div`
-  height: 480px;
-
   display: flex;
+  flex-direction: column;
   align-items: center;
   justiy-content: center;
+
+  img {
+    width: 200px;
+  }
+
+  h2 {
+    font-weight: 200;
+  }
 `;
