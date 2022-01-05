@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import SmallCard from '../../components/Cards/SmallCard';
 import MyProfile from '../../components/MyProfile';
 import SearchInput from '../../components/SearchInput';
+import requests from '../../services/api/requests';
 import {
   Container,
   Filter,
@@ -52,7 +53,7 @@ const Search: React.FC = () => {
         </FilterButton>
       </Filter>
 
-      <SmallCard searchTerm={searchTerm} />
+      <SmallCard searchTerm={searchTerm} fetchUrl={requests.searchGame} />
     </Container>
   );
 };

@@ -4,12 +4,12 @@ import SmallCardItem from './SmallCardItem';
 import { CardsContainer, ItemNotFoundContainer } from './styles';
 import notFoundImg from '../../../assets/notFound.svg';
 import api from '../../../services/api';
-import { searchGame } from '../../../services/api/requests';
 import LoadingSpinner from '../../LoadingSpinner';
 import useDebounce from '../../../utils/debounce';
 
 interface ISmallCardProps {
   searchTerm: string;
+  fetchUrl: string;
 }
 
 interface IGameItemProps {
@@ -19,11 +19,11 @@ interface IGameItemProps {
   background_image: string;
 }
 
-const SmallCard = ({ searchTerm }: ISmallCardProps) => {
+const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
   const [games, setGames] = useState<IGameItemProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const debounceSearchTerm = useDebounce(searchTerm, 150);
+  const debounceSearchTerm = useDebounce(searchTerm, 200);
 
   const results = useMemo(
     () =>
@@ -38,7 +38,7 @@ const SmallCard = ({ searchTerm }: ISmallCardProps) => {
       try {
         setIsLoading(true);
         setGames([]);
-        const res = await api.get(`/${searchGame}${debounceSearchTerm}`);
+        const res = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
         setGames(res.data.results);
       } catch (error) {
         // eslint-disable-next-line no-console
@@ -55,7 +55,7 @@ const SmallCard = ({ searchTerm }: ISmallCardProps) => {
     }
 
     fetchGames();
-  }, [debounceSearchTerm]);
+  }, [debounceSearchTerm, fetchUrl]);
 
   return (
     <CardsContainer>
