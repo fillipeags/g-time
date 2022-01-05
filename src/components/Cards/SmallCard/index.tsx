@@ -1,46 +1,79 @@
-import data from '../../../database/mock';
+import { useEffect, useMemo, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import SmallCardItem from './SmallCardItem';
 import { CardsContainer, ItemNotFoundContainer } from './styles';
 import notFoundImg from '../../../assets/notFound.svg';
 import api from '../../../services/api';
-import allGames from '../../../services/api/requests';
+import { searchGame } from '../../../services/api/requests';
+import LoadingSpinner from '../../LoadingSpinner';
+import useDebounce from '../../../utils/debounce';
 
 interface ISmallCardProps {
-  filter: string;
+  searchTerm: string;
 }
 
-const SmallCard = ({ filter }: ISmallCardProps) => {
-  const results = !filter
-    ? data
-    : data.filter(cardItem =>
-        cardItem.title.toLowerCase().includes(filter.toLocaleLowerCase()),
-      );
+interface IGameItemProps {
+  id: number;
+  name: string;
+  rating: number;
+  background_image: string;
+}
 
-  const fetch = () => {
-    api.get(allGames).then(response => {
-      // eslint-disable-next-line no-console
-      console.log(response);
-    });
-  };
+const SmallCard = ({ searchTerm }: ISmallCardProps) => {
+  const [games, setGames] = useState<IGameItemProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const debounceSearchTerm = useDebounce(searchTerm, 150);
+
+  const results = useMemo(
+    () =>
+      games.filter(game =>
+        game.name.toLowerCase().includes(debounceSearchTerm.toLowerCase()),
+      ),
+    [games, debounceSearchTerm],
+  );
+
+  useEffect(() => {
+    async function fetchGames() {
+      try {
+        setIsLoading(true);
+        setGames([]);
+        const res = await api.get(`/${searchGame}${debounceSearchTerm}`);
+        setGames(res.data.results);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        toast.error('Oops! Something went wrong in our servers', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchGames();
+  }, [debounceSearchTerm]);
 
   return (
     <CardsContainer>
-      <button type="button" onClick={() => fetch()}>
-        Fetch data
-      </button>
-      {results.length ? (
-        results.map(({ id, title, score, coverImage }) => (
-          <SmallCardItem
-            key={id}
-            title={title}
-            score={score}
-            coverImage={coverImage}
-          />
-        ))
-      ) : (
+      <LoadingSpinner isLoading={isLoading} />
+      <Toaster position="top-center" reverseOrder={false} />
+      {results.map(({ id, name, rating, background_image }) => (
+        <SmallCardItem
+          key={id}
+          title={name}
+          rating={rating}
+          background_image={background_image}
+        />
+      ))}
+
+      {!isLoading && results.length === 0 && (
         <ItemNotFoundContainer>
           <img src={notFoundImg} alt="" />
-          <h2>Nenhum Resultado Encontrando 😢</h2>
+          <h2>Are you sure this game exists ? 😢</h2>
         </ItemNotFoundContainer>
       )}
     </CardsContainer>

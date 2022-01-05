@@ -3,13 +3,15 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 248px;
   height: 260px;
-  border-radius: 40px;
+  border-radius: 25px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
 
   background-size: cover;
+  background-position: center center;
 
   display: flex;
   align-items: flex-end;
+  justify-content: center;
 
   margin-bottom: 40px;
   margin-left: 10px;
@@ -41,7 +43,10 @@ export const GameInfo = styled.div`
   h4 {
     margin-bottom: 0px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
+    text-transform: unset;
+    word-break: break-word;
+    width: 210px;
   }
 
   h4,
@@ -50,8 +55,10 @@ export const GameInfo = styled.div`
   }
 
   p {
-    font-size: 18px;
+    font-size: 16px;
   }
+
+  margin-bottom: 10px;
 `;
 
 export const Rating = styled.div`
@@ -62,19 +69,20 @@ export const Rating = styled.div`
 
 export const CardsContainer = styled.div`
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
   flex-wrap: wrap;
-
-  justify-content: flex-start;
-
-  margin-left: 50px;
 `;
 
 export const ItemNotFoundContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justiy-content: center;
+  justify-content: center;
+
+  height: 60vh;
 
   img {
     width: 200px;

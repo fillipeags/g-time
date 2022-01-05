@@ -27,7 +27,10 @@ const Search: React.FC = () => {
   return (
     <Container>
       <HeaderContainer>
-        <SearchInput searchValue={handleSearchInput} />
+        <SearchInput
+          handleSearchInput={handleSearchInput}
+          searchTerm={searchTerm}
+        />
         <MyProfile />
       </HeaderContainer>
 
@@ -49,7 +52,7 @@ const Search: React.FC = () => {
         </FilterButton>
       </Filter>
 
-      <SmallCard filter={searchTerm} />
+      <SmallCard searchTerm={searchTerm} />
     </Container>
   );
 };
