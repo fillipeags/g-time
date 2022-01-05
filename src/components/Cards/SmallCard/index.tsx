@@ -38,11 +38,17 @@ const SmallCard = ({ searchTerm }: ISmallCardProps) => {
       try {
         setIsLoading(true);
         setGames([]);
-        const res = await api.get(`adas/${searchGame}${debounceSearchTerm}`);
+        const res = await api.get(`/${searchGame}${debounceSearchTerm}`);
         setGames(res.data.results);
       } catch (error) {
         // eslint-disable-next-line no-console
-        toast.error('Oops! Something went wrong in our servers');
+        toast.error('Oops! Something went wrong in our servers', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
       } finally {
         setIsLoading(false);
       }
@@ -67,7 +73,7 @@ const SmallCard = ({ searchTerm }: ISmallCardProps) => {
       {!isLoading && results.length === 0 && (
         <ItemNotFoundContainer>
           <img src={notFoundImg} alt="" />
-          <h2>Nenhum Resultado Encontrando 😢</h2>
+          <h2>Are you sure this game exists ? 😢</h2>
         </ItemNotFoundContainer>
       )}
     </CardsContainer>
