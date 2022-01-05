@@ -41,7 +41,10 @@ export const GameInfo = styled.div`
   h4 {
     margin-bottom: 0px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
+    text-transform: unset;
+    word-break: break-word;
+    width: 210px;
   }
 
   h4,
@@ -50,8 +53,10 @@ export const GameInfo = styled.div`
   }
 
   p {
-    font-size: 18px;
+    font-size: 16px;
   }
+
+  margin-bottom: 10px;
 `;
 
 export const Rating = styled.div`
@@ -62,12 +67,11 @@ export const Rating = styled.div`
 
 export const CardsContainer = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 40px;
   flex-wrap: wrap;
 
-  justify-content: flex-start;
-
-  margin-left: 50px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ItemNotFoundContainer = styled.div`

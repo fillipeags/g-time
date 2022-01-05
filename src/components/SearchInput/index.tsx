@@ -4,13 +4,19 @@ import { ISearchProps } from '../../pages/Search';
 import { Container, Search } from './styles';
 
 interface ISearchInputProps {
-  searchValue: (event: ISearchProps) => void;
+  handleSearchInput: (event: ISearchProps) => void;
+  searchTerm: string;
 }
 
-const SearchInput = ({ searchValue }: ISearchInputProps) => {
+const SearchInput = ({ handleSearchInput, searchTerm }: ISearchInputProps) => {
   return (
     <Container>
-      <Search type="text" placeholder="Search Game..." onChange={searchValue} />
+      <Search
+        type="text"
+        placeholder="Search Game..."
+        onChange={handleSearchInput}
+        value={searchTerm}
+      />
       <FiSearch size={28} color="#F8F9FC" />
     </Container>
   );
