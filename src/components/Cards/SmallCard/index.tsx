@@ -1,11 +1,15 @@
 import { useEffect, useMemo, useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+
+import { Toaster } from 'react-hot-toast';
+import api from '../../../services/api';
+import useDebounce from '../../../utils/debounce';
+import ErrorHandler from '../../../helpers/Toast/Error';
+
 import SmallCardItem from './SmallCardItem';
+import LoadingSpinner from '../../LoadingSpinner';
+
 import { CardsContainer, ItemNotFoundContainer } from './styles';
 import notFoundImg from '../../../assets/notFound.svg';
-import api from '../../../services/api';
-import LoadingSpinner from '../../LoadingSpinner';
-import useDebounce from '../../../utils/debounce';
 
 interface ISmallCardProps {
   searchTerm: string;
@@ -38,17 +42,12 @@ const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
       try {
         setIsLoading(true);
         setGames([]);
-        const res = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
+        const res = await api.get(
+          `fasdfadsfasd/${fetchUrl}${debounceSearchTerm}`,
+        );
         setGames(res.data.results);
       } catch (error) {
-        // eslint-disable-next-line no-console
-        toast.error('Oops! Something went wrong in our servers', {
-          style: {
-            borderRadius: '10px',
-            background: '#333',
-            color: '#fff',
-          },
-        });
+        ErrorHandler(`Oops, Something Went Wrong in Our Servers ${error}`);
       } finally {
         setIsLoading(false);
       }
