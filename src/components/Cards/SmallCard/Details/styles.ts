@@ -13,7 +13,7 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-  border-radius: 40px;
+  border-radius: 25px;
   background-color: rgba(0, 0, 0, 0.8);
 `;
 
