@@ -16,7 +16,7 @@ import {
 const MyProfile = () => {
   const [dropdown, setDropdown] = useState(false);
 
-  const { signInWithGoogle, user } = useAuth();
+  const { signInWithGoogle, signOut, user } = useAuth();
 
   async function handleUserSession() {
     if (!user) {
@@ -26,6 +26,10 @@ const MyProfile = () => {
 
   function handleDropdownClick() {
     setDropdown(!dropdown);
+  }
+
+  function handleSignOut() {
+    signOut();
   }
 
   return (
@@ -45,6 +49,13 @@ const MyProfile = () => {
                 <Option>
                   <FiSettings size={24} />
                   <p>Settings</p>
+                </Option>
+                <hr />
+              </Link>
+              <Link to="/">
+                <Option onClick={() => handleSignOut()}>
+                  <FiSettings size={24} />
+                  <p>SignOut</p>
                 </Option>
                 <hr />
               </Link>
