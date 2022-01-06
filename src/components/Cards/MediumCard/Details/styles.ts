@@ -12,10 +12,13 @@ export const Content = styled.div`
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 
   padding: 0px 20px;
+
+  gap: 4px;
 `;
 
 export const PlayContainer = styled.div`
@@ -54,7 +57,7 @@ export const Heading = styled.div`
   h4 {
     color: ${({ theme }) => theme.colors.gray[200]};
     font-weight: 400;
-    font-size: 24px;
+    font-size: 20px;
   }
 `;
 

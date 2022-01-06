@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 import breakpoints from '../../../utils/swiper-settings';
 
 import MediumCardItem from './MediumCardItem';
@@ -40,6 +41,7 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
 
   return (
     <CardsContainer>
+      <Toaster position="top-center" reverseOrder={false} />
       <h2>{category}</h2>
       <Swiper
         slidesPerView={4}

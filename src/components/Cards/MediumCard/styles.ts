@@ -36,11 +36,14 @@ export const Content = styled.div`
 
   display: flex;
   align-items: flex-end;
+
+  background-position: center center;
 `;
 
 export const GameInfo = styled.div`
   position: absolute;
   h4 {
+    width: 260px;
     margin-bottom: 0px;
     font-weight: 400;
     font-size: 20px;
@@ -54,6 +57,8 @@ export const GameInfo = styled.div`
   p {
     font-size: 18px;
   }
+
+  margin-bottom: 10px;
 `;
 
 export const Rating = styled.div`
