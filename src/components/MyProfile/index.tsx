@@ -24,12 +24,12 @@ const MyProfile = () => {
     }
   }
 
-  function handleDropdownClick() {
-    setDropdown(!dropdown);
-  }
-
   function handleSignOut() {
     signOut();
+  }
+
+  function handleDropdownClick() {
+    setDropdown(!dropdown);
   }
 
   return (

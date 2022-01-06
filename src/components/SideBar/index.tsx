@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi';
-
 import SideBarMenu from './SideBarMenu';
 import usePathName from '../../hooks/usePathName';
 
@@ -35,10 +34,10 @@ const SideBar = () => {
   };
 
   return (
-    <Container isExpanded={isExpanded}>
+    <Container $isexpanded={isExpanded}>
       <Content>
         <BackHome to="/">
-          <Logo isExpanded={isExpanded} />
+          <Logo $isexpanded={isExpanded} />
         </BackHome>
 
         <Nav>
@@ -48,7 +47,7 @@ const SideBar = () => {
                 <MenuItem
                   active={currentPath === item.path}
                   key={item.path}
-                  isExpanded={isExpanded}
+                  $isexpanded={isExpanded}
                 >
                   <Link to={item.path}>
                     <OptionContainer>
