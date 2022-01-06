@@ -1,10 +1,10 @@
-import React from 'react';
 // import LargeCard from '../../components/Cards/LargeCard';
-import MediumCard from '../../components/Cards/MediumCard';
+
 import Header from '../../components/Header';
 import MainBanner from '../../components/MainBanner';
+import MediumCard from '../../components/Cards/MediumCard';
 
-import '../../utils/swiper-settings';
+import requests from '../../services/api/requests';
 
 import { Container, Content } from './styles';
 
@@ -16,8 +16,12 @@ const Home = () => {
       <Content>
         <MainBanner />
 
-        <MediumCard />
-        <MediumCard />
+        <MediumCard
+          category="Upcoming Games"
+          fetchUrl={requests.upcomingGames}
+        />
+        <MediumCard category="New Games" fetchUrl={requests.newGames} />
+        <MediumCard category="Popular Games" fetchUrl={requests.popularGames} />
 
         {/* <LargeCard /> */}
       </Content>
