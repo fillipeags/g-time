@@ -1,9 +1,10 @@
-import '../../utils/swiper-settings';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 import MainBannerItem from './MainBannerItem';
+import { MainBannerContainer } from './styles';
 
 import data from '../../database/mock';
-import { MainBannerContainer } from './styles';
+import '../../utils/swiper-settings';
 
 const MainBanner = () => {
   return (

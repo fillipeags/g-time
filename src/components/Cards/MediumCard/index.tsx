@@ -1,8 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import breakpoints from '../../../utils/swiper-settings';
-import { CardsContainer } from './styles';
-import data from '../../../database/mock';
+
 import MediumCardItem from './MediumCardItem';
+import { CardsContainer } from './styles';
+
+import data from '../../../database/mock';
 
 const MediumCard = () => {
   return (

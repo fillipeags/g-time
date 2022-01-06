@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
+import { Link } from 'react-router-dom';
 import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi';
+
+import SideBarMenu from './SideBarMenu';
+import usePathName from '../../hooks/usePathName';
 
 import {
   Container,
@@ -14,10 +17,7 @@ import {
   BackHome,
 } from './styles';
 
-import SideBarMenu from './SideBarMenu';
-import usePathName from '../../hooks/usePathName';
-
-const SideBar: React.FC = () => {
+const SideBar = () => {
   const currentPath = usePathName();
 
   const sideBarCollapsed = localStorage.getItem('sidebar-collapsed');

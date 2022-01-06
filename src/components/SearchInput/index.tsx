@@ -1,6 +1,5 @@
 import { FiSearch } from 'react-icons/fi';
 import { ISearchProps } from '../../pages/Search';
-
 import { Container, Search } from './styles';
 
 interface ISearchInputProps {

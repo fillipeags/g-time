@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import './services/firebase';
 import App from './App';
 import { Reset } from './styles/generic/Reset';
-import './services/firebase';
 
 ReactDOM.render(
   <React.StrictMode>

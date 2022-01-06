@@ -1,7 +1,5 @@
-import React from 'react';
-import useAuth from '../../hooks/useAuth';
 import MyProfile from '../MyProfile';
-
+import useAuth from '../../hooks/useAuth';
 import Container from './styles';
 
 const Header = () => {

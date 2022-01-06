@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiChevronDown, FiSettings, FiUser } from 'react-icons/fi';
+
 import useAuth from '../../hooks/useAuth';
 import defaultAvatarImg from '../../assets/defaultAvatarImage.png';
 

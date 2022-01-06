@@ -1,7 +1,10 @@
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
-import truncate from '../../../../utils/trucate';
+
 import PlatformsIcons from '../../../PlatformsIcons';
+
+import truncate from '../../../../utils/trucate';
+
 import {
   Container,
   Content,

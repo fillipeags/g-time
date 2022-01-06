@@ -5,9 +5,10 @@ import Header from '../../components/Header';
 import MainBanner from '../../components/MainBanner';
 
 import '../../utils/swiper-settings';
+
 import { Container, Content } from './styles';
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <Container>
       <Header />

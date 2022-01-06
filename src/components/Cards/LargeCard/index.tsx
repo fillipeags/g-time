@@ -1,10 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import breakpoints from '../../../utils/swiper-settings';
+
 import LargeCardItem from './LargeCardItem';
-import data from '../../../database/mock';
 import { CardsContainer } from './styles';
 
-const LargeCard: React.FC = () => {
+import data from '../../../database/mock';
+
+const LargeCard = () => {
   return (
     <CardsContainer>
       <h1>Best Scored Games</h1>

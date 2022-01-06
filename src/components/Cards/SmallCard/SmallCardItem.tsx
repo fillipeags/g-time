@@ -1,9 +1,9 @@
-/* eslint-disable camelcase */
 import { AiOutlineStar } from 'react-icons/ai';
-import truncate from '../../../utils/trucate';
-import SmallCardDetails from './Details';
 
+import SmallCardDetails from './Details';
 import { Container, GameInfo, Rating } from './styles';
+
+import truncate from '../../../utils/trucate';
 
 interface ISmallCardProps {
   background_image: string;
