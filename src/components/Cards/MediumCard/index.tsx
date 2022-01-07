@@ -20,6 +20,7 @@ interface IGameItemProps {
   name: string;
   rating: number;
   background_image: string;
+  released?: Date | string | number;
 }
 
 const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
@@ -31,6 +32,7 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
         setGames([]);
         const res = await api.get(fetchUrl);
         setGames(res.data.results);
+        console.log(res);
       } catch (error) {
         ErrorHandler('Oops, Something Went Wrong in our Servers');
       }
@@ -49,12 +51,13 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
         navigation
         breakpoints={breakpoints}
       >
-        {games.map(({ id, name, rating, background_image }) => (
+        {games.map(({ id, name, rating, background_image, released }) => (
           <SwiperSlide key={id}>
             <MediumCardItem
               coverImage={background_image}
               title={name}
               score={rating}
+              released_year={released}
             />
           </SwiperSlide>
         ))}

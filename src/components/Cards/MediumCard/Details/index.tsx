@@ -1,6 +1,8 @@
+/* eslint-disable react/require-default-props */
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
+import dayjs from 'dayjs';
 import PlatformsIcons from '../../../PlatformsIcons';
 
 import truncate from '../../../../utils/trucate';
@@ -21,9 +23,17 @@ interface IMediumCardDetailsProps {
   id: string;
   title: string;
   score: number;
+  released_year?: any;
 }
 
-const MediumCardDetails = ({ id, title, score }: IMediumCardDetailsProps) => {
+const MediumCardDetails = ({
+  id,
+  title,
+  score,
+  released_year,
+}: IMediumCardDetailsProps) => {
+  const year = new Date(released_year).getFullYear();
+
   return (
     <Container id={id}>
       <PlayContainer>
@@ -43,10 +53,10 @@ const MediumCardDetails = ({ id, title, score }: IMediumCardDetailsProps) => {
 
         <GameDetails>
           <p>
-            Released Year <span>2020</span>
+            Released Year <span>{year}</span>
           </p>
           <p>
-            Genre <span>Adventure</span>
+            Genre <span>Aventura</span>
           </p>
         </GameDetails>
 

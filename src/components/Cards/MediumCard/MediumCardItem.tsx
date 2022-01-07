@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { AiOutlineStar } from 'react-icons/ai';
 
 import MediumCardDetails from './Details';
@@ -8,9 +9,15 @@ interface IMediumCardProps {
   coverImage: string;
   title: string;
   score: number;
+  released_year?: Date | string | number;
 }
 
-const MediumCardItem = ({ title, score, coverImage }: IMediumCardProps) => {
+const MediumCardItem = ({
+  title,
+  score,
+  coverImage,
+  released_year,
+}: IMediumCardProps) => {
   return (
     <Container>
       <Content
@@ -27,7 +34,12 @@ const MediumCardItem = ({ title, score, coverImage }: IMediumCardProps) => {
           </Rating>
         </GameInfo>
 
-        <MediumCardDetails id="cardHover" title={title} score={score} />
+        <MediumCardDetails
+          id="cardHover"
+          title={title}
+          score={score}
+          released_year={released_year}
+        />
       </Content>
     </Container>
   );
