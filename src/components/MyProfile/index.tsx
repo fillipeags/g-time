@@ -26,6 +26,7 @@ const MyProfile = () => {
 
   function handleSignOut() {
     signOut();
+    window.location.reload();
   }
 
   function handleDropdownClick() {
