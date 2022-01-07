@@ -7,32 +7,26 @@ export const Container = styled.div`
   background-position: center;
 
   padding: 4px;
-
-  height: 400px;
+  width: 100%;
 `;
 
 export const Content = styled.div`
   padding: 80px 0px 40px 80px;
+  height: 320px;
 
   h1 {
     font-weight: bold;
-    font-size: 64px;
+    font-size: 72px;
     text-transform: uppercase;
     margin: 0;
     padding-bottom: 20px;
-  }
-
-  h3 {
-    font-weight: normal;
-    color: ${({ theme }) => theme.colors[600]};
-    margin: 0;
+    word-break: break-word;
+    max-width: 900px;
   }
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  gap: 120px;
 `;
 
 export const Button = styled.button`
