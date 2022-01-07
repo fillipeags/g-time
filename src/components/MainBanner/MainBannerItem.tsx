@@ -4,11 +4,10 @@ import PlatformsIcons from '../PlatformsIcons';
 
 interface IMainBannerProps {
   title: string;
-  summary: string;
   coverImage: string;
 }
 
-const MainBannerItem = ({ title, summary, coverImage }: IMainBannerProps) => {
+const MainBannerItem = ({ title, coverImage }: IMainBannerProps) => {
   return (
     <Container
       style={{
@@ -18,14 +17,12 @@ const MainBannerItem = ({ title, summary, coverImage }: IMainBannerProps) => {
     >
       <Content>
         <h1>{title}</h1>
-        <p>{summary}</p>
 
-        <PlatformsWrapper>
-          <h3>Platforms: </h3>
+        {/* <PlatformsWrapper>
           <PlatformsIcons />
-        </PlatformsWrapper>
+        </PlatformsWrapper> */}
 
-        <Button type="button">See More</Button>
+        <Button type="button">See Details</Button>
       </Content>
     </Container>
   );

@@ -14,7 +14,7 @@ const Home = () => {
       <Header />
 
       <Content>
-        <MainBanner />
+        <MainBanner fetchUrl={requests.gameDetails} />
 
         <MediumCard
           category="Upcoming Games"

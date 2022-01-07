@@ -2,7 +2,6 @@
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
-import dayjs from 'dayjs';
 import PlatformsIcons from '../../../PlatformsIcons';
 
 import truncate from '../../../../utils/trucate';
@@ -23,6 +22,7 @@ interface IMediumCardDetailsProps {
   id: string;
   title: string;
   score: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   released_year?: any;
 }
 

@@ -7,6 +7,8 @@ export const Container = styled.div`
   background-position: center;
 
   padding: 4px;
+
+  height: 400px;
 `;
 
 export const Content = styled.div`
@@ -17,13 +19,7 @@ export const Content = styled.div`
     font-size: 64px;
     text-transform: uppercase;
     margin: 0;
-  }
-
-  p {
-    width: 480px;
-    font-weight: normal;
-    font-size: 20px;
-    color: ${({ theme }) => theme.colors[600]};
+    padding-bottom: 20px;
   }
 
   h3 {
@@ -31,6 +27,12 @@ export const Content = styled.div`
     color: ${({ theme }) => theme.colors[600]};
     margin: 0;
   }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  gap: 120px;
 `;
 
 export const Button = styled.button`

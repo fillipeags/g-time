@@ -32,7 +32,7 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
         setGames([]);
         const res = await api.get(fetchUrl);
         setGames(res.data.results);
-        console.log(res);
+        // console.log(res);
       } catch (error) {
         ErrorHandler('Oops, Something Went Wrong in our Servers');
       }
