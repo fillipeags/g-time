@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useEffect, useState } from 'react';
@@ -41,9 +42,13 @@ const MainBanner = ({ fetchUrl }: IMainBannerProps) => {
         }}
         speed={700}
       >
-        {games.map(({ id, name, background_image }) => (
+        {games.map(({ id, name, background_image, parent_platforms }) => (
           <SwiperSlide key={id}>
-            <MainBannerItem name={name} background_image={background_image} />
+            <MainBannerItem
+              name={name}
+              background_image={background_image}
+              parent_platforms={parent_platforms}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

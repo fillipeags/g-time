@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable no-console */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -24,7 +26,8 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
         setGames([]);
         const res = await api.get(fetchUrl);
         setGames(res.data.results);
-        // console.log(res);
+
+        console.log(res);
       } catch (error) {
         ErrorHandler('Oops, Something Went Wrong in our Servers');
       }

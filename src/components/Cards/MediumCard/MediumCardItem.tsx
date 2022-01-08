@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/require-default-props */
 import { AiOutlineStar } from 'react-icons/ai';
 import IGamesApiDTO from '../../../dtos/apiDTO';

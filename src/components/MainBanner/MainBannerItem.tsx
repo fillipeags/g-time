@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/require-default-props */
 import { Container, Content, Button, Platforms } from './styles';
 import '../../utils/swiper-settings';
@@ -6,9 +7,14 @@ import PlatformsIcons from '../PlatformsIcons';
 interface IMainBannerProps {
   name: string;
   background_image?: string;
+  parent_platforms?: any;
 }
 
-const MainBannerItem = ({ name, background_image }: IMainBannerProps) => {
+const MainBannerItem = ({
+  name,
+  background_image,
+  parent_platforms,
+}: IMainBannerProps) => {
   return (
     <Container
       style={{
@@ -20,7 +26,10 @@ const MainBannerItem = ({ name, background_image }: IMainBannerProps) => {
         <Button type="button">See Details</Button>
 
         <Platforms>
-          <PlatformsIcons size={30} />
+          <PlatformsIcons
+            size={30}
+            platforms={parent_platforms.map(({ platform }) => platform)}
+          />
         </Platforms>
       </Content>
     </Container>

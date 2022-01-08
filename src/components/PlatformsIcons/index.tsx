@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/require-default-props */
 import * as Icons from 'react-icons/fa';
 
@@ -9,25 +11,54 @@ const Icon = ({ name, size }: any) => {
 
 interface PlatformsIconsProps {
   size?: number;
+  platforms: any;
 }
 
-const platforms = ['playstation', 'xbox'];
+// const platforms = [
+//   {
+//     id: '1',
+//     name: 'PlayStation',
+//   },
+//   {
+//     id: '2',
+//     name: 'Xbox',
+//   },
+//   {
+//     id: '3',
+//     name: 'PC',
+//   },
+//   {
+//     id: '4',
+//     name: 'Apple Macintosh',
+//   },
+//   {
+//     id: '5',
+//     name: 'Linux',
+//   },
+// ];
 
 const platformsTranslator = {
-  playstation: 'FaPlaystation',
-  xbox: 'FaXbox',
-  pc: 'FaSteam',
+  'Apple Macintosh': 'FaApple',
+  PlayStation: 'FaPlaystation',
+  Xbox: 'FaXbox',
+  PC: 'FaSteam',
+  Linux: 'FaLinux',
+  Web: 'FaLinux',
+  Nintendo: 'FaLinux',
+  Android: 'FaLinux',
+  iOS: 'FaLinux',
 };
 
-const PlatformsIcons = ({ size }: PlatformsIconsProps) => {
+const PlatformsIcons = ({ size, platforms }: PlatformsIconsProps) => {
   return (
     <>
-      {platforms.map(icon => (
-        <Icon name={platformsTranslator[icon]} size={size} />
+      {platforms.map(platform => (
+        <Icon
+          key={platform.id}
+          name={platformsTranslator[platform.name]}
+          size={size}
+        />
       ))}
-      {/* <Icon name="FaPlaystation" size={size} />
-      <Icon name="FaXbox" size={size} />
-      <Icon name="FaSteam" size={size} /> */}
     </>
   );
 };

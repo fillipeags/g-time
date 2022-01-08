@@ -32,7 +32,7 @@ const MediumCardDetails = ({ id, name, rating, released }: IGamesApiDTO) => {
       <Content>
         <Heading>
           <h4>{truncate(name, 15)}</h4>
-          <PlatformsIcons />
+          {/* <PlatformsIcons /> */}
         </Heading>
         <Rating>
           <p>{rating}</p>
