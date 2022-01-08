@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as Icons from 'react-icons/fa';
 
 import PlatformsContainer from './styles';
@@ -7,6 +8,18 @@ const Icon = ({ name }: any) => {
   const IconComponent = Icons[name];
   return <IconComponent />;
 };
+
+// const checkPlatform = [
+//   {
+//     iconName: {
+//       playStation: 'FaPlaystation',
+//       xbox: 'FaXbox',
+//       pc: 'FaSteam',
+//     },
+//   },
+// ];
+
+// const platforms = ['playstation', 'xbox'];
 
 const PlatformsIcons = () => {
   return (
