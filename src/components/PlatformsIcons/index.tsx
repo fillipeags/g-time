@@ -11,12 +11,23 @@ interface PlatformsIconsProps {
   size?: number;
 }
 
+const platforms = ['playstation', 'xbox'];
+
+const platformsTranslator = {
+  playstation: 'FaPlaystation',
+  xbox: 'FaXbox',
+  pc: 'FaSteam',
+};
+
 const PlatformsIcons = ({ size }: PlatformsIconsProps) => {
   return (
     <>
-      <Icon name="FaPlaystation" size={size} />
+      {platforms.map(icon => (
+        <Icon name={platformsTranslator[icon]} size={size} />
+      ))}
+      {/* <Icon name="FaPlaystation" size={size} />
       <Icon name="FaXbox" size={size} />
-      <Icon name="FaSteam" size={size} />
+      <Icon name="FaSteam" size={size} /> */}
     </>
   );
 };

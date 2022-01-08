@@ -52,12 +52,17 @@ export const Heading = styled.div`
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   h4 {
     color: ${({ theme }) => theme.colors.gray[200]};
     font-weight: 400;
     font-size: 20px;
+    margin-right: auto;
+  }
+
+  svg + svg {
+    padding-left: 10px;
   }
 `;
 
