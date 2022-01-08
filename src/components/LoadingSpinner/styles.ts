@@ -9,12 +9,15 @@ export const Container = styled.div`
 export const Spinner = styled.div`
   width: 240px;
   height: 240px;
+
   margin: 60px;
-  border: 20px solid #fff;
+
+  border: 20px solid ${({ theme }) => theme.colors.gray[0]};
   border-radius: 50%;
-  animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 0.2) infinite;
   border-color: ${({ theme }) => theme.colors.primary.medium} transparent
     transparent transparent;
+
+  animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 0.2) infinite;
 
   .loading div:nth-child(1) {
     animation-delay: -0.45s;

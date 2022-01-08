@@ -72,3 +72,15 @@ export const PlatformsWrapper = styled.div`
 
   margin-bottom: 60px;
 `;
+
+export const Platforms = styled.div`
+  position: absolute;
+
+  right: 40px;
+  bottom: 100px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 40px;
+`;

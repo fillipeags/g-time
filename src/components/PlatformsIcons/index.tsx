@@ -1,12 +1,13 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-console */
 import * as Icons from 'react-icons/fa';
 
-import PlatformsContainer from './styles';
+// import PlatformsContainer from './styles';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Icon = ({ name }: any) => {
+const Icon = ({ name, size }: any) => {
   const IconComponent = Icons[name];
-  return <IconComponent />;
+  return <IconComponent size={size} />;
 };
 
 // const checkPlatform = [
@@ -21,13 +22,17 @@ const Icon = ({ name }: any) => {
 
 // const platforms = ['playstation', 'xbox'];
 
-const PlatformsIcons = () => {
+interface PlatformsIconsProps {
+  size?: number;
+}
+
+const PlatformsIcons = ({ size }: PlatformsIconsProps) => {
   return (
-    <PlatformsContainer>
-      <Icon name="FaPlaystation" />
-      <Icon name="FaXbox" />
-      <Icon name="FaSteam" />
-    </PlatformsContainer>
+    <>
+      <Icon name="FaPlaystation" size={size} />
+      <Icon name="FaXbox" size={size} />
+      <Icon name="FaSteam" size={size} />
+    </>
   );
 };
 

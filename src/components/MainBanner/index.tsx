@@ -8,21 +8,14 @@ import { MainBannerContainer } from './styles';
 import '../../utils/swiper-settings';
 import api from '../../services/api';
 import ErrorHandler from '../../helpers/Toast/Error';
+import IGamesApiDTO from '../../dtos/apiDTO';
 
 interface IMainBannerProps {
   fetchUrl: string;
 }
 
-interface IGameItemProps {
-  id: number;
-  name: string;
-  rating: number;
-  background_image: string;
-  released?: Date | string | number;
-}
-
 const MainBanner = ({ fetchUrl }: IMainBannerProps) => {
-  const [games, setGames] = useState<IGameItemProps[]>([]);
+  const [games, setGames] = useState<IGamesApiDTO[]>([]);
 
   useEffect(() => {
     async function fetchGames() {
@@ -50,7 +43,7 @@ const MainBanner = ({ fetchUrl }: IMainBannerProps) => {
       >
         {games.map(({ id, name, background_image }) => (
           <SwiperSlide key={id}>
-            <MainBannerItem title={name} coverImage={background_image} />
+            <MainBannerItem name={name} background_image={background_image} />
           </SwiperSlide>
         ))}
       </Swiper>

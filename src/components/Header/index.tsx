@@ -1,6 +1,7 @@
 import MyProfile from '../MyProfile';
-import useAuth from '../../hooks/useAuth';
 import Container from './styles';
+
+import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
   const { user } = useAuth();
