@@ -17,22 +17,10 @@ import {
   ActionContainer,
   Button,
 } from './styles';
+import IGamesApiDTO from '../../../../dtos/apiDTO';
 
-interface IMediumCardDetailsProps {
-  id: string;
-  title: string;
-  score: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  released_year?: any;
-}
-
-const MediumCardDetails = ({
-  id,
-  title,
-  score,
-  released_year,
-}: IMediumCardDetailsProps) => {
-  const year = new Date(released_year).getFullYear();
+const MediumCardDetails = ({ id, name, rating, released }: IGamesApiDTO) => {
+  const year = new Date(released).getFullYear();
 
   return (
     <Container id={id}>
@@ -43,11 +31,11 @@ const MediumCardDetails = ({
       </PlayContainer>
       <Content>
         <Heading>
-          <h4>{truncate(title, 15)}</h4>
+          <h4>{truncate(name, 15)}</h4>
           <PlatformsIcons />
         </Heading>
         <Rating>
-          <p>{score}</p>
+          <p>{rating}</p>
           <AiOutlineStar size={24} color="yellow" />
         </Rating>
 

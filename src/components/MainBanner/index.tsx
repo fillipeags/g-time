@@ -5,7 +5,6 @@ import { Toaster } from 'react-hot-toast';
 import MainBannerItem from './MainBannerItem';
 import { MainBannerContainer } from './styles';
 
-import data from '../../database/mock';
 import '../../utils/swiper-settings';
 import api from '../../services/api';
 import ErrorHandler from '../../helpers/Toast/Error';
@@ -31,7 +30,6 @@ const MainBanner = ({ fetchUrl }: IMainBannerProps) => {
         setGames([]);
         const res = await api.get(fetchUrl);
         setGames(res.data.results);
-        console.log(res);
       } catch (error) {
         ErrorHandler('Oops, Something Went Wrong in our Servers');
       }

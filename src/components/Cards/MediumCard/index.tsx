@@ -6,8 +6,8 @@ import breakpoints from '../../../utils/swiper-settings';
 import MediumCardItem from './MediumCardItem';
 import { CardsContainer } from './styles';
 
-// import data from '../../../database/mock';
 import api from '../../../services/api';
+import IGamesApiDTO from '../../../dtos/apiDTO';
 import ErrorHandler from '../../../helpers/Toast/Error';
 
 interface IMediumCardsProps {
@@ -15,16 +15,8 @@ interface IMediumCardsProps {
   fetchUrl: string;
 }
 
-interface IGameItemProps {
-  id: number;
-  name: string;
-  rating: number;
-  background_image: string;
-  released?: Date | string | number;
-}
-
 const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
-  const [games, setGames] = useState<IGameItemProps[]>([]);
+  const [games, setGames] = useState<IGamesApiDTO[]>([]);
 
   useEffect(() => {
     async function fetchGames() {
@@ -54,10 +46,10 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
         {games.map(({ id, name, rating, background_image, released }) => (
           <SwiperSlide key={id}>
             <MediumCardItem
-              coverImage={background_image}
-              title={name}
-              score={rating}
-              released_year={released}
+              name={name}
+              rating={rating}
+              background_image={background_image}
+              released={released}
             />
           </SwiperSlide>
         ))}
