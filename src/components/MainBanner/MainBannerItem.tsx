@@ -1,31 +1,27 @@
-import { Container, Content, Button, PlatformsWrapper } from './styles';
+/* eslint-disable react/require-default-props */
+import { Container, Content, Button, Platforms } from './styles';
 import '../../utils/swiper-settings';
 import PlatformsIcons from '../PlatformsIcons';
 
 interface IMainBannerProps {
-  title: string;
-  summary: string;
-  coverImage: string;
+  name: string;
+  background_image?: string;
 }
 
-const MainBannerItem = ({ title, summary, coverImage }: IMainBannerProps) => {
+const MainBannerItem = ({ name, background_image }: IMainBannerProps) => {
   return (
     <Container
       style={{
-        backgroundSize: 'cover',
-        backgroundImage: `linear-gradient(51deg,rgba(0, 0, 0, 1) 27%,rgba(0, 0, 0, 1) 38%,rgba(0, 0, 0, 0.22452731092436973) 100%), url(${coverImage})`,
+        backgroundImage: `linear-gradient(51deg,rgba(0, 0, 0, 1) 27%,rgba(0, 0, 0, 1) 38%,rgba(0, 0, 0, 0.22452731092436973) 100%), url(${background_image})`,
       }}
     >
       <Content>
-        <h1>{title}</h1>
-        <p>{summary}</p>
+        <h1>{name}</h1>
+        <Button type="button">See Details</Button>
 
-        <PlatformsWrapper>
-          <h3>Platforms: </h3>
-          <PlatformsIcons />
-        </PlatformsWrapper>
-
-        <Button type="button">See More</Button>
+        <Platforms>
+          <PlatformsIcons size={30} />
+        </Platforms>
       </Content>
     </Container>
   );

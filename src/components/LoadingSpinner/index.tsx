@@ -1,10 +1,10 @@
 import { Container, Spinner } from './styles';
 
-interface ILoadingSpinner {
+interface ILoadingSpinnerProps {
   isLoading: boolean;
 }
 
-const LoadingSpinner = ({ isLoading }: ILoadingSpinner) => {
+const LoadingSpinner = ({ isLoading }: ILoadingSpinnerProps) => {
   if (!isLoading) {
     return null;
   }

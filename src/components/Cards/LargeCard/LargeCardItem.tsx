@@ -1,5 +1,6 @@
 import { AiOutlineStar } from 'react-icons/ai';
 import { FaSteam } from 'react-icons/fa';
+
 import { Rating } from '../MediumCard/styles';
 import { CardBanner, Container, Content, GameInfo, Title } from './styles';
 

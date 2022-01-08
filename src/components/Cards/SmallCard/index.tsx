@@ -1,14 +1,15 @@
 import { useEffect, useMemo, useState } from 'react';
-
 import { Toaster } from 'react-hot-toast';
-import api from '../../../services/api';
-import useDebounce from '../../../utils/debounce';
-import ErrorHandler from '../../../helpers/Toast/Error';
 
 import SmallCardItem from './SmallCardItem';
 import LoadingSpinner from '../../LoadingSpinner';
 
 import { CardsContainer, ItemNotFoundContainer } from './styles';
+
+import useDebounce from '../../../hooks/useDebounce';
+import api from '../../../services/api';
+import ErrorHandler from '../../../helpers/Toast/Error';
+
 import notFoundImg from '../../../assets/notFound.svg';
 
 interface ISmallCardProps {

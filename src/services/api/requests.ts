@@ -13,7 +13,7 @@ const requests = {
   searchGame: `games?key=${apiKey}&search=`,
   gameByGenre: `games?key=${apiKey}&genres=`,
   gamesByPlatform: `games?key=${apiKey}&platforms=`,
-  gameDetails: 'games/',
+  gameDetails: `games?key=${apiKey}`,
   gameScreenshots: '/screenshots',
   gameGenres: `genres`,
   gamesPlatforms: `platforms`,

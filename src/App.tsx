@@ -1,12 +1,13 @@
-import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+
 import { Container, Content } from './styles/generic/Reset';
+import defaultTheme from './styles/themes';
 
 import SideBar from './components/SideBar';
-import Routes from './routes';
-import defaultTheme from './styles/themes';
 import Footer from './components/Footer';
+
+import Routes from './routes';
 
 import { AuthContextProvider } from './contexts/AuthContext';
 

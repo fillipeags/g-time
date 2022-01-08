@@ -1,7 +1,11 @@
+/* eslint-disable react/require-default-props */
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
-import truncate from '../../../../utils/trucate';
+
 import PlatformsIcons from '../../../PlatformsIcons';
+
+import truncate from '../../../../utils/trucate';
+
 import {
   Container,
   Content,
@@ -13,14 +17,11 @@ import {
   ActionContainer,
   Button,
 } from './styles';
+import IGamesApiDTO from '../../../../dtos/apiDTO';
 
-interface IMediumCardDetailsProps {
-  id: string;
-  title: string;
-  score: number;
-}
+const MediumCardDetails = ({ id, name, rating, released }: IGamesApiDTO) => {
+  const year = new Date(released).getFullYear();
 
-const MediumCardDetails = ({ id, title, score }: IMediumCardDetailsProps) => {
   return (
     <Container id={id}>
       <PlayContainer>
@@ -30,20 +31,20 @@ const MediumCardDetails = ({ id, title, score }: IMediumCardDetailsProps) => {
       </PlayContainer>
       <Content>
         <Heading>
-          <h4>{truncate(title, 12)}</h4>
+          <h4>{truncate(name, 15)}</h4>
           <PlatformsIcons />
         </Heading>
         <Rating>
-          <p>{score}</p>
+          <p>{rating}</p>
           <AiOutlineStar size={24} color="yellow" />
         </Rating>
 
         <GameDetails>
           <p>
-            Released Year <span>2020</span>
+            Released Year <span>{year}</span>
           </p>
           <p>
-            Genre <span>Adventure</span>
+            Genre <span>Aventura</span>
           </p>
         </GameDetails>
 

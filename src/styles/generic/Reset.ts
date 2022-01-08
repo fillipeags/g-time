@@ -65,4 +65,6 @@ export const Content = styled.main`
   height: 100vh;
 
   margin: 40px 40px;
+
+  justify-content: start;
 `;

@@ -1,13 +1,23 @@
-import { FaPlaystation, FaSteam, FaXbox } from 'react-icons/fa';
-import PlatformsContainer from './styles';
+/* eslint-disable react/require-default-props */
+import * as Icons from 'react-icons/fa';
 
-const PlatformsIcons = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Icon = ({ name, size }: any) => {
+  const IconComponent = Icons[name];
+  return <IconComponent size={size} />;
+};
+
+interface PlatformsIconsProps {
+  size?: number;
+}
+
+const PlatformsIcons = ({ size }: PlatformsIconsProps) => {
   return (
-    <PlatformsContainer>
-      <FaPlaystation size={18} />
-      <FaSteam size={18} />
-      <FaXbox size={18} />
-    </PlatformsContainer>
+    <>
+      <Icon name="FaPlaystation" size={size} />
+      <Icon name="FaXbox" size={size} />
+      <Icon name="FaSteam" size={size} />
+    </>
   );
 };
 

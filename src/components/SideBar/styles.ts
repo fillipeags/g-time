@@ -4,11 +4,11 @@ import { ReactComponent as LogoImg } from '../../assets/logo.svg';
 
 interface MenuItemProps {
   active?: boolean;
-  isExpanded?: boolean;
+  $isexpanded?: boolean;
 }
 
 export const Container = styled.div<MenuItemProps>`
-  width: ${({ isExpanded }) => (isExpanded ? '25%' : '10%')};
+  width: ${({ $isexpanded }) => ($isexpanded ? '25%' : '10%')};
 
   height: 100vh;
 
@@ -24,15 +24,16 @@ export const Content = styled.div`
   position: fixed;
 `;
 
-export const BackHome = styled(Link)`
+export const LogoContainer = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const Logo = styled(LogoImg)<MenuItemProps>`
-  ${({ isExpanded }) =>
-    isExpanded
+// eslint-disable-next-line prettier/prettier
+export const Logo = styled(LogoImg) <MenuItemProps>`
+  ${({ $isexpanded }) =>
+    $isexpanded
       ? css`
           width: 120px;
           margin: 16px 0px 50px 50px;
@@ -49,22 +50,15 @@ export const Logo = styled(LogoImg)<MenuItemProps>`
   }
 `;
 
-export const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const MenuItem = styled.li<MenuItemProps>`
   display: flex;
-  align-items: center;
 
   margin-bottom: 30px;
 
   padding: 14px;
 
-  ${({ isExpanded }) =>
-    isExpanded
+  ${({ $isexpanded }) =>
+    $isexpanded
       ? css`
           width: 200px;
           margin-left: 50px;

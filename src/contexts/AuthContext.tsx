@@ -1,5 +1,7 @@
+/* eslint-disable no-shadow */
 /* eslint-disable react/destructuring-assignment */
 import { createContext, ReactNode, useEffect, useState } from 'react';
+import ErrorHandler from '../helpers/Toast/Error';
 import { auth, firebase } from '../services/firebase';
 
 type User = {
@@ -11,6 +13,7 @@ type User = {
 type AuthContextType = {
   user: User | undefined;
   signInWithGoogle: () => Promise<void>;
+  signOut: () => Promise<void>;
 };
 
 type AuthContextProviderProps = {
@@ -23,13 +26,14 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    // eslint-disable-next-line no-shadow
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         const { displayName, photoURL, uid } = user;
 
         if (!displayName || !photoURL) {
-          throw new Error('Missing Information from Google Account');
+          throw new ErrorHandler(
+            'Name And/Or Image Missing from Google Account',
+          );
         }
 
         setUser({
@@ -54,7 +58,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       const { displayName, photoURL, uid } = result.user;
 
       if (!displayName || !photoURL) {
-        throw new Error('Missing Information from Google Account');
+        throw new ErrorHandler('Missing Information from Google Account');
       }
 
       setUser({
@@ -65,8 +69,18 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     }
   }
 
+  function signOut() {
+    try {
+      auth.signOut();
+      window.location.reload();
+      return auth.signOut();
+    } catch (error) {
+      throw new ErrorHandler('Something Went Wrong with Signing Out');
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider value={{ user, signInWithGoogle, signOut }}>
       {props.children}
     </AuthContext.Provider>
   );

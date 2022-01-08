@@ -4,33 +4,31 @@ export const Container = styled.div`
   margin: 60px 0px 40px 2px;
   border-radius: 25px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
+
   background-position: center;
+  background-size: cover;
 
   padding: 4px;
+  width: 100%;
 `;
 
 export const Content = styled.div`
   padding: 80px 0px 40px 80px;
+  height: 320px;
 
   h1 {
     font-weight: bold;
-    font-size: 64px;
+    font-size: 72px;
     text-transform: uppercase;
     margin: 0;
+    padding-bottom: 20px;
+    word-break: break-word;
+    max-width: 900px;
   }
 
-  p {
-    width: 480px;
-    font-weight: normal;
-    font-size: 20px;
-    color: ${({ theme }) => theme.colors[600]};
-  }
-
-  h3 {
-    font-weight: normal;
-    color: ${({ theme }) => theme.colors[600]};
-    margin: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const Button = styled.button`
@@ -73,4 +71,16 @@ export const PlatformsWrapper = styled.div`
   gap: 20px;
 
   margin-bottom: 60px;
+`;
+
+export const Platforms = styled.div`
+  position: absolute;
+
+  right: 40px;
+  bottom: 100px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 40px;
 `;

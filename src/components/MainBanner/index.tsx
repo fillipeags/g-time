@@ -1,13 +1,39 @@
-import '../../utils/swiper-settings';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import MainBannerItem from './MainBannerItem';
 
-import data from '../../database/mock';
+import { useEffect, useState } from 'react';
+import { Toaster } from 'react-hot-toast';
+import MainBannerItem from './MainBannerItem';
 import { MainBannerContainer } from './styles';
 
-const MainBanner = () => {
+import '../../utils/swiper-settings';
+import api from '../../services/api';
+import ErrorHandler from '../../helpers/Toast/Error';
+import IGamesApiDTO from '../../dtos/apiDTO';
+
+interface IMainBannerProps {
+  fetchUrl: string;
+}
+
+const MainBanner = ({ fetchUrl }: IMainBannerProps) => {
+  const [games, setGames] = useState<IGamesApiDTO[]>([]);
+
+  useEffect(() => {
+    async function fetchGames() {
+      try {
+        setGames([]);
+        const res = await api.get(fetchUrl);
+        setGames(res.data.results);
+      } catch (error) {
+        ErrorHandler('Oops, Something Went Wrong in our Servers');
+      }
+    }
+
+    fetchGames();
+  }, [fetchUrl]);
+
   return (
     <MainBannerContainer>
+      <Toaster position="top-center" reverseOrder={false} />
       <Swiper
         spaceBetween={800}
         autoplay={{
@@ -15,13 +41,9 @@ const MainBanner = () => {
         }}
         speed={700}
       >
-        {data.map(({ id, title, summary, coverImage }) => (
+        {games.map(({ id, name, background_image }) => (
           <SwiperSlide key={id}>
-            <MainBannerItem
-              title={title}
-              summary={summary}
-              coverImage={coverImage}
-            />
+            <MainBannerItem name={name} background_image={background_image} />
           </SwiperSlide>
         ))}
       </Swiper>
