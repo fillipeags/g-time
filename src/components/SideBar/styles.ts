@@ -15,7 +15,6 @@ export const Container = styled.div<MenuItemProps>`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
 
   transition: 0.3s ease-in;
 `;
@@ -24,7 +23,7 @@ export const Content = styled.div`
   position: fixed;
 `;
 
-export const BackHome = styled(Link)`
+export const LogoContainer = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,15 +49,8 @@ export const Logo = styled(LogoImg) <MenuItemProps>`
   }
 `;
 
-export const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const MenuItem = styled.li<MenuItemProps>`
   display: flex;
-  align-items: center;
 
   margin-bottom: 30px;
 

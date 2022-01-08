@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi';
@@ -11,9 +11,8 @@ import {
   Logo,
   MenuItem,
   OptionContainer,
-  Nav,
   CollapseContainer,
-  BackHome,
+  LogoContainer,
 } from './styles';
 
 const SideBar = () => {
@@ -36,11 +35,11 @@ const SideBar = () => {
   return (
     <Container $isexpanded={isExpanded}>
       <Content>
-        <BackHome to="/">
+        <LogoContainer to="/">
           <Logo $isexpanded={isExpanded} />
-        </BackHome>
+        </LogoContainer>
 
-        <Nav>
+        <nav>
           <ul>
             {SideBarMenu.map(item => {
               return (
@@ -59,7 +58,7 @@ const SideBar = () => {
               );
             })}
           </ul>
-        </Nav>
+        </nav>
 
         <CollapseContainer onClick={handleToggler}>
           {isExpanded ? (
