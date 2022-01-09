@@ -73,14 +73,14 @@ export const PlatformsWrapper = styled.div`
   margin-bottom: 60px;
 `;
 
-export const Platforms = styled.div`
-  position: absolute;
-
-  right: 40px;
-  bottom: 100px;
-
+export const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+`;
 
+export const Platforms = styled.div`
+  display: flex;
   gap: 40px;
+  margin-right: 40px;
 `;

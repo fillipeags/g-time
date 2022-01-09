@@ -16,14 +16,15 @@ interface IGamesApiDTO {
       name: string;
     },
   ];
-  // parent_platforms?: [
-  //   platform: {
-  //     id: number;
-  //     name: string;
-  //   },
-  // ];
 
-  parent_platforms?: any;
+  parent_platforms?: [
+    {
+      platform: {
+        id: number;
+        name: string;
+      };
+    },
+  ];
 
   short_screenshots?: [
     {

@@ -1,20 +1,15 @@
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/require-default-props */
-import { Container, Content, Button, Platforms } from './styles';
+import { Container, Content, Button, Platforms, Wrapper } from './styles';
 import '../../utils/swiper-settings';
 import PlatformsIcons from '../PlatformsIcons';
-
-interface IMainBannerProps {
-  name: string;
-  background_image?: string;
-  parent_platforms?: any;
-}
+import IGamesApiDTO from '../../dtos/apiDTO';
 
 const MainBannerItem = ({
   name,
   background_image,
   parent_platforms,
-}: IMainBannerProps) => {
+}: IGamesApiDTO) => {
   return (
     <Container
       style={{
@@ -23,14 +18,14 @@ const MainBannerItem = ({
     >
       <Content>
         <h1>{name}</h1>
-        <Button type="button">See Details</Button>
 
-        <Platforms>
-          <PlatformsIcons
-            size={30}
-            platforms={parent_platforms.map(({ platform }) => platform)}
-          />
-        </Platforms>
+        <Wrapper>
+          <Button type="button">See Details</Button>
+
+          <Platforms>
+            <PlatformsIcons size={30} platforms={parent_platforms} />
+          </Platforms>
+        </Wrapper>
       </Content>
     </Container>
   );
