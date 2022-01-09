@@ -46,16 +46,26 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
         navigation
         breakpoints={breakpoints}
       >
-        {games.map(({ id, name, rating, background_image, released }) => (
-          <SwiperSlide key={id}>
-            <MediumCardItem
-              name={name}
-              rating={rating}
-              background_image={background_image}
-              released={released}
-            />
-          </SwiperSlide>
-        ))}
+        {games.map(
+          ({
+            id,
+            name,
+            rating,
+            background_image,
+            released,
+            parent_platforms,
+          }) => (
+            <SwiperSlide key={id}>
+              <MediumCardItem
+                name={name}
+                rating={rating}
+                background_image={background_image}
+                released={released}
+                parent_platforms={parent_platforms}
+              />
+            </SwiperSlide>
+          ),
+        )}
       </Swiper>
     </CardsContainer>
   );

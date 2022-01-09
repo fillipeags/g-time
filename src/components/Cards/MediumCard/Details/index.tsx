@@ -13,13 +13,14 @@ import {
   Heading,
   PlayButton,
   PlayContainer,
+  Wrapper,
   Rating,
   ActionContainer,
   Button,
 } from './styles';
 import IGamesApiDTO from '../../../../dtos/apiDTO';
 
-const MediumCardDetails = ({ id, name, rating, released }: IGamesApiDTO) => {
+const MediumCardDetails = ({ id, name, rating, released, platforms }: any) => {
   const year = new Date(released).getFullYear();
 
   return (
@@ -31,13 +32,16 @@ const MediumCardDetails = ({ id, name, rating, released }: IGamesApiDTO) => {
       </PlayContainer>
       <Content>
         <Heading>
-          <h4>{truncate(name, 15)}</h4>
-          {/* <PlatformsIcons /> */}
+          <h4>{truncate(name, 26)}</h4>
         </Heading>
-        <Rating>
-          <p>{rating}</p>
-          <AiOutlineStar size={24} color="yellow" />
-        </Rating>
+
+        <Wrapper>
+          <PlatformsIcons size={24} platforms={platforms} />
+          <Rating>
+            <p>{rating}</p>
+            <AiOutlineStar size={24} color="yellow" />
+          </Rating>
+        </Wrapper>
 
         <GameDetails>
           <p>
