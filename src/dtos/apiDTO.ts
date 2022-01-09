@@ -6,10 +6,12 @@ interface IGamesApiDTO {
   released?: any;
 
   dominant_color?: string;
+
   esrb_rating?: {
     id: number;
     name: string;
   };
+
   genres?: [
     {
       id: number;
@@ -29,14 +31,17 @@ interface IGamesApiDTO {
   short_screenshots?: [
     {
       id: number;
-      name: string;
+      image: string;
     },
   ];
+
   stores?: [
     {
+      id: number;
       store: {
         id: number;
         name: string;
+        domain: string;
       };
     },
   ];
