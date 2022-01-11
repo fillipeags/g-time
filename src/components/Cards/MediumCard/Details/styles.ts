@@ -68,7 +68,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  gap: 20px;
+  gap: 10px;
 `;
 
 export const Rating = styled.div`

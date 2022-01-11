@@ -1,4 +1,4 @@
-/* eslint-disable react/require-default-props */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 

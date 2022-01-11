@@ -3,8 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import * as Icons from 'react-icons/si';
 import '../../utils/swiper-settings';
 
-import styled from 'styled-components';
-
 interface PlatformsIconsProps {
   size?: number;
   platforms: any;
