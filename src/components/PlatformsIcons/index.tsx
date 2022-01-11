@@ -1,16 +1,18 @@
-/* eslint-disable array-callback-return */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/require-default-props */
+import { Swiper, SwiperSlide } from 'swiper/react';
 import * as Icons from 'react-icons/si';
+import '../../utils/swiper-settings';
+
+import styled from 'styled-components';
 
 interface PlatformsIconsProps {
   size?: number;
   platforms: any;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Icon = ({ name, size }: any) => {
   const IconComponent = Icons[name];
+
   return <IconComponent size={size} />;
 };
 
@@ -28,17 +30,19 @@ const platformsTranslator = {
 
 const PlatformsIcons = ({ size, platforms }: PlatformsIconsProps) => {
   return (
-    <>
+    <Swiper
+      spaceBetween={0}
+      autoplay={{
+        delay: 0,
+      }}
+      speed={1600}
+    >
       {platforms.map(({ platform }) => (
-        <>
-          <Icon
-            key={platform.id}
-            name={platformsTranslator[platform.name]}
-            size={size}
-          />
-        </>
+        <SwiperSlide key={platform.id}>
+          <Icon name={platformsTranslator[platform.name]} size={size} />
+        </SwiperSlide>
       ))}
-    </>
+    </Swiper>
   );
 };
 

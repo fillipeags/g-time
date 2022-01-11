@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/require-default-props */
+
 import { Container, Content, Button, Platforms, Wrapper } from './styles';
-import '../../utils/swiper-settings';
 import PlatformsIcons from '../PlatformsIcons';
 import IGamesApiDTO from '../../dtos/apiDTO';
 

@@ -18,7 +18,6 @@ import {
   ActionContainer,
   Button,
 } from './styles';
-import IGamesApiDTO from '../../../../dtos/apiDTO';
 
 const MediumCardDetails = ({ id, name, rating, released, platforms }: any) => {
   const year = new Date(released).getFullYear();
