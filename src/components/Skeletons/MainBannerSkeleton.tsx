@@ -5,7 +5,7 @@ import { Container, Wrapper, Content } from '../MainBanner/styles';
 
 const MainBannerSkeleton = () => {
   return (
-    <SkeletonTheme baseColor="#fafafac7" highlightColor="#ffffff">
+    <SkeletonTheme baseColor="#fafafa22" highlightColor="#dadada">
       <Container>
         <Content>
           <Skeleton width="600px" height={60} />
