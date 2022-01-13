@@ -39,11 +39,7 @@ const Search: React.FC = () => {
       <Filter>
         <FilterIcon size={28} color="#DEE3ED" />
         <p>Quick Filter</p>
-        <FilterButton
-          type="button"
-          active={isActive}
-          onClick={() => setIsActive(isActive)}
-        >
+        <FilterButton type="button" active={isActive}>
           Popular
         </FilterButton>
         <FilterButton type="button" active={isActive}>

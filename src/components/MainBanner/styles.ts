@@ -8,7 +8,7 @@ export const Container = styled.div`
   background-position: center;
   background-size: cover;
 
-  padding: 4px;
+  padding: 0px;
   width: 100%;
 `;
 

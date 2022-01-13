@@ -13,6 +13,7 @@ const MediumCardItem = ({
   background_image,
   released,
   parent_platforms,
+  genres,
 }: IGamesApiDTO) => {
   return (
     <Container>
@@ -36,6 +37,7 @@ const MediumCardItem = ({
           rating={rating}
           released={released}
           platforms={parent_platforms}
+          genres={genres}
         />
       </Content>
     </Container>

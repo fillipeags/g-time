@@ -19,8 +19,17 @@ import {
   Button,
 } from './styles';
 
-const MediumCardDetails = ({ id, name, rating, released, platforms }: any) => {
+const MediumCardDetails = ({
+  id,
+  name,
+  rating,
+  released,
+  platforms,
+  genres,
+}: any) => {
   const year = new Date(released).getFullYear();
+
+  const gen = genres.map(genre => genre.name);
 
   return (
     <Container id={id}>
@@ -31,7 +40,7 @@ const MediumCardDetails = ({ id, name, rating, released, platforms }: any) => {
       </PlayContainer>
       <Content>
         <Heading>
-          <h4>{truncate(name, 26)}</h4>
+          <h4>{truncate(name, 24)}</h4>
         </Heading>
 
         <Wrapper>
@@ -47,7 +56,7 @@ const MediumCardDetails = ({ id, name, rating, released, platforms }: any) => {
             Released Year <span>{year}</span>
           </p>
           <p>
-            Genre <span>Aventura</span>
+            Genre <span>{gen[0]}</span>
           </p>
         </GameDetails>
 

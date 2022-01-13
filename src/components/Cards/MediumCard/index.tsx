@@ -54,6 +54,7 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
             background_image,
             released,
             parent_platforms,
+            genres,
           }) => (
             <SwiperSlide key={id}>
               <MediumCardItem
@@ -62,6 +63,7 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
                 background_image={background_image}
                 released={released}
                 parent_platforms={parent_platforms}
+                genres={genres}
               />
             </SwiperSlide>
           ),
