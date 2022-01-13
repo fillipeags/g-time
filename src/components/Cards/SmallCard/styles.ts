@@ -84,11 +84,7 @@ export const ItemNotFoundContainer = styled.div`
 
   height: 60vh;
 
-  img {
-    width: 200px;
-  }
-
   h2 {
-    font-weight: 200;
+    font-weight: 400;
   }
 `;

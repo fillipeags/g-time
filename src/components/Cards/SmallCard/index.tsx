@@ -1,6 +1,8 @@
+/* eslint-disable no-case-declarations */
 import { useEffect, useMemo, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 
+import { MdError } from 'react-icons/md';
 import SmallCardItem from './SmallCardItem';
 import LoadingSpinner from '../../LoadingSpinner';
 
@@ -9,12 +11,12 @@ import { CardsContainer, ItemNotFoundContainer } from './styles';
 import useDebounce from '../../../hooks/useDebounce';
 import api from '../../../services/api';
 import ErrorHandler from '../../../helpers/Toast/Error';
-
-import notFoundImg from '../../../assets/notFound.svg';
+import requests from '../../../services/api/requests';
 
 interface ISmallCardProps {
   searchTerm: string;
   fetchUrl: string;
+  filter: string;
 }
 
 interface IGameItemProps {
@@ -24,7 +26,7 @@ interface IGameItemProps {
   background_image: string;
 }
 
-const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
+const SmallCard = ({ searchTerm, fetchUrl, filter }: ISmallCardProps) => {
   const [games, setGames] = useState<IGameItemProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,8 +45,27 @@ const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
       try {
         setIsLoading(true);
         setGames([]);
-        const res = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
-        setGames(res.data.results);
+
+        switch (filter) {
+          case 'popularGames':
+            const pop = await api.get(requests.popularGames);
+            setGames(pop.data.results);
+            break;
+
+          case 'newGames':
+            const res = await api.get(requests.newGames);
+            setGames(res.data.results);
+            break;
+
+          case 'upcomingGames':
+            const up = await api.get(requests.upcomingGames);
+            setGames(up.data.results);
+            break;
+
+          default:
+            const def = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
+            setGames(def.data.results);
+        }
       } catch (error) {
         ErrorHandler(`Oops, Something Went Wrong in Our Servers ${error}`);
       } finally {
@@ -53,7 +74,7 @@ const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
     }
 
     fetchGames();
-  }, [debounceSearchTerm, fetchUrl]);
+  }, [debounceSearchTerm, fetchUrl, filter]);
 
   return (
     <CardsContainer>
@@ -70,8 +91,9 @@ const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
 
       {!isLoading && results.length === 0 && (
         <ItemNotFoundContainer>
-          <img src={notFoundImg} alt="" />
-          <h2>Are you sure this game exists ? 😢</h2>
+          <MdError size={140} />
+          <br />
+          <h2>Nothing Found ...</h2>
         </ItemNotFoundContainer>
       )}
     </CardsContainer>

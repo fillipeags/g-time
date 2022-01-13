@@ -26,6 +26,12 @@ export const Container = styled.div`
   }
 `;
 
+export const CardsContainer = styled.div`
+  width: 72vw;
+
+  margin-bottom: 40px;
+`;
+
 export const Content = styled.div`
   width: 300px;
   height: 450px;
@@ -65,10 +71,4 @@ export const Rating = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-`;
-
-export const CardsContainer = styled.div`
-  width: 72vw;
-
-  margin-bottom: 40px;
 `;
