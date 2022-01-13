@@ -1,7 +1,7 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import { Container, Wrapper, Content } from '../../MainBanner/styles';
+import { Container, Wrapper, Content } from '../MainBanner/styles';
 
 const MainBannerSkeleton = () => {
   return (

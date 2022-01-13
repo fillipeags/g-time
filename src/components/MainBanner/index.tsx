@@ -10,7 +10,7 @@ import '../../utils/swiper-settings';
 import api from '../../services/api';
 import ErrorHandler from '../../helpers/Toast/Error';
 import IGamesApiDTO from '../../dtos/apiDTO';
-import MainBannerSkeleton from '../Skeletons/MainBannerSkeleton/MainBannerSkeleton';
+import MainBannerSkeleton from '../Skeletons/MainBannerSkeleton';
 
 interface IMainBannerProps {
   fetchUrl: string;
