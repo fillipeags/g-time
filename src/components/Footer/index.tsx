@@ -14,7 +14,10 @@ const Footer: React.FC = () => {
         <a href="mailto:mail@mail.com">mail@mail.com</a>
       </p>
       <p>
-        <strong>Data Provided By</strong> - RAWG API
+        <strong>Data Provided By</strong> -
+        <a href="https://rawg.io/apidocs" target="_blank" rel="noreferrer">
+          RAWG API
+        </a>
       </p>
     </FooterContent>
   );

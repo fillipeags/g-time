@@ -52,13 +52,23 @@ export const Heading = styled.div`
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   h4 {
     color: ${({ theme }) => theme.colors.gray[200]};
     font-weight: 400;
     font-size: 20px;
   }
+`;
+
+export const Wrapper = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
 `;
 
 export const Rating = styled.div`

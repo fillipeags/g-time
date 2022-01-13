@@ -1,14 +1,14 @@
-/* eslint-disable react/require-default-props */
-import { Container, Content, Button, Platforms } from './styles';
-import '../../utils/swiper-settings';
+import { Container, Content, Button, Platforms, Wrapper } from './styles';
+
 import PlatformsIcons from '../PlatformsIcons';
 
-interface IMainBannerProps {
-  name: string;
-  background_image?: string;
-}
+import IGamesApiDTO from '../../dtos/apiDTO';
 
-const MainBannerItem = ({ name, background_image }: IMainBannerProps) => {
+const MainBannerItem = ({
+  name,
+  background_image,
+  parent_platforms,
+}: IGamesApiDTO) => {
   return (
     <Container
       style={{
@@ -17,11 +17,14 @@ const MainBannerItem = ({ name, background_image }: IMainBannerProps) => {
     >
       <Content>
         <h1>{name}</h1>
-        <Button type="button">See Details</Button>
 
-        <Platforms>
-          <PlatformsIcons size={30} />
-        </Platforms>
+        <Wrapper>
+          <Button type="button">See Details</Button>
+
+          <Platforms>
+            <PlatformsIcons size={30} platforms={parent_platforms} />
+          </Platforms>
+        </Wrapper>
       </Content>
     </Container>
   );

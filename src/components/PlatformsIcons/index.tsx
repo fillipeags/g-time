@@ -1,23 +1,37 @@
-/* eslint-disable react/require-default-props */
-import * as Icons from 'react-icons/fa';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Icon = ({ name, size }: any) => {
-  const IconComponent = Icons[name];
-  return <IconComponent size={size} />;
-};
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as Icons from 'react-icons/si';
+import Container from './styles';
 
 interface PlatformsIconsProps {
   size?: number;
+  platforms: any;
 }
 
-const PlatformsIcons = ({ size }: PlatformsIconsProps) => {
+const Icon = ({ name, size }: any) => {
+  const IconComponent = Icons[name];
+
+  return <IconComponent size={size} />;
+};
+
+const platformsTranslator = {
+  'Apple Macintosh': 'SiApple',
+  PlayStation: 'SiPlaystation',
+  Xbox: 'SiXbox',
+  PC: 'SiSteam',
+  Linux: 'SiLinux',
+  Web: 'SiGooglechrome',
+  Nintendo: 'SiNintendoswitch',
+  Android: 'SiAndroid',
+  iOS: 'SiIos',
+};
+
+const PlatformsIcons = ({ size, platforms }: PlatformsIconsProps) => {
   return (
-    <>
-      <Icon name="FaPlaystation" size={size} />
-      <Icon name="FaXbox" size={size} />
-      <Icon name="FaSteam" size={size} />
-    </>
+    <Container>
+      {platforms.slice(0, 4).map(({ platform }) => (
+        <Icon name={platformsTranslator[platform.name]} size={size} />
+      ))}
+    </Container>
   );
 };
 

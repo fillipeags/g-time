@@ -1,4 +1,4 @@
-/* eslint-disable react/require-default-props */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
@@ -13,14 +13,23 @@ import {
   Heading,
   PlayButton,
   PlayContainer,
+  Wrapper,
   Rating,
   ActionContainer,
   Button,
 } from './styles';
-import IGamesApiDTO from '../../../../dtos/apiDTO';
 
-const MediumCardDetails = ({ id, name, rating, released }: IGamesApiDTO) => {
+const MediumCardDetails = ({
+  id,
+  name,
+  rating,
+  released,
+  platforms,
+  genres,
+}: any) => {
   const year = new Date(released).getFullYear();
+
+  const gen = genres.map(genre => genre.name);
 
   return (
     <Container id={id}>
@@ -31,20 +40,23 @@ const MediumCardDetails = ({ id, name, rating, released }: IGamesApiDTO) => {
       </PlayContainer>
       <Content>
         <Heading>
-          <h4>{truncate(name, 15)}</h4>
-          <PlatformsIcons />
+          <h4>{truncate(name, 24)}</h4>
         </Heading>
-        <Rating>
-          <p>{rating}</p>
-          <AiOutlineStar size={24} color="yellow" />
-        </Rating>
+
+        <Wrapper>
+          <PlatformsIcons size={24} platforms={platforms} />
+          <Rating>
+            <p>{rating}</p>
+            <AiOutlineStar size={24} color="yellow" />
+          </Rating>
+        </Wrapper>
 
         <GameDetails>
           <p>
             Released Year <span>{year}</span>
           </p>
           <p>
-            Genre <span>Aventura</span>
+            Genre <span>{gen[0]}</span>
           </p>
         </GameDetails>
 

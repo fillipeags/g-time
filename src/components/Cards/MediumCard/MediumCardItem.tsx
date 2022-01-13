@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/require-default-props */
 import { AiOutlineStar } from 'react-icons/ai';
 import IGamesApiDTO from '../../../dtos/apiDTO';
@@ -11,6 +12,8 @@ const MediumCardItem = ({
   rating,
   background_image,
   released,
+  parent_platforms,
+  genres,
 }: IGamesApiDTO) => {
   return (
     <Container>
@@ -33,6 +36,8 @@ const MediumCardItem = ({
           name={name}
           rating={rating}
           released={released}
+          platforms={parent_platforms}
+          genres={genres}
         />
       </Content>
     </Container>

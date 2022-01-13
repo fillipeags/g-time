@@ -8,7 +8,7 @@ export const Container = styled.div`
   background-position: center;
   background-size: cover;
 
-  padding: 4px;
+  padding: 0px;
   width: 100%;
 `;
 
@@ -73,14 +73,13 @@ export const PlatformsWrapper = styled.div`
   margin-bottom: 60px;
 `;
 
-export const Platforms = styled.div`
-  position: absolute;
-
-  right: 40px;
-  bottom: 100px;
-
+export const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+`;
 
-  gap: 40px;
+export const Platforms = styled.div`
+  display: flex;
+  margin-right: 40px;
 `;

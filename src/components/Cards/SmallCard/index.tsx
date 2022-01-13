@@ -28,7 +28,7 @@ const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
   const [games, setGames] = useState<IGameItemProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const debounceSearchTerm = useDebounce(searchTerm, 200);
+  const debounceSearchTerm = useDebounce(searchTerm, 300);
 
   const results = useMemo(
     () =>
