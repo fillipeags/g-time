@@ -22,6 +22,9 @@ const Search: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
+  // eslint-disable-next-line no-console
+  console.log(setIsActive);
+
   const handleSearchInput = (event: ISearchProps) => {
     setSearchTerm(event.target.value);
   };
