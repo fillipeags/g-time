@@ -8,10 +8,10 @@ const MainBannerSkeleton = () => {
     <SkeletonTheme baseColor="#fafafac7" highlightColor="#ffffff">
       <Container>
         <Content>
-          <Skeleton width="600px" height={50} />
+          <Skeleton width="600px" height={60} />
 
           <Wrapper>
-            <Skeleton width="350px" height={50} />
+            <Skeleton width="200px" height={60} />
             <div>
               <Skeleton height={30} />
             </div>
