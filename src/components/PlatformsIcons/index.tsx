@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Swiper, SwiperSlide } from 'swiper/react';
 import * as Icons from 'react-icons/si';
-import '../../utils/swiper-settings';
+import Container from './styles';
 
 interface PlatformsIconsProps {
   size?: number;
@@ -28,19 +27,11 @@ const platformsTranslator = {
 
 const PlatformsIcons = ({ size, platforms }: PlatformsIconsProps) => {
   return (
-    <Swiper
-      spaceBetween={0}
-      autoplay={{
-        delay: 0,
-      }}
-      speed={1600}
-    >
-      {platforms.map(({ platform }) => (
-        <SwiperSlide key={platform.id}>
-          <Icon name={platformsTranslator[platform.name]} size={size} />
-        </SwiperSlide>
+    <Container>
+      {platforms.slice(0, 4).map(({ platform }) => (
+        <Icon name={platformsTranslator[platform.name]} size={size} />
       ))}
-    </Swiper>
+    </Container>
   );
 };
 

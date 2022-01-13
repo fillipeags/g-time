@@ -80,8 +80,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Platforms = styled.div`
-  width: 200px;
-
   display: flex;
   margin-right: 40px;
 `;
