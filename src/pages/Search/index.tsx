@@ -26,6 +26,7 @@ const Search: React.FC = () => {
     Popular: 'popularGames',
     'New Games': 'newGames',
     'Upcoming Games': 'upcomingGames',
+    '': 'searchGame',
   };
 
   const [active, setActive] = useState('');

@@ -1,4 +1,3 @@
-/* eslint-disable no-case-declarations */
 import { useEffect, useMemo, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 
@@ -45,27 +44,8 @@ const SmallCard = ({ searchTerm, fetchUrl, filter }: ISmallCardProps) => {
       try {
         setIsLoading(true);
         setGames([]);
-
-        switch (filter) {
-          case 'popularGames':
-            const pop = await api.get(requests.popularGames);
-            setGames(pop.data.results);
-            break;
-
-          case 'newGames':
-            const res = await api.get(requests.newGames);
-            setGames(res.data.results);
-            break;
-
-          case 'upcomingGames':
-            const up = await api.get(requests.upcomingGames);
-            setGames(up.data.results);
-            break;
-
-          default:
-            const def = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
-            setGames(def.data.results);
-        }
+        const req = await api.get(requests[filter]);
+        setGames(req.data.results);
       } catch (error) {
         ErrorHandler(`Oops, Something Went Wrong in Our Servers ${error}`);
       } finally {
