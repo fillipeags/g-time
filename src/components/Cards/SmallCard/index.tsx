@@ -44,8 +44,13 @@ const SmallCard = ({ searchTerm, fetchUrl, filter }: ISmallCardProps) => {
       try {
         setIsLoading(true);
         setGames([]);
-        const req = await api.get(requests[filter]);
-        setGames(req.data.results);
+        if (filter === 'searchGame') {
+          const search = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
+          setGames(search.data.results);
+        } else {
+          const req = await api.get(requests[filter]);
+          setGames(req.data.results);
+        }
       } catch (error) {
         ErrorHandler(`Oops, Something Went Wrong in Our Servers ${error}`);
       } finally {
