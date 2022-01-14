@@ -2,7 +2,7 @@
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import PlatformsIcons from '../../../PlatformsIcons';
 
 import truncate from '../../../../utils/trucate';
@@ -35,14 +35,18 @@ const MediumCardDetails = ({
 
   const [modal, setModal] = useState(false);
 
+  const toggleModal = useCallback(() => {
+    setModal(prevState => !prevState);
+  }, []);
+
   return (
     <>
-      {modal && <Modal />}
+      {modal && <Modal toggleModal={toggleModal} showModal={modal} />}
       {!modal && (
         <Container id={id}>
           <PlayContainer>
             <PlayButton>
-              <FiPlay size={34} color="white" onClick={() => setModal(true)} />
+              <FiPlay size={34} color="white" onClick={toggleModal} />
             </PlayButton>
           </PlayContainer>
           <Content>
