@@ -8,7 +8,14 @@ export default function Modal() {
   return ReactDOM.createPortal(
     <Overlay>
       <Container>
-        <p>isso é um modal</p>
+        <iframe
+          width={1000}
+          height={600}
+          src="https://www.youtube.com/embed/QyJ7sRru7LM"
+          frameBorder="0"
+          title="trailer"
+          allow="autoplay"
+        />
       </Container>
     </Overlay>,
     portal,

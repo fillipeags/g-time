@@ -17,6 +17,7 @@ const requests = {
   gameScreenshots: '/screenshots',
   gameGenres: `genres`,
   gamesPlatforms: `platforms`,
+  gameTrailer: `movies?key=${apiKey}`,
 };
 
 export default requests;
