@@ -29,7 +29,11 @@ const PlatformsIcons = ({ size, platforms }: PlatformsIconsProps) => {
   return (
     <Container>
       {platforms.slice(0, 4).map(({ platform }) => (
-        <Icon name={platformsTranslator[platform.name]} size={size} />
+        <Icon
+          name={platformsTranslator[platform.name]}
+          size={size}
+          key={platform.id}
+        />
       ))}
     </Container>
   );
