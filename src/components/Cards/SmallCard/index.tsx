@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 
+import { MdError } from 'react-icons/md';
 import SmallCardItem from './SmallCardItem';
 import LoadingSpinner from '../../LoadingSpinner';
 
@@ -9,12 +10,12 @@ import { CardsContainer, ItemNotFoundContainer } from './styles';
 import useDebounce from '../../../hooks/useDebounce';
 import api from '../../../services/api';
 import ErrorHandler from '../../../helpers/Toast/Error';
-
-import notFoundImg from '../../../assets/notFound.svg';
+import requests from '../../../services/api/requests';
 
 interface ISmallCardProps {
   searchTerm: string;
   fetchUrl: string;
+  filter: string;
 }
 
 interface IGameItemProps {
@@ -24,7 +25,7 @@ interface IGameItemProps {
   background_image: string;
 }
 
-const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
+const SmallCard = ({ searchTerm, fetchUrl, filter }: ISmallCardProps) => {
   const [games, setGames] = useState<IGameItemProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -39,21 +40,27 @@ const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
   );
 
   useEffect(() => {
+    let req;
     async function fetchGames() {
       try {
         setIsLoading(true);
         setGames([]);
-        const res = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
-        setGames(res.data.results);
+
+        if (filter === 'searchGame') {
+          req = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
+        } else {
+          req = await api.get(requests[filter]);
+        }
       } catch (error) {
         ErrorHandler(`Oops, Something Went Wrong in Our Servers ${error}`);
       } finally {
+        setGames(req.data.results);
         setIsLoading(false);
       }
     }
 
     fetchGames();
-  }, [debounceSearchTerm, fetchUrl]);
+  }, [debounceSearchTerm, fetchUrl, filter]);
 
   return (
     <CardsContainer>
@@ -70,8 +77,9 @@ const SmallCard = ({ searchTerm, fetchUrl }: ISmallCardProps) => {
 
       {!isLoading && results.length === 0 && (
         <ItemNotFoundContainer>
-          <img src={notFoundImg} alt="" />
-          <h2>Are you sure this game exists ? 😢</h2>
+          <MdError size={140} />
+          <br />
+          <h2>Nothing Found ...</h2>
         </ItemNotFoundContainer>
       )}
     </CardsContainer>

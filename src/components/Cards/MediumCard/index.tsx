@@ -1,17 +1,15 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable no-console */
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Toaster } from 'react-hot-toast';
 import breakpoints from '../../../utils/swiper-settings';
 
 import MediumCardItem from './MediumCardItem';
+import MediumCardSkeleton from '../../Skeletons/MediumCardSkeleton';
 import { CardsContainer } from './styles';
 
 import api from '../../../services/api';
 import IGamesApiDTO from '../../../dtos/apiDTO';
 import ErrorHandler from '../../../helpers/Toast/Error';
-import MediumCardSkeleton from '../../Skeletons/MediumCardSkeleton';
 
 interface IMediumCardsProps {
   category: string;
@@ -29,7 +27,7 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
         const res = await api.get(fetchUrl);
         setGames(res.data.results);
         setLoading(false);
-        console.log(res);
+        // console.log(res);
       } catch (error) {
         ErrorHandler('Oops, Something Went Wrong in our Servers');
       }

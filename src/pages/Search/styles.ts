@@ -50,6 +50,8 @@ export const FilterButton = styled.button<IFilterButtonProps>`
     )
     1;
 
+  transition: 0.2s ease-in-out;
+
   color: ${({ theme }) => theme.colors.gray[300]};
 
   background-color: ${({ theme, active }) =>
@@ -58,5 +60,16 @@ export const FilterButton = styled.button<IFilterButtonProps>`
   &:hover {
     opacity: 0.6;
     transition: 0.5s;
+  }
+`;
+
+export const ResetButton = styled.button`
+  background: none;
+  color: white;
+  border: none;
+
+  &:hover {
+    opacity: 0.6;
+    transition: 0.5s ease-in-out;
   }
 `;

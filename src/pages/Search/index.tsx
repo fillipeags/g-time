@@ -12,6 +12,7 @@ import {
   FilterButton,
   FilterIcon,
   HeaderContainer,
+  ResetButton,
 } from './styles';
 
 export interface ISearchProps {
@@ -19,11 +20,18 @@ export interface ISearchProps {
 }
 
 const Search: React.FC = () => {
-  const [isActive, setIsActive] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const filterOptions = ['Popular', 'New Games', 'Upcoming Games'];
 
-  // eslint-disable-next-line no-console
-  console.log(setIsActive);
+  const filterTranslation = {
+    Popular: 'popularGames',
+    'New Games': 'newGames',
+    'Upcoming Games': 'upcomingGames',
+    '': 'searchGame',
+  };
+
+  const [active, setActive] = useState('');
+
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchInput = (event: ISearchProps) => {
     setSearchTerm(event.target.value);
@@ -42,18 +50,28 @@ const Search: React.FC = () => {
       <Filter>
         <FilterIcon size={28} color="#DEE3ED" />
         <p>Quick Filter</p>
-        <FilterButton type="button" active={isActive}>
-          Popular
-        </FilterButton>
-        <FilterButton type="button" active={isActive}>
-          New Games
-        </FilterButton>
-        <FilterButton type="button" active={isActive}>
-          Just Released
-        </FilterButton>
+
+        {filterOptions.map(type => (
+          <FilterButton
+            key={type}
+            type="button"
+            active={active === type}
+            onClick={() => setActive(type)}
+          >
+            {type}
+          </FilterButton>
+        ))}
+
+        <ResetButton type="button" onClick={() => setActive('')}>
+          Reset Filter
+        </ResetButton>
       </Filter>
 
-      <SmallCard searchTerm={searchTerm} fetchUrl={requests.searchGame} />
+      <SmallCard
+        searchTerm={searchTerm}
+        fetchUrl={requests.searchGame}
+        filter={filterTranslation[active]}
+      />
     </Container>
   );
 };
