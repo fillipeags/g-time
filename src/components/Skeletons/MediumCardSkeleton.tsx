@@ -1,7 +1,9 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import breakpoints from '../../utils/swiper-settings';
+
 import { CardsContainer } from '../Cards/MediumCard/styles';
 
 const MediumCardSkeleton = () => {

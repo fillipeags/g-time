@@ -2,7 +2,7 @@
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import PlatformsIcons from '../../../PlatformsIcons';
 
 import truncate from '../../../../utils/trucate';
@@ -19,6 +19,7 @@ import {
   ActionContainer,
   Button,
 } from './styles';
+
 import Modal from '../../../Modal';
 
 const MediumCardDetails = ({

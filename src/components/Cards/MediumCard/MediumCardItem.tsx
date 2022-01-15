@@ -1,22 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-console */
-/* eslint-disable react/require-default-props */
 import { AiOutlineStar } from 'react-icons/ai';
-// import IGamesApiDTO from '../../../dtos/apiDTO';
+import IGamesApiDTO from '../../../dtos/apiDTO';
 
 import MediumCardDetails from './Details';
 
 import { Container, Content, GameInfo, Rating } from './styles';
 
 const MediumCardItem = ({
-  gameId,
   name,
   rating,
   background_image,
   released,
   parent_platforms,
   genres,
-}: any) => {
+}: IGamesApiDTO) => {
   return (
     <Container>
       <Content
@@ -40,7 +36,6 @@ const MediumCardItem = ({
           released={released}
           platforms={parent_platforms}
           genres={genres}
-          gameId={gameId}
         />
       </Content>
     </Container>

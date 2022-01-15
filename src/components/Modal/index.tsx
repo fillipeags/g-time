@@ -4,9 +4,11 @@ import { useCallback, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { Overlay, Container } from './styles';
 
+
 const portal = document.getElementById('youtube-modal')!;
 
 export default function Modal({ toggleModal, showModal }) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const wrapperRef = useRef<any>(null);
 
   const closeModal = useCallback(

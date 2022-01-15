@@ -40,20 +40,21 @@ const SmallCard = ({ searchTerm, fetchUrl, filter }: ISmallCardProps) => {
   );
 
   useEffect(() => {
+    let req;
     async function fetchGames() {
       try {
         setIsLoading(true);
         setGames([]);
+
         if (filter === 'searchGame') {
-          const search = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
-          setGames(search.data.results);
+          req = await api.get(`/${fetchUrl}${debounceSearchTerm}`);
         } else {
-          const req = await api.get(requests[filter]);
-          setGames(req.data.results);
+          req = await api.get(requests[filter]);
         }
       } catch (error) {
         ErrorHandler(`Oops, Something Went Wrong in Our Servers ${error}`);
       } finally {
+        setGames(req.data.results);
         setIsLoading(false);
       }
     }
