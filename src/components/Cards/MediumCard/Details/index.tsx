@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
@@ -21,18 +20,19 @@ import {
 } from './styles';
 
 import Modal from '../../../Modal';
+import IGamesApiDTO from '../../../../dtos/apiDTO';
 
 const MediumCardDetails = ({
   id,
   name,
   rating,
   released,
-  platforms,
+  parent_platforms,
   genres,
-}: any) => {
+}: IGamesApiDTO) => {
   const year = new Date(released).getFullYear();
 
-  const gen = genres.map(genre => genre.name);
+  const gen = genres!.map(genre => genre.name);
 
   const [modal, setModal] = useState(false);
 
@@ -56,7 +56,7 @@ const MediumCardDetails = ({
             </Heading>
 
             <Wrapper>
-              <PlatformsIcons size={24} parent_platforms={platforms} />
+              <PlatformsIcons size={24} parent_platforms={parent_platforms} />
               <Rating>
                 <p>{rating}</p>
                 <AiOutlineStar size={24} color="yellow" />

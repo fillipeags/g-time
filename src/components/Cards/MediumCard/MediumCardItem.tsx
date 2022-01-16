@@ -17,7 +17,6 @@ const MediumCardItem = ({
     <Container>
       <Content
         style={{
-          backgroundSize: 'cover',
           backgroundImage: `linear-gradient(65deg,rgba(0, 0, 0, 1) 2%,rgba(0, 0, 0, 1) 8%,rgba(0, 0, 0, 0.22452731092436973) 76%), url(${background_image})`,
         }}
       >
@@ -34,7 +33,7 @@ const MediumCardItem = ({
           name={name}
           rating={rating}
           released={released}
-          platforms={parent_platforms}
+          parent_platforms={parent_platforms}
           genres={genres}
         />
       </Content>
