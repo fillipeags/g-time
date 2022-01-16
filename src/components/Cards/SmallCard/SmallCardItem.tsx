@@ -4,18 +4,9 @@ import SmallCardDetails from './Details';
 import { Container, GameInfo, Rating } from './styles';
 
 import truncate from '../../../utils/trucate';
+import IGamesApiDTO from '../../../dtos/apiDTO';
 
-interface ISmallCardProps {
-  background_image: string;
-  title: string;
-  rating: number;
-}
-
-const SmallCardItem = ({
-  title,
-  rating,
-  background_image,
-}: ISmallCardProps) => {
+const SmallCardItem = ({ name, rating, background_image }: IGamesApiDTO) => {
   return (
     <Container
       style={{
@@ -24,7 +15,7 @@ const SmallCardItem = ({
       }}
     >
       <GameInfo id="gameInfo">
-        <h4>{truncate(title, 40)}</h4>
+        <h4>{truncate(name, 40)}</h4>
         <Rating>
           <p>{rating}</p>
           <AiOutlineStar size={24} color="yellow" />

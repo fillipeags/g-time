@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
   return (
     <FooterContent>
       <p>
-        <strong>GET IN TOUCH</strong> -{' '}
+        <strong>GET IN TOUCH</strong> -
         <a href="mailto:mail@mail.com">mail@mail.com</a>
       </p>
       <p>

@@ -4,7 +4,14 @@ import Container from './styles';
 
 interface PlatformsIconsProps {
   size?: number;
-  platforms: any;
+  parent_platforms?: [
+    {
+      platform: {
+        id: number;
+        name: string;
+      };
+    },
+  ];
 }
 
 const Icon = ({ name, size }: any) => {
@@ -25,10 +32,12 @@ const platformsTranslator = {
   iOS: 'SiIos',
 };
 
-const PlatformsIcons = ({ size, platforms }: PlatformsIconsProps) => {
+const PlatformsIcons = ({ size, parent_platforms }: PlatformsIconsProps) => {
+  // console.log(JSON.stringify(parent_platforms, null, 4));
+
   return (
     <Container>
-      {platforms.slice(0, 4).map(({ platform }) => (
+      {parent_platforms?.slice(0, 4).map(({ platform }) => (
         <Icon
           name={platformsTranslator[platform.name]}
           size={size}

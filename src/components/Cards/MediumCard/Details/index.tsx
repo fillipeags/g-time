@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
@@ -21,18 +20,29 @@ import {
 } from './styles';
 
 import Modal from '../../../Modal';
+import IGamesApiDTO from '../../../../dtos/apiDTO';
+
+interface IMediumCardDetailsProps extends IGamesApiDTO {
+  hoverId: string;
+
+  name;
+  rating;
+  released;
+  parent_platforms;
+  genres;
+}
 
 const MediumCardDetails = ({
-  id,
+  hoverId,
   name,
   rating,
   released,
-  platforms,
+  parent_platforms,
   genres,
-}: any) => {
-  const year = new Date(released).getFullYear();
+}: IMediumCardDetailsProps) => {
+  const year = new Date(released!).getFullYear();
 
-  const gen = genres.map(genre => genre.name);
+  const gen = genres!.map(genre => genre.name);
 
   const [modal, setModal] = useState(false);
 
@@ -44,7 +54,7 @@ const MediumCardDetails = ({
     <>
       {modal && <Modal toggleModal={toggleModal} showModal={modal} />}
       {!modal && (
-        <Container id={id}>
+        <Container id={hoverId}>
           <PlayContainer>
             <PlayButton>
               <FiPlay size={34} color="white" onClick={toggleModal} />
@@ -56,7 +66,7 @@ const MediumCardDetails = ({
             </Heading>
 
             <Wrapper>
-              <PlatformsIcons size={24} platforms={platforms} />
+              <PlatformsIcons size={24} parent_platforms={parent_platforms} />
               <Rating>
                 <p>{rating}</p>
                 <AiOutlineStar size={24} color="yellow" />
