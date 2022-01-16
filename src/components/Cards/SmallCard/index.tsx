@@ -11,6 +11,7 @@ import useDebounce from '../../../hooks/useDebounce';
 import api from '../../../services/api';
 import ErrorHandler from '../../../helpers/Toast/Error';
 import requests from '../../../services/api/requests';
+import IGamesApiDTO from '../../../dtos/apiDTO';
 
 interface ISmallCardProps {
   searchTerm: string;
@@ -18,15 +19,8 @@ interface ISmallCardProps {
   filter: string;
 }
 
-interface IGameItemProps {
-  id: number;
-  name: string;
-  rating: number;
-  background_image: string;
-}
-
 const SmallCard = ({ searchTerm, fetchUrl, filter }: ISmallCardProps) => {
-  const [games, setGames] = useState<IGameItemProps[]>([]);
+  const [games, setGames] = useState<IGamesApiDTO[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const debounceSearchTerm = useDebounce(searchTerm, 300);
@@ -69,7 +63,7 @@ const SmallCard = ({ searchTerm, fetchUrl, filter }: ISmallCardProps) => {
       {results.map(({ id, name, rating, background_image }) => (
         <SmallCardItem
           key={id}
-          title={name}
+          name={name}
           rating={rating}
           background_image={background_image}
         />
