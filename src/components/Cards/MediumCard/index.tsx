@@ -28,7 +28,7 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
         setGames(res.data.results);
         setLoading(false);
         // eslint-disable-next-line no-console
-        console.log(res);
+        // console.log(res);
       } catch (error) {
         ErrorHandler('Oops, Something Went Wrong in our Servers');
       }

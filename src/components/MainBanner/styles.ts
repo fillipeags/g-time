@@ -10,6 +10,21 @@ export const Container = styled.div`
 
   padding: 0px;
   width: 100%;
+
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    width: 90%;
+    padding: 25px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 90%;
+    padding: 16px;
+  }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    width: 90%;
+    padding: 14px;
+  }
 `;
 
 export const Content = styled.div`
@@ -29,6 +44,38 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    h1 {
+      font-size: 56px;
+    }
+    padding: 20px 0px 10px 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+      font-size: 40px;
+      max-width: 400px;
+    }
+    padding: 20px 0px 20px 30px;
+  }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    h1 {
+      font-size: 40px;
+      max-width: 400px;
+    }
+    padding: 20px 0px 20px 30px;
+  }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    h1 {
+      font-size: 24px;
+      max-width: 250px;
+    }
+
+    padding: 40px 0px 20px 40px;
+  }
 `;
 
 export const Button = styled.button`
@@ -77,6 +124,13 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
 `;
 
 export const Platforms = styled.div`

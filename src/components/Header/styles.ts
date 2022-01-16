@@ -17,6 +17,13 @@ const Container = styled.header`
       color: ${({ theme }) => theme.colors.primary.medium};
     }
   }
+
+  @media (min-width: 425px) and (max-width: 1024px) {
+    h1 {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  }
 `;
 
 export default Container;
