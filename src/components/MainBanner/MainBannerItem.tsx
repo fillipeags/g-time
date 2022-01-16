@@ -22,7 +22,7 @@ const MainBannerItem = ({
           <Button type="button">See Details</Button>
 
           <Platforms>
-            <PlatformsIcons size={30} platforms={parent_platforms} />
+            <PlatformsIcons size={30} parent_platforms={parent_platforms} />
           </Platforms>
         </Wrapper>
       </Content>

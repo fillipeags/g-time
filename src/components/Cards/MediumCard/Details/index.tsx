@@ -56,7 +56,7 @@ const MediumCardDetails = ({
             </Heading>
 
             <Wrapper>
-              <PlatformsIcons size={24} platforms={platforms} />
+              <PlatformsIcons size={24} parent_platforms={platforms} />
               <Rating>
                 <p>{rating}</p>
                 <AiOutlineStar size={24} color="yellow" />
