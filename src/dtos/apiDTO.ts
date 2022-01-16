@@ -1,9 +1,9 @@
 interface IGamesApiDTO {
-  id?: any;
+  id?: number;
   name: string;
   rating?: number;
   background_image?: string;
-  released?: any;
+  released?: string;
 
   dominant_color?: string;
 

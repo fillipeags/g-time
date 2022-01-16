@@ -29,7 +29,7 @@ const MediumCardItem = ({
         </GameInfo>
 
         <MediumCardDetails
-          id="cardHover"
+          hoverId="cardHover"
           name={name}
           rating={rating}
           released={released}
