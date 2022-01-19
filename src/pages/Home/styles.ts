@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  .slick-slide {
-    margin-right: 20px;
+  .slick-slide > div {
+    display: grid;
+    place-items: center;
+    margin: 0px 10px;
   }
 `;
 

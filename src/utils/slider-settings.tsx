@@ -24,13 +24,12 @@ const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
 
 const mainBannerSlider = {
   slidesToScroll: 1,
-  // infinite: true,
+  autoplay: true,
   speed: 600,
+  autoplaySpeed: 2500,
   slidesToShow: 1,
-  prevArrow: <SlickArrowLeft currentSlide={undefined} slideCount={undefined} />,
-  nextArrow: (
-    <SlickArrowRight currentSlide={undefined} slideCount={undefined} />
-  ),
+  dots: false,
+  arrows: false,
   // responsive: [
   //   {
   //     breakpoint: 1366,
@@ -82,6 +81,7 @@ const mainBannerSlider = {
 
 const mediumCardSlider = {
   slidesToScroll: 1,
+  initialSlide: 0,
   // infinite: true,
   speed: 600,
   slidesToShow: 4,
