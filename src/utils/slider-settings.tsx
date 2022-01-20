@@ -2,9 +2,58 @@
 /* eslint-disable react/prop-types */
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
+import styled from 'styled-components';
+
+const PrevIcon = styled(IoIosArrowBack)`
+  width: 40px;
+  height: 40px;
+
+  padding: 10px;
+  border-radius: 100px;
+  z-index: 1;
+
+  background: linear-gradient(
+    83.93deg,
+    #4316db -6.08%,
+    rgba(70, 27, 214, 0.6) 67.34%,
+    rgba(58, 0, 255, 0) 158.91%
+  ) !important;
+
+  &:hover {
+    opacity: 0.8 !important;
+  }
+
+  .slick-disabled {
+    display: none;
+  }
+`;
+
+const NextIcon = styled(IoIosArrowForward)`
+  height: 40px;
+  width: 40px;
+
+  padding: 12px;
+  border-radius: 100px;
+
+  background: linear-gradient(
+    83.93deg,
+    #4316db -6.08%,
+    rgba(70, 27, 214, 0.6) 67.34%,
+    rgba(58, 0, 255, 0) 158.91%
+  ) !important;
+
+  &:hover {
+    opacity: 0.8 !important;
+  }
+
+  .slick-disabled {
+    display: none;
+  }
+`;
+
 const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
   <>
-    <IoIosArrowBack
+    <PrevIcon
       {...props}
       color="white"
       aria-disabled={currentSlide === slideCount - 1}
@@ -14,7 +63,7 @@ const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
 
 const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
   <>
-    <IoIosArrowForward
+    <NextIcon
       {...props}
       color="white"
       aria-disabled={currentSlide === slideCount - 1}
@@ -82,7 +131,7 @@ const mainBannerSlider = {
 const mediumCardSlider = {
   slidesToScroll: 1,
   initialSlide: 0,
-  // infinite: true,
+  // infinite: false,
   speed: 600,
   slidesToShow: 4,
   variableWidth: true,

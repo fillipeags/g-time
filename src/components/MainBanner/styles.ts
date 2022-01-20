@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 60px 0px 40px 2px;
+  margin: 60px 0px 40px 0px;
   border-radius: 25px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
 
@@ -107,7 +107,7 @@ export const Button = styled.button`
 `;
 
 export const MainBannerContainer = styled.div`
-  width: 72vw;
+  width: 75vw;
 `;
 
 export const PlatformsWrapper = styled.div`
