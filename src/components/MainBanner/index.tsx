@@ -11,7 +11,7 @@ import { MainBannerContainer } from './styles';
 import api from '../../services/api';
 import ErrorHandler from '../../helpers/Toast/Error';
 import IGamesApiDTO from '../../dtos/apiDTO';
-import { mainBannerSlider } from '../../utils/slider-settings';
+import { mainBannerSlider } from '../../utils/slider/sliderSettings';
 
 interface IMainBannerProps {
   fetchUrl: string;

@@ -9,7 +9,7 @@ import { CardsContainer } from './styles';
 import api from '../../../services/api';
 import IGamesApiDTO from '../../../dtos/apiDTO';
 import ErrorHandler from '../../../helpers/Toast/Error';
-import { mediumCardSlider } from '../../../utils/slider-settings';
+import { mediumCardSlider } from '../../../utils/slider/sliderSettings';
 
 interface IMediumCardsProps {
   category: string;
