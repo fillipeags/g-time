@@ -21,8 +21,8 @@ const MediumCardSkeleton = () => {
         <h2>
           <Skeleton width="250px" height={40} />
         </h2>
-        <Slider {...mediumCardSlider}>
-          <Wrapper>
+        <Wrapper>
+          <Slider {...mediumCardSlider}>
             {mock.map(index => (
               <Skeleton
                 width="280px"
@@ -31,8 +31,8 @@ const MediumCardSkeleton = () => {
                 key={index}
               />
             ))}
-          </Wrapper>
-        </Slider>
+          </Slider>
+        </Wrapper>
       </CardsContainer>
     </SkeletonTheme>
   );
