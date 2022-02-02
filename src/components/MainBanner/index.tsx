@@ -1,9 +1,9 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import '../../utils/swiper-settings';
 
 import { Toaster } from 'react-hot-toast';
 
+import Slider from 'react-slick';
 import MainBannerItem from './MainBannerItem';
 import MainBannerSkeleton from '../Skeletons/MainBannerSkeleton';
 import { MainBannerContainer } from './styles';
@@ -11,6 +11,7 @@ import { MainBannerContainer } from './styles';
 import api from '../../services/api';
 import ErrorHandler from '../../helpers/Toast/Error';
 import IGamesApiDTO from '../../dtos/apiDTO';
+import { mainBannerSlider } from '../../utils/slider/sliderSettings';
 
 interface IMainBannerProps {
   fetchUrl: string;
@@ -40,23 +41,18 @@ const MainBanner = ({ fetchUrl }: IMainBannerProps) => {
       {loading && <MainBannerSkeleton />}
 
       {!loading && (
-        <Swiper
-          spaceBetween={800}
-          autoplay={{
-            delay: 2500,
-          }}
-          speed={700}
-        >
-          {games.map(({ id, name, background_image, parent_platforms }) => (
-            <SwiperSlide key={id}>
+        <section>
+          <Slider {...mainBannerSlider}>
+            {games.map(({ id, name, background_image, parent_platforms }) => (
               <MainBannerItem
+                key={id}
                 name={name}
                 background_image={background_image}
                 parent_platforms={parent_platforms}
               />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            ))}
+          </Slider>
+        </section>
       )}
 
       <Toaster position="top-center" reverseOrder={false} />

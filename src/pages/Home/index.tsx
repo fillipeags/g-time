@@ -1,4 +1,4 @@
-// import LargeCard from '../../components/Cards/LargeCard';
+import LargeCard from '../../components/Cards/LargeCard';
 
 import Header from '../../components/Header';
 import MainBanner from '../../components/MainBanner';
@@ -23,7 +23,7 @@ const Home = () => {
         <MediumCard category="New Games" fetchUrl={requests.newGames} />
         <MediumCard category="Popular Games" fetchUrl={requests.popularGames} />
 
-        {/* <LargeCard /> */}
+        <LargeCard />
       </Content>
     </Container>
   );

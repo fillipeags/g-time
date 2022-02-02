@@ -21,6 +21,13 @@ export const AvatarContent = styled.div`
   z-index: 9999999;
 
   cursor: pointer;
+
+  @media (min-width: 425px) and (max-width: 1024px) {
+    img {
+      width: 48px;
+      height: 48px;
+    }
+  }
 `;
 
 export const DropDownContainer = styled.div`

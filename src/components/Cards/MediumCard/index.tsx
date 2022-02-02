@@ -1,15 +1,15 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Toaster } from 'react-hot-toast';
-import breakpoints from '../../../utils/swiper-settings';
+import Slider from 'react-slick';
 
 import MediumCardItem from './MediumCardItem';
 import MediumCardSkeleton from '../../Skeletons/MediumCardSkeleton';
 import { CardsContainer } from './styles';
-
 import api from '../../../services/api';
 import IGamesApiDTO from '../../../dtos/apiDTO';
 import ErrorHandler from '../../../helpers/Toast/Error';
+import { mediumCardSlider } from '../../../utils/slider/sliderSettings';
 
 interface IMediumCardsProps {
   category: string;
@@ -28,7 +28,7 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
         setGames(res.data.results);
         setLoading(false);
         // eslint-disable-next-line no-console
-        console.log(res);
+        // console.log(res);
       } catch (error) {
         ErrorHandler('Oops, Something Went Wrong in our Servers');
       }
@@ -44,24 +44,20 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
       {!loading && (
         <>
           <h2>{category}</h2>
-          <Swiper
-            slidesPerView={4}
-            spaceBetween={260}
-            navigation
-            breakpoints={breakpoints}
-          >
-            {games.map(
-              ({
-                id,
-                name,
-                rating,
-                background_image,
-                released,
-                parent_platforms,
-                genres,
-              }) => (
-                <SwiperSlide key={id}>
+          <section>
+            <Slider {...mediumCardSlider}>
+              {games.map(
+                ({
+                  id,
+                  name,
+                  rating,
+                  background_image,
+                  released,
+                  parent_platforms,
+                  genres,
+                }) => (
                   <MediumCardItem
+                    key={id}
                     name={name}
                     rating={rating}
                     background_image={background_image}
@@ -69,10 +65,10 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
                     parent_platforms={parent_platforms}
                     genres={genres}
                   />
-                </SwiperSlide>
-              ),
-            )}
-          </Swiper>
+                ),
+              )}
+            </Slider>
+          </section>
         </>
       )}
 

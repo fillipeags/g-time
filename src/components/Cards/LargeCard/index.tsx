@@ -1,7 +1,7 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+/* eslint-disable react/jsx-props-no-spreading */
 import { useEffect, useState } from 'react';
-import breakpoints from '../../../utils/swiper-settings';
 
+import Slider from 'react-slick';
 import LargeCardItem from './LargeCardItem';
 import { CardsContainer } from './styles';
 
@@ -9,6 +9,7 @@ import IGamesApiDTO from '../../../dtos/apiDTO';
 import api from '../../../services/api';
 import requests from '../../../services/api/requests';
 import ErrorHandler from '../../../helpers/Toast/Error';
+import { largeCardSlider } from '../../../utils/slider/sliderSettings';
 
 const LargeCard = () => {
   const [games, setGames] = useState<IGamesApiDTO[]>([]);
@@ -21,7 +22,7 @@ const LargeCard = () => {
         setGames(res.data.results);
 
         // eslint-disable-next-line no-console
-        console.log(res);
+        // console.log(res);
       } catch (error) {
         ErrorHandler('Oops, Something Went Wrong in our Servers');
       }
@@ -34,17 +35,18 @@ const LargeCard = () => {
     <CardsContainer>
       <h1>Best Scored Games</h1>
       <h3>The best games to be played according to the community</h3>
-      <Swiper slidesPerView={3} spaceBetween={800} breakpoints={breakpoints}>
-        {games.map(({ id, name, rating, background_image }) => (
-          <SwiperSlide key={id}>
+      <section>
+        <Slider {...largeCardSlider}>
+          {games.map(({ id, name, rating, background_image }) => (
             <LargeCardItem
+              key={id}
               background_image={background_image}
               name={name}
               rating={rating}
             />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </Slider>
+      </section>
     </CardsContainer>
   );
 };

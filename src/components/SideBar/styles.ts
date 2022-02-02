@@ -18,6 +18,10 @@ export const Container = styled.div<MenuItemProps>`
   align-items: center;
 
   transition: 0.3s ease-in;
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Content = styled.div`
