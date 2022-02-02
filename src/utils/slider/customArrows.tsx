@@ -22,10 +22,6 @@ const PrevIcon = styled(IoIosArrowBack)`
   &:hover {
     opacity: 0.8 !important;
   }
-
-  .slick-disabled {
-    display: none;
-  }
 `;
 
 const NextIcon = styled(IoIosArrowForward)`

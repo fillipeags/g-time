@@ -3,17 +3,11 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Slider from 'react-slick';
 
-import styled from 'styled-components';
 import { mediumCardSlider } from '../../utils/slider/sliderSettings';
 
 import { CardsContainer } from '../Cards/MediumCard/styles';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const MediumCardSkeleton = () => {
+const LargeCardSkeleton = () => {
   const mock = [1, 2, 3, 4, 5, 6];
   return (
     <SkeletonTheme baseColor="#fafafa22" highlightColor="#ffffff">
@@ -21,8 +15,8 @@ const MediumCardSkeleton = () => {
         <h2>
           <Skeleton width="250px" height={40} />
         </h2>
-        <Slider {...mediumCardSlider}>
-          <Wrapper>
+        <section>
+          <Slider {...mediumCardSlider}>
             {mock.map(index => (
               <Skeleton
                 width="280px"
@@ -31,11 +25,11 @@ const MediumCardSkeleton = () => {
                 key={index}
               />
             ))}
-          </Wrapper>
-        </Slider>
+          </Slider>
+        </section>
       </CardsContainer>
     </SkeletonTheme>
   );
 };
 
-export default MediumCardSkeleton;
+export default LargeCardSkeleton;

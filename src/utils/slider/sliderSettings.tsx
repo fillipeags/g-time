@@ -37,8 +37,8 @@ const largeCardSlider = {
   // infinite: false,
   speed: 600,
   slidesToShow: 1,
-  variableWidth: true,
   adaptiveHeight: true,
+  // adaptiveWidth: true,
   responsive: largeCardResponsive,
   arrows: false,
 };
