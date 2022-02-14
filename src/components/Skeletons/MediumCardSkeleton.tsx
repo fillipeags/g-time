@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const MediumCardSkeleton = () => {
-  const mock = [1, 2, 3, 4, 5, 6];
+  const mock = [1, 2, 3, 4];
   return (
     <SkeletonTheme baseColor="#fafafa22" highlightColor="#ffffff">
       <CardsContainer>

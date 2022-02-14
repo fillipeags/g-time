@@ -1,8 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as Icons from 'react-icons/si';
 import Container from './styles';
 
-interface PlatformsIconsProps {
+interface IIconProps {
+  name: string;
+  size?: number;
+}
+
+interface IPlatformsIconsProps {
   size?: number;
   parent_platforms?: [
     {
@@ -14,7 +18,7 @@ interface PlatformsIconsProps {
   ];
 }
 
-const Icon = ({ name, size }: any) => {
+const Icon = ({ name, size }: IIconProps) => {
   const IconComponent = Icons[name];
 
   return <IconComponent size={size} />;
@@ -32,9 +36,7 @@ const platformsTranslator = {
   iOS: 'SiIos',
 };
 
-const PlatformsIcons = ({ size, parent_platforms }: PlatformsIconsProps) => {
-  // console.log(JSON.stringify(parent_platforms, null, 4));
-
+const PlatformsIcons = ({ size, parent_platforms }: IPlatformsIconsProps) => {
   return (
     <Container>
       {parent_platforms?.slice(0, 4).map(({ platform }) => (

@@ -1,9 +1,8 @@
-import React from 'react';
 import { Routes as Switch, Route } from 'react-router-dom';
 
 import { Home, Search, MyGames, News } from '../pages';
 
-const Routes: React.FC = () => {
+const Routes = () => {
   return (
     <Switch>
       <Route path="/" element={<Home />} />
