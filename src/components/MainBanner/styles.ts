@@ -70,11 +70,13 @@ export const Content = styled.div`
 
   @media (min-width: 425px) and (max-width: 768px) {
     h1 {
-      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      font-size: 32px;
       max-width: 250px;
     }
 
-    padding: 40px 0px 20px 40px;
+    padding: 90px 0px 10px 10px;
   }
 `;
 
@@ -104,6 +106,12 @@ export const Button = styled.button`
     opacity: 0.8;
     transition: 0.3s ease-in-out;
   }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    width: 100%;
+    font-size: 16px;
+    margin-left: -5px;
+  }
 `;
 
 export const MainBannerContainer = styled.div`
@@ -125,11 +133,11 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: 425px) and (max-width: 768px) {
+  @media (max-width: 700px) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 40px;
   }
 `;
 
