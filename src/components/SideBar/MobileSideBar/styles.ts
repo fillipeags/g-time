@@ -1,22 +1,24 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div``;
+
 export const Container = styled.div`
   position: fixed;
   bottom: 20px;
-  left: 55px;
+  left: 50%;
   right: 0;
   z-index: 1000;
 
   //give nav it's own compsite layer
-  will-change: transform;
-  transform: translateZ(0);
+  transform: translate(-50%, 0);
+`;
 
+export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
 
-  height: 85px;
-  width: 80%;
+  height: 60px;
   background: linear-gradient(
     83.93deg,
     #4316db 70.08%,
@@ -26,19 +28,14 @@ export const Container = styled.div`
   border-radius: 60px;
 `;
 
-export const Content = styled.div``;
-
 export const MenuItem = styled.li`
   list-style-type: none;
-
-  /* display: flex;
-  flex-direction: column; */
 `;
 
 export const MenuContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 30px;
 `;
 
 export const OptionContainer = styled.div`
