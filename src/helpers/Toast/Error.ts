@@ -5,7 +5,7 @@ const ErrorHandler = msg => {
     style: {
       borderRadius: '10px',
       background: '#333',
-      color: '#fff',
+      color: '#ffff',
     },
   });
 };
