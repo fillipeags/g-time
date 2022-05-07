@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronDown, FiSettings, FiUser, FiLogOut } from 'react-icons/fi';
 
 import { Toaster } from 'react-hot-toast';
+import { FiChevronDown, FiSettings, FiUser, FiLogOut } from 'react-icons/fi';
+
 import useAuth from '../../hooks/useAuth';
+
 import defaultAvatarImg from '../../assets/defaultAvatarImage.png';
 
 import {
@@ -65,7 +67,9 @@ const MyProfile = () => {
               </Link>
             </DropDownContainer>
           )}
+
           <img src={user ? user.avatar : defaultAvatarImg} alt="User Avatar" />
+
           <FiChevronDown size={24} />
         </AvatarContent>
       ) : (

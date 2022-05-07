@@ -6,15 +6,15 @@ const FooterContent = styled.footer`
   justify-content: space-between;
 `;
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <FooterContent>
       <p>
         <strong>GET IN TOUCH</strong> -
-        <a href="mailto:mail@mail.com">mail@mail.com</a>
+        <a href="fillipe484@gmail.com"> fillipe484@mail.com</a>
       </p>
       <p>
-        <strong>Data Provided By</strong> -
+        <strong>All Data Provided By</strong> -
         <a href="https://rawg.io/apidocs" target="_blank" rel="noreferrer">
           RAWG API
         </a>

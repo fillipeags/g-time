@@ -4,8 +4,8 @@ export const mainBannerResponsive = [
     settings: {
       infinite: true,
       speed: 600,
-      slidesToShow: 6,
-      sliesToScroll: 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -13,8 +13,8 @@ export const mainBannerResponsive = [
     settings: {
       infinite: true,
       speed: 600,
-      slidesToShow: 5,
-      sliesToScroll: 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -22,8 +22,8 @@ export const mainBannerResponsive = [
     settings: {
       infinite: true,
       speed: 600,
-      slidesToShow: 4,
-      sliesToScroll: 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -31,8 +31,8 @@ export const mainBannerResponsive = [
     settings: {
       infinite: true,
       speed: 600,
-      slidesToShow: 3,
-      sliesToScroll: 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -41,7 +41,7 @@ export const mainBannerResponsive = [
       infinite: true,
       speed: 600,
       slidesToShow: 1,
-      sliesToScroll: 1,
+      slidesToScroll: 1,
     },
   },
 ];
@@ -53,7 +53,7 @@ export const mediumCardResponsive = [
       infinite: true,
       speed: 600,
       slidesToShow: 6,
-      sliesToScroll: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -62,7 +62,7 @@ export const mediumCardResponsive = [
       infinite: true,
       speed: 600,
       slidesToShow: 5,
-      sliesToScroll: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -71,7 +71,7 @@ export const mediumCardResponsive = [
       infinite: true,
       speed: 600,
       slidesToShow: 4,
-      sliesToScroll: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -80,7 +80,7 @@ export const mediumCardResponsive = [
       infinite: true,
       speed: 600,
       slidesToShow: 3,
-      sliesToScroll: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -89,7 +89,7 @@ export const mediumCardResponsive = [
       infinite: true,
       speed: 600,
       slidesToShow: 1,
-      sliesToScroll: 1,
+      slidesToScroll: 1,
     },
   },
 ];
@@ -100,8 +100,8 @@ export const largeCardResponsive = [
     settings: {
       infinite: true,
       speed: 600,
-      slidesToShow: 6,
-      sliesToScroll: 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -109,8 +109,8 @@ export const largeCardResponsive = [
     settings: {
       infinite: true,
       speed: 600,
-      slidesToShow: 5,
-      sliesToScroll: 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -118,8 +118,8 @@ export const largeCardResponsive = [
     settings: {
       infinite: true,
       speed: 600,
-      slidesToShow: 4,
-      sliesToScroll: 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -127,8 +127,8 @@ export const largeCardResponsive = [
     settings: {
       infinite: true,
       speed: 600,
-      slidesToShow: 3,
-      sliesToScroll: 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
   },
   {
@@ -137,7 +137,7 @@ export const largeCardResponsive = [
       infinite: true,
       speed: 600,
       slidesToShow: 1,
-      sliesToScroll: 1,
+      slidesToScroll: 1,
     },
   },
 ];

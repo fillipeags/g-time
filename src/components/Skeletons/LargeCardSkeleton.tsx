@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Slider from 'react-slick';

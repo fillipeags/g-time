@@ -8,13 +8,13 @@ const Header = () => {
 
   return (
     <Container>
-      {user ? (
+      {user && (
         <h1>
           Welcome Back, <strong>{user?.name}</strong>
         </h1>
-      ) : (
-        <h1>Welcome to G-TIME</h1>
       )}
+
+      {!user && <h1>Welcome to G-TIME</h1>}
 
       <MyProfile />
     </Container>

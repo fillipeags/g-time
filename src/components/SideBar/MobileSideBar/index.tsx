@@ -7,30 +7,30 @@ import {
   MenuItem,
   Content,
   MenuContainer,
+  Wrapper,
 } from './styles';
 
 const MobileSideBar = () => {
   return (
-    <Container>
-      <Content>
-        <nav>
-          <MenuContainer>
-            {SideBarMenu.map(item => {
-              return (
-                <MenuItem key={item.path}>
-                  <Link to={item.path}>
-                    <OptionContainer>
-                      {item.icon}
-                      <span>{item.title}</span>
-                    </OptionContainer>
-                  </Link>
-                </MenuItem>
-              );
-            })}
-          </MenuContainer>
-        </nav>
-      </Content>
-    </Container>
+    <Wrapper>
+      <Container>
+        <Content>
+          <nav>
+            <MenuContainer>
+              {SideBarMenu.map(item => {
+                return (
+                  <MenuItem key={item.path}>
+                    <Link to={item.path}>
+                      <OptionContainer>{item.icon}</OptionContainer>
+                    </Link>
+                  </MenuItem>
+                );
+              })}
+            </MenuContainer>
+          </nav>
+        </Content>
+      </Container>
+    </Wrapper>
   );
 };
 
