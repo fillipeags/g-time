@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 import FireStoreService from '../../services/database';
 
 interface IGamesProps {
@@ -9,17 +10,22 @@ interface IGamesProps {
 const MyGames = () => {
   const [gameList, setGameList] = useState<IGamesProps[]>([]);
 
-  useEffect(() => {
-    async function getGamesList() {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const data: any = await FireStoreService.getAll();
+  const { user } = useAuth();
 
-      if (data) {
-        setGameList(data);
-      }
+  const getGamesList = async () => {
+    const data: any = await FireStoreService.getAll(user?.id);
+
+    if (data) {
+      setGameList(data);
     }
+  };
 
+  useEffect(() => {
     getGamesList();
+
+    return function cleanup() {
+      setGameList([]);
+    };
   }, []);
 
   return (

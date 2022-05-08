@@ -6,9 +6,19 @@ import { firestore } from './firebase';
 const db = firestore.collection('games');
 
 class FirestoreService {
-  async getAll() {
-    const snapshot = await db.get();
-    return snapshot.docs.map(document => document.data());
+  async getAll(userID) {
+    const snapshotID: any = [];
+
+    // return snapshot.docs.map(document => document.data());
+    const snapshot = await db.get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        if (doc.data().userId === userID) {
+          snapshotID.push(doc.data());
+        }
+      });
+    });
+
+    return snapshotID;
   }
 
   async getOne(id: number | undefined, userID: any) {
