@@ -23,6 +23,7 @@ import {
 import Modal from '../../../Modal';
 import IGamesApiDTO from '../../../../dtos/apiDTO';
 import ErrorHandler from '../../../../helpers/Toast/Error';
+import useAuth from '../../../../hooks/useAuth';
 
 interface IMediumCardDetailsProps extends IGamesApiDTO {
   hoverId: string;
@@ -38,23 +39,41 @@ const MediumCardDetails = ({
   genres,
 }: IMediumCardDetailsProps) => {
   const year = new Date(released!).getFullYear();
-
   const gen = genres!.map(genre => genre.name);
 
   const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [savedToList, setSavedToList] = useState(false);
 
   const toggleModal = useCallback(() => {
     setModal(prevState => !prevState);
   }, []);
 
-  const handleSaveGameToList = async () => {
+  const { user } = useAuth();
+
+  const filterStoredGames = useCallback(async () => {
+    const gameAlreadySaved = await FireStoreService.getOne(id);
+
+    if (gameAlreadySaved[0]) {
+      setSavedToList(true);
+    }
+    setLoading(false);
+  }, [id]);
+
+  useEffect(() => {
+    filterStoredGames();
+  }, [filterStoredGames]);
+
+  const handleStoreGame = async () => {
     const data = { id, name };
 
     const gameAlreadySaved = await FireStoreService.getOne(id);
 
-    if (gameAlreadySaved[0]) {
-      console.log('deletar');
+    if (!user) {
+      ErrorHandler('Sign-in required');
+    } else if (gameAlreadySaved[0]) {
+      FireStoreService.delete(gameAlreadySaved[0]);
+      setSavedToList(false);
     } else {
       FireStoreService.create(data)
         .then(() => {
@@ -64,19 +83,6 @@ const MediumCardDetails = ({
           ErrorHandler(`Oops - ${e}`);
         });
     }
-
-    // if (gameAlreadySaved[0]) {
-    //   FireStoreService.delete(gameAlreadySaved[0]);
-    //   setSavedToList(false);
-    // } else {
-    //   FireStoreService.create(data)
-    //     .then(() => {
-    //       setSavedToList(true);
-    //     })
-    //     .catch(e => {
-    //       ErrorHandler(`Oops - ${e}`);
-    //     });
-    // }
   };
 
   return (
@@ -113,9 +119,15 @@ const MediumCardDetails = ({
 
             <ActionContainer>
               <Button>See More</Button>
-              <Button onClick={handleSaveGameToList}>
-                {savedToList ? 'Remove from List' : 'Add To My Games'}
-              </Button>
+              <>
+                {loading ? (
+                  <Button disabled={loading}>...</Button>
+                ) : (
+                  <Button onClick={handleStoreGame} disabled={loading}>
+                    {savedToList ? 'Remove from List' : 'Add To My Games'}
+                  </Button>
+                )}
+              </>
             </ActionContainer>
           </Content>
         </Container>

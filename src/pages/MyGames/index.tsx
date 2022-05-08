@@ -11,6 +11,7 @@ const MyGames = () => {
 
   useEffect(() => {
     async function getGamesList() {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const data: any = await FireStoreService.getAll();
 
       if (data) {

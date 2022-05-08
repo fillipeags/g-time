@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable class-methods-use-this */
 import { firestore } from './firebase';
 
@@ -12,7 +13,6 @@ class FirestoreService {
   async getOne(id: number | undefined) {
     const snapshotID: number[] = [];
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const snapshot = await db
       .where('id', '==', id)
       .get()
@@ -33,8 +33,17 @@ class FirestoreService {
     return db.doc(id).update(value);
   }
 
-  delete(id) {
-    return db.doc(id).delete();
+  async delete(id: number) {
+    const snapshot = await db
+      .where('id', '==', id)
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          return db.doc(doc.id).delete();
+        });
+      });
+
+    return snapshot;
   }
 }
 
