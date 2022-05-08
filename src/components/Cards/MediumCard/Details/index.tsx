@@ -52,30 +52,34 @@ const MediumCardDetails = ({
   const { user } = useAuth();
 
   const filterStoredGames = useCallback(async () => {
-    const gameAlreadySaved = await FireStoreService.getOne(id);
+    const gameAlreadySaved = await FireStoreService.getOne(id, user?.id);
 
     if (gameAlreadySaved[0]) {
       setSavedToList(true);
     }
     setLoading(false);
-  }, [id]);
+  }, [id, user?.id]);
 
   useEffect(() => {
     filterStoredGames();
   }, [filterStoredGames]);
 
   const handleStoreGame = async () => {
-    const data = { id, name };
+    const data = {
+      id,
+      name,
+    };
 
-    const gameAlreadySaved = await FireStoreService.getOne(id);
+    const gameAlreadySaved = await FireStoreService.getOne(id, user?.id);
 
     if (!user) {
       ErrorHandler('Sign-in required');
     } else if (gameAlreadySaved[0]) {
-      FireStoreService.delete(gameAlreadySaved[0]);
+      FireStoreService.delete(gameAlreadySaved[0], user?.id);
       setSavedToList(false);
     } else {
-      FireStoreService.create(data)
+      FireStoreService.create(data, user!.id)
+
         .then(() => {
           setSavedToList(true);
         })
