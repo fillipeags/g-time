@@ -1,7 +1,8 @@
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import FireStoreService from '../../../../services/database';
 import PlatformsIcons from '../../../PlatformsIcons';
 
 import truncate from '../../../../utils/trucate';
@@ -21,18 +22,14 @@ import {
 
 import Modal from '../../../Modal';
 import IGamesApiDTO from '../../../../dtos/apiDTO';
+import ErrorHandler from '../../../../helpers/Toast/Error';
 
 interface IMediumCardDetailsProps extends IGamesApiDTO {
   hoverId: string;
-
-  name;
-  rating;
-  released;
-  parent_platforms;
-  genres;
 }
 
 const MediumCardDetails = ({
+  id,
   hoverId,
   name,
   rating,
@@ -45,10 +42,42 @@ const MediumCardDetails = ({
   const gen = genres!.map(genre => genre.name);
 
   const [modal, setModal] = useState(false);
+  const [savedToList, setSavedToList] = useState(false);
 
   const toggleModal = useCallback(() => {
     setModal(prevState => !prevState);
   }, []);
+
+  const handleSaveGameToList = async () => {
+    const data = { id, name };
+
+    const gameAlreadySaved = await FireStoreService.getOne(id);
+
+    if (gameAlreadySaved[0]) {
+      console.log('deletar');
+    } else {
+      FireStoreService.create(data)
+        .then(() => {
+          setSavedToList(true);
+        })
+        .catch(e => {
+          ErrorHandler(`Oops - ${e}`);
+        });
+    }
+
+    // if (gameAlreadySaved[0]) {
+    //   FireStoreService.delete(gameAlreadySaved[0]);
+    //   setSavedToList(false);
+    // } else {
+    //   FireStoreService.create(data)
+    //     .then(() => {
+    //       setSavedToList(true);
+    //     })
+    //     .catch(e => {
+    //       ErrorHandler(`Oops - ${e}`);
+    //     });
+    // }
+  };
 
   return (
     <>
@@ -84,7 +113,9 @@ const MediumCardDetails = ({
 
             <ActionContainer>
               <Button>See More</Button>
-              <Button>Add To My Games</Button>
+              <Button onClick={handleSaveGameToList}>
+                {savedToList ? 'Remove from List' : 'Add To My Games'}
+              </Button>
             </ActionContainer>
           </Content>
         </Container>

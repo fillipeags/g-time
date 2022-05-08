@@ -4,8 +4,25 @@ import { firestore } from './firebase';
 const db = firestore.collection('/games');
 
 class FirestoreService {
-  getAll() {
-    return db;
+  async getAll() {
+    const snapshot = await db.get();
+    return snapshot.docs.map(document => document.data());
+  }
+
+  async getOne(id: number | undefined) {
+    const snapshotID: number[] = [];
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const snapshot = await db
+      .where('id', '==', id)
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          return snapshotID.push(doc.data().id);
+        });
+      });
+
+    return snapshotID;
   }
 
   create(value) {
