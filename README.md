@@ -9,11 +9,12 @@
 ### G-time is a platform where you can track all games launched and to be launched and also add those games to your gamelist
 #
 
+### [GO TO G-TIME WEBSITE](https://g-time-7e52e.web.app/)
+
 ![Desktop Image](https://user-images.githubusercontent.com/38387593/167464091-0d900ff1-9be7-4579-b5b8-4079adcf6c1d.png)
 
 ![Mobile Image](https://user-images.githubusercontent.com/38387593/167464385-a53a74bc-bd59-4322-8873-a23c96754e8e.png)
 
-### [GO TO G-TIME WEBSITE](https://g-time-7e52e.web.app/)
 
 ### Built with:
 
