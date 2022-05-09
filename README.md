@@ -1,46 +1,58 @@
-# Getting Started with Create React App
-ddd
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# G-TIME
 
-## Available Scripts
+## About the project:
 
-In the project directory, you can run:
+[![Deploy](https://github.com/fillipeags/g-time/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/fillipeags/g-time/actions/workflows/firebase-hosting-merge.yml)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fg-time-7e52e.web.app%2F)![GitHub last commit](https://img.shields.io/github/last-commit/fillipeags/g-time)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/fillipeags/g-time)
 
-### `yarn start`
+### G-time is a platform where you can track all games launched and to be launched and also add those games to your gamelist
+#
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Desktop Image](https://user-images.githubusercontent.com/38387593/167464091-0d900ff1-9be7-4579-b5b8-4079adcf6c1d.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Mobile Image](https://user-images.githubusercontent.com/38387593/167464385-a53a74bc-bd59-4322-8873-a23c96754e8e.png)
 
-### `yarn test`
+### [GO TO G-TIME WEBSITE](https://g-time-7e52e.web.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Built with:
 
-### `yarn build`
+- [ ]  [Axios](https://axios-http.com/ptbr/docsintro)
+- [ ]  [Firebase (Hosting, FirebaseStore, Social Auth login)](https://firebase.google.com/)
+- [ ]  [React Icons](https://react-icons.github.io/react-icons/)
+- [ ]  [React loading seleton](https://www.npmjs.com/package/react-loading-skeleton)
+- [ ]  [Styled-Components](https://styled-components.com/)
+- [ ]  [React-Slick](https://react-slick.neostack.com/)
+- [ ]  [Husky && Comittzen](https://typicode.github.io/husky/#/)
+- [ ]  [RAWG API](https://rawg.io/apidocs)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built So far:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ]  Home Page
+    - ✅  Main Carrousel Banner with some featured games and main informations about it
+    - ✅  Carrousels with some games based on tags like (Upcoming games New games) and details about them
+    - ✅  Ability to add/remove a game to your gaming list (My Games page) - login required
+- [ ]  Search Page
+    - ✅  Games list with add to games to your list option and details about the game
+    - ✅  Search bar for querying a specific game
+    - ✅  Filters to help you get more games alike
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Backlog:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [ ]  See More page about specific games for helping users view full info about the required game
+- [ ]  Filter Games based on genres
+- [ ]  My Games page cards
+- [ ]  About my Profile page
+- [ ]  News about the gaming world
+- [ ]  Create tests
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+### Wanna Help ?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Fell free to make suggestions or make pull request with any fixes/enhancements you want
