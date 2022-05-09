@@ -1,16 +1,12 @@
 import { Link } from 'react-router-dom';
+import usePathName from '../../../hooks/usePathName';
 import SideBarMenu from '../SideBarMenu';
 
-import {
-  Container,
-  OptionContainer,
-  MenuItem,
-  Content,
-  MenuContainer,
-  Wrapper,
-} from './styles';
+import { Container, MenuItem, Content, MenuContainer, Wrapper } from './styles';
 
 const MobileSideBar = () => {
+  const currentPath = usePathName();
+
   return (
     <Wrapper>
       <Container>
@@ -19,10 +15,8 @@ const MobileSideBar = () => {
             <MenuContainer>
               {SideBarMenu.map(item => {
                 return (
-                  <MenuItem key={item.path}>
-                    <Link to={item.path}>
-                      <OptionContainer>{item.icon}</OptionContainer>
-                    </Link>
+                  <MenuItem key={item.path} active={currentPath === item.path}>
+                    <Link to={item.path}>{item.icon}</Link>
                   </MenuItem>
                 );
               })}

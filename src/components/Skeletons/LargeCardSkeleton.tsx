@@ -8,6 +8,7 @@ import { CardsContainer } from '../Cards/MediumCard/styles';
 
 const LargeCardSkeleton = () => {
   const mock = [1, 2, 3, 4, 5, 6];
+
   return (
     <SkeletonTheme baseColor="#fafafa22" highlightColor="#ffffff">
       <CardsContainer>
