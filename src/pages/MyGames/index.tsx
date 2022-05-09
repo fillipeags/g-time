@@ -1,35 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import useAuth from '../../hooks/useAuth';
 import FireStoreService from '../../services/database';
 
-interface IGamesProps {
+interface IGamesCollection {
   id: number;
   name: string;
+  userId: string;
 }
 
 const MyGames = () => {
-  const [gameList, setGameList] = useState<IGamesProps[]>([]);
+  const [gameList, setGameList] = useState<IGamesCollection[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const { user } = useAuth();
 
-  const getGamesList = async () => {
-    const data: any = await FireStoreService.getAll(user?.id);
-
+  const getGamesList = useCallback(async () => {
+    const data: IGamesCollection[] = await FireStoreService.getAll(user?.id);
     if (data) {
       setGameList(data);
+      setLoading(false);
     }
-  };
+  }, [user?.id]);
 
   useEffect(() => {
+    setLoading(true);
     getGamesList();
-
-    return function cleanup() {
-      setGameList([]);
-    };
-  }, []);
+  }, [getGamesList]);
 
   return (
     <div>
+      {loading && <LoadingSpinner isLoading={loading} />}
       {gameList.map(game => (
         <div key={game.id}>
           <h1>{game.name}</h1>

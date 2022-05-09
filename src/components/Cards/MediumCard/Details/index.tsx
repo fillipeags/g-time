@@ -2,6 +2,8 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
 import { useCallback, useEffect, useState } from 'react';
+import { RotatingLines } from 'react-loader-spinner';
+import toast from 'react-hot-toast';
 import FireStoreService from '../../../../services/database';
 import PlatformsIcons from '../../../PlatformsIcons';
 
@@ -57,6 +59,7 @@ const MediumCardDetails = ({
     if (gameAlreadySaved[0]) {
       setSavedToList(true);
     }
+
     setLoading(false);
   }, [id, user?.id]);
 
@@ -75,17 +78,31 @@ const MediumCardDetails = ({
     if (!user) {
       ErrorHandler('Sign-in required');
     } else if (gameAlreadySaved[0]) {
-      FireStoreService.delete(gameAlreadySaved[0], user?.id);
-      setSavedToList(false);
-    } else {
-      FireStoreService.create(data, user!.id)
-
-        .then(() => {
-          setSavedToList(true);
-        })
-        .catch(e => {
-          ErrorHandler(`Oops - ${e}`);
+      try {
+        await FireStoreService.delete(gameAlreadySaved[0], user?.id);
+        setSavedToList(false);
+        toast.success('Jogo removido com sucesso', {
+          style: {
+            backgroundColor: '#F65F5F',
+            color: '#FFF',
+          },
         });
+      } catch (e) {
+        ErrorHandler(`Oops - ${e}`);
+      }
+    } else {
+      try {
+        await FireStoreService.create(data, user!.id);
+        setSavedToList(true);
+        toast.success('Jogo adicionado com sucesso', {
+          style: {
+            backgroundColor: '#4316DB',
+            color: '#FFF',
+          },
+        });
+      } catch (e) {
+        ErrorHandler(`Oops - ${e}`);
+      }
     }
   };
 
@@ -125,7 +142,9 @@ const MediumCardDetails = ({
               <Button>See More</Button>
               <>
                 {loading ? (
-                  <Button disabled={loading}>...</Button>
+                  <Button disabled={loading}>
+                    <RotatingLines width="26" strokeColor="#FFF" />
+                  </Button>
                 ) : (
                   <Button onClick={handleStoreGame} disabled={loading}>
                     {savedToList ? 'Remove from List' : 'Add To My Games'}

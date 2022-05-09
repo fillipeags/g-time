@@ -5,15 +5,20 @@ import { firestore } from './firebase';
 
 const db = firestore.collection('games');
 
+interface IGamesCollection {
+  id: number;
+  name: string;
+  userId: string;
+}
+
 class FirestoreService {
   async getAll(userID) {
-    const snapshotID: any = [];
+    const snapshotID: IGamesCollection[] = [];
 
-    // return snapshot.docs.map(document => document.data());
     const snapshot = await db.get().then(querySnapshot => {
       querySnapshot.forEach(doc => {
         if (doc.data().userId === userID) {
-          snapshotID.push(doc.data());
+          snapshotID.push(doc.data() as IGamesCollection);
         }
       });
     });
@@ -21,8 +26,8 @@ class FirestoreService {
     return snapshotID;
   }
 
-  async getOne(id: number | undefined, userID: any) {
-    const snapshotID: any = [];
+  async getOne(id: number | undefined, userID: string | undefined) {
+    const snapshotID: number[] = [];
 
     const snapshot = await db
       .where('id', '==', id)
@@ -34,10 +39,11 @@ class FirestoreService {
           }
         });
       });
+
     return snapshotID;
   }
 
-  async create({ id, name }, userId: any) {
+  async create({ id, name }, userId: string | undefined) {
     const user = await firestore
       .collection('user_info')
       .doc(userId)
