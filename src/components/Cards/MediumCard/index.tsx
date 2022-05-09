@@ -58,6 +58,7 @@ const MediumCard = ({ category, fetchUrl }: IMediumCardsProps) => {
                 }) => (
                   <MediumCardItem
                     key={id}
+                    id={id}
                     name={name}
                     rating={rating}
                     background_image={background_image}

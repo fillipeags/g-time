@@ -6,6 +6,7 @@ import MediumCardDetails from './Details';
 import { Container, Content, GameInfo, Rating } from './styles';
 
 const MediumCardItem = ({
+  id,
   name,
   rating,
   background_image,
@@ -29,6 +30,7 @@ const MediumCardItem = ({
         </GameInfo>
 
         <MediumCardDetails
+          id={id}
           hoverId="cardHover"
           name={name}
           rating={rating}

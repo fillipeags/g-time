@@ -1,7 +1,10 @@
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { RotatingLines } from 'react-loader-spinner';
+import toast from 'react-hot-toast';
+import FireStoreService from '../../../../services/database';
 import PlatformsIcons from '../../../PlatformsIcons';
 
 import truncate from '../../../../utils/trucate';
@@ -21,18 +24,15 @@ import {
 
 import Modal from '../../../Modal';
 import IGamesApiDTO from '../../../../dtos/apiDTO';
+import ErrorHandler from '../../../../helpers/Toast/Error';
+import useAuth from '../../../../hooks/useAuth';
 
 interface IMediumCardDetailsProps extends IGamesApiDTO {
   hoverId: string;
-
-  name;
-  rating;
-  released;
-  parent_platforms;
-  genres;
 }
 
 const MediumCardDetails = ({
+  id,
   hoverId,
   name,
   rating,
@@ -41,14 +41,70 @@ const MediumCardDetails = ({
   genres,
 }: IMediumCardDetailsProps) => {
   const year = new Date(released!).getFullYear();
-
   const gen = genres!.map(genre => genre.name);
 
   const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [savedToList, setSavedToList] = useState(false);
 
   const toggleModal = useCallback(() => {
     setModal(prevState => !prevState);
   }, []);
+
+  const { user } = useAuth();
+
+  const filterStoredGames = useCallback(async () => {
+    const gameAlreadySaved = await FireStoreService.getOne(id, user?.id);
+
+    if (gameAlreadySaved[0]) {
+      setSavedToList(true);
+    }
+
+    setLoading(false);
+  }, [id, user?.id]);
+
+  useEffect(() => {
+    filterStoredGames();
+  }, [filterStoredGames]);
+
+  const handleStoreGame = async () => {
+    const data = {
+      id,
+      name,
+    };
+
+    const gameAlreadySaved = await FireStoreService.getOne(id, user?.id);
+
+    if (!user) {
+      ErrorHandler('Sign-in required');
+    } else if (gameAlreadySaved[0]) {
+      try {
+        await FireStoreService.delete(gameAlreadySaved[0], user?.id);
+        setSavedToList(false);
+        toast.success('Jogo removido com sucesso', {
+          style: {
+            backgroundColor: '#F65F5F',
+            color: '#FFF',
+          },
+        });
+      } catch (e) {
+        ErrorHandler(`Oops - ${e}`);
+      }
+    } else {
+      try {
+        await FireStoreService.create(data, user!.id);
+        setSavedToList(true);
+        toast.success('Jogo adicionado com sucesso', {
+          style: {
+            backgroundColor: '#4316DB',
+            color: '#FFF',
+          },
+        });
+      } catch (e) {
+        ErrorHandler(`Oops - ${e}`);
+      }
+    }
+  };
 
   return (
     <>
@@ -84,7 +140,17 @@ const MediumCardDetails = ({
 
             <ActionContainer>
               <Button>See More</Button>
-              <Button>Add To My Games</Button>
+              <>
+                {loading ? (
+                  <Button disabled={loading}>
+                    <RotatingLines width="26" strokeColor="#FFF" />
+                  </Button>
+                ) : (
+                  <Button onClick={handleStoreGame} disabled={loading}>
+                    {savedToList ? 'Remove from List' : 'Add To My Games'}
+                  </Button>
+                )}
+              </>
             </ActionContainer>
           </Content>
         </Container>

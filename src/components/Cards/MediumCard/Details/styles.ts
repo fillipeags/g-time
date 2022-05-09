@@ -129,4 +129,8 @@ export const Button = styled.button`
     opacity: 0.8;
     transition: 0.3s ease-in-out;
   }
+
+  &[disabled] {
+    opacity: 0.6;
+  }
 `;
