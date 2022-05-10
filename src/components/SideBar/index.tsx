@@ -15,20 +15,10 @@ import {
   LogoContainer,
 } from './styles';
 import MobileSideBar from './MobileSideBar';
+import getPageWidth from '../../utils/getPageWidth';
 
-const SideBar = () => {
-  function getWidth() {
-    return Math.max(
-      document.body.scrollWidth,
-      document.documentElement.scrollWidth,
-      document.body.offsetWidth,
-      document.documentElement.offsetWidth,
-      document.documentElement.clientWidth,
-    );
-  }
-
-  const currentWidth = getWidth();
-
+export default function SideBar() {
+  const currentWidth = getPageWidth();
   const currentPath = usePathName();
 
   const sideBarCollapsed = localStorage.getItem('sidebar-collapsed');
@@ -90,6 +80,4 @@ const SideBar = () => {
       )}
     </>
   );
-};
-
-export default SideBar;
+}

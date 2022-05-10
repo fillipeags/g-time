@@ -14,13 +14,14 @@ const Wrapper = styled.div`
 `;
 
 const MediumCardSkeleton = () => {
-  const mock = [1, 2, 3, 4];
+  const mock = [1, 2, 3, 4, 5];
+
   return (
     <SkeletonTheme baseColor="#fafafa22" highlightColor="#ffffff">
       <CardsContainer>
-        <h2>
-          <Skeleton width="250px" height={40} />
-        </h2>
+        <Skeleton width="250px" height={40} style={{ marginLeft: '10px' }} />
+
+        <br />
         <Wrapper>
           <Slider {...mediumCardSlider}>
             {mock.map(index => (

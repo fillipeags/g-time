@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
+interface MenuItemProps {
+  active?: boolean;
+}
+
 export const Wrapper = styled.div``;
 
 export const Container = styled.div`
   position: fixed;
-  bottom: 20px;
+  bottom: 0px;
   left: 50%;
   right: 0;
   z-index: 1000;
 
-  //give nav it's own compsite layer
   transform: translate(-50%, 0);
+
+  width: 100vw;
 `;
 
 export const Content = styled.div`
@@ -18,31 +23,23 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-  height: 60px;
-  background: linear-gradient(
-    83.93deg,
-    #4316db 70.08%,
-    rgba(70, 27, 214, 0.445656) 100%,
-    rgba(58, 0, 255, 0) 120.91%
-  );
-  border-radius: 60px;
-`;
+  padding: 22px;
 
-export const MenuItem = styled.li`
-  list-style-type: none;
+  border-radius: 28px 28px 0px 0px;
+
+  background-color: ${({ theme }) => theme.colors.gray[800]};
 `;
 
 export const MenuContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 60px;
 `;
 
-export const OptionContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const MenuItem = styled.li<MenuItemProps>`
+  list-style-type: none;
 
-  gap: 10px;
-  white-space: nowrap;
+  a {
+    color: ${({ active, theme }) => active && theme.colors.primary.medium};
+  }
 `;
