@@ -35,6 +35,21 @@ export const Filter = styled.div`
     margin-left: -2px;
     margin-right: 10px;
   }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+export const FilterIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const FilterButton = styled.button<IFilterButtonProps>`

@@ -1,4 +1,4 @@
-const getPageWidth = () => {
+export default function getPageWidth() {
   return Math.max(
     document.body.scrollWidth,
     document.documentElement.scrollWidth,
@@ -6,6 +6,4 @@ const getPageWidth = () => {
     document.documentElement.offsetWidth,
     document.documentElement.clientWidth,
   );
-};
-
-export default getPageWidth;
+}

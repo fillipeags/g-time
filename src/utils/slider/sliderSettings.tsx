@@ -1,4 +1,5 @@
 import { SlickArrowLeft, SlickArrowRight } from './customArrows';
+
 import {
   largeCardResponsive,
   mainBannerResponsive,
@@ -19,7 +20,6 @@ const mainBannerSlider = {
 const mediumCardSlider = {
   slidesToScroll: 1,
   initialSlide: 0,
-  // infinite: false,
   speed: 600,
   slidesToShow: 4,
   variableWidth: true,
@@ -34,11 +34,9 @@ const mediumCardSlider = {
 const largeCardSlider = {
   slidesToScroll: 1,
   initialSlide: 0,
-  // infinite: false,
   speed: 600,
   slidesToShow: 1,
   adaptiveHeight: true,
-  // adaptiveWidth: true,
   responsive: largeCardResponsive,
   arrows: false,
 };

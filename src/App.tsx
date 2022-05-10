@@ -11,7 +11,7 @@ import Routes from './routes';
 
 import { AuthContextProvider } from './contexts/AuthContext';
 
-const App = () => {
+export default function App() {
   return (
     <BrowserRouter>
       <AuthContextProvider>
@@ -27,6 +27,4 @@ const App = () => {
       </AuthContextProvider>
     </BrowserRouter>
   );
-};
-
-export default App;
+}

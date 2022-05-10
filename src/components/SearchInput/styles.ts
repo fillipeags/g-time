@@ -27,4 +27,8 @@ export const Search = styled.input`
     padding-left: 5px;
   }
   outline: none;
+
+  @media (max-width: 425px) {
+    font-size: 16px;
+  }
 `;
