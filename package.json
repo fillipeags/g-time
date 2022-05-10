@@ -31,7 +31,7 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "commit": "git-cz",
-    "prod": "env-cmd -f .env.production yarn build "
+    "prod": "env-cmd -f .env yarn build "
   },
   "browserslist": {
     "production": [
