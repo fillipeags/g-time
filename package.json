@@ -29,7 +29,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "build:prod": "env-cmd -f .env yarn build "
   },
   "browserslist": {
     "production": [
@@ -58,6 +59,7 @@
     "@typescript-eslint/parser": "^4.25.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "3.3.0",
+    "env-cmd": "^10.1.0",
     "eslint": "^7.27.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",

@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "g-time-7e52e"
-  }
+    "default": "g-time-7e52e",
+    "prod": "g-time-7e52e"
+  },
+  "targets": {}
 }
