@@ -28,6 +28,15 @@ export const AvatarContent = styled.div`
       height: 48px;
     }
   }
+
+  @media (max-width: 425px) {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    gap: 8px;
+  }
 `;
 
 export const DropDownContainer = styled.div`
@@ -99,5 +108,9 @@ export const Login = styled.button`
   &:hover {
     opacity: 0.8;
     transition: 0.4s ease-in-out;
+  }
+
+  @media (max-width: 425px) {
+    width: 100px;
   }
 `;

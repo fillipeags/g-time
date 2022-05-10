@@ -18,6 +18,10 @@ export const HeaderContainer = styled.div`
   gap: 40px;
 
   margin-bottom: 20px;
+
+  @media (max-width: 425px) {
+    gap: 18px;
+  }
 `;
 
 export const FilterIcon = styled(FiBarChart)`

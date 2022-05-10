@@ -18,21 +18,22 @@ import {
 
 const MyProfile = () => {
   const [dropdown, setDropdown] = useState(false);
+
   const { signInWithGoogle, signOut, user } = useAuth();
 
-  async function handleSignIn() {
+  const handleSignIn = async () => {
     if (!user) {
       await signInWithGoogle();
     }
-  }
+  };
 
-  function handleSignOut() {
+  const handleSignOut = () => {
     signOut();
-  }
+  };
 
-  function handleDropdownClick() {
+  const handleDropdownClick = () => {
     setDropdown(!dropdown);
-  }
+  };
 
   return (
     <AvatarContainer>
