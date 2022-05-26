@@ -22,6 +22,7 @@ const Container = styled.header`
     h1 {
       margin-top: 20px;
       font-size: 24px;
+      margin-right: 40px;
     }
   }
 `;

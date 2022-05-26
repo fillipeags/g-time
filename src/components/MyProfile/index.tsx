@@ -2,7 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Toaster } from 'react-hot-toast';
-import { FiChevronDown, FiSettings, FiUser, FiLogOut } from 'react-icons/fi';
+import {
+  FiChevronDown,
+  FiSettings,
+  FiUser,
+  FiLogOut,
+  FiX,
+} from 'react-icons/fi';
 
 import useAuth from '../../hooks/useAuth';
 
@@ -71,7 +77,7 @@ const MyProfile = () => {
 
           <img src={user ? user.avatar : defaultAvatarImg} alt="User Avatar" />
 
-          <FiChevronDown size={24} />
+          {dropdown ? <FiX size={24} /> : <FiChevronDown size={24} />}
         </AvatarContent>
       ) : (
         <Login onClick={() => handleSignIn()}>Sign In</Login>

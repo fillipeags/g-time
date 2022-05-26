@@ -71,6 +71,19 @@ export const DropDownContainer = styled.div`
     margin-top: 6px;
     width: 160px;
   }
+
+  @media (max-width: 425px) {
+    top: 0;
+    right: 0;
+
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0px;
+
+    gap: 90px;
+
+    background: ${({ theme }) => theme.colors.primary.medium};
+  }
 `;
 
 export const Option = styled.div`
