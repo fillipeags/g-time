@@ -58,7 +58,7 @@ const SmallCard = ({ searchTerm, fetchUrl, filter }: ISmallCardProps) => {
 
   return (
     <CardsContainer>
-      <LoadingSpinner isLoading={isLoading} />
+      <LoadingSpinner isLoading={isLoading} size={240} />
       <Toaster position="top-center" reverseOrder={false} />
       {results.map(({ id, name, rating, background_image }) => (
         <SmallCardItem

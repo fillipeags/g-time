@@ -30,7 +30,7 @@ const MyGames = () => {
 
   return (
     <div>
-      {loading && <LoadingSpinner isLoading={loading} />}
+      {loading && <LoadingSpinner isLoading={loading} size={240} />}
       {gameList.map(game => (
         <div key={game.id}>
           <h1>{game.name}</h1>

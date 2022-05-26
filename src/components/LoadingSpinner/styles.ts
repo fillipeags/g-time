@@ -1,14 +1,25 @@
 import styled from 'styled-components';
 
+interface ISpinnerProps {
+  size?: number;
+}
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 425px) {
+    h1 {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+  }
 `;
 
-export const Spinner = styled.div`
-  width: 240px;
-  height: 240px;
+export const Spinner = styled.div<ISpinnerProps>`
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
 
   margin: 60px;
 
@@ -35,5 +46,11 @@ export const Spinner = styled.div`
     100% {
       transform: rotate(360deg);
     }
+  }
+
+  @media (max-width: 425px) {
+    width: calc(${({ size }) => size}px / 2);
+    height: calc(${({ size }) => size}px / 2);
+    margin-top: 0px;
   }
 `;
