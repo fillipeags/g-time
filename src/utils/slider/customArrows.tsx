@@ -22,13 +22,18 @@ const PrevIcon = styled(IoIosArrowBack)`
   &:hover {
     opacity: 0.8 !important;
   }
+
+  @media (max-width: 400px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const NextIcon = styled(IoIosArrowForward)`
   height: 40px;
   width: 40px;
 
-  padding: 12px;
+  padding: 10px;
   border-radius: 100px;
 
   background: linear-gradient(
@@ -44,6 +49,11 @@ const NextIcon = styled(IoIosArrowForward)`
 
   .slick-disabled {
     display: none;
+  }
+
+  @media (max-width: 400px) {
+    width: 30px;
+    height: 30px;
   }
 `;
 

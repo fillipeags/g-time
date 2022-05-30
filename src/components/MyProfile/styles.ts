@@ -28,6 +28,15 @@ export const AvatarContent = styled.div`
       height: 48px;
     }
   }
+
+  @media (max-width: 425px) {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    gap: 8px;
+  }
 `;
 
 export const DropDownContainer = styled.div`
@@ -61,6 +70,19 @@ export const DropDownContainer = styled.div`
     margin: 0;
     margin-top: 6px;
     width: 160px;
+  }
+
+  @media (max-width: 425px) {
+    top: 0;
+    right: 0;
+
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0px;
+
+    gap: 90px;
+
+    background: ${({ theme }) => theme.colors.primary.medium};
   }
 `;
 
@@ -99,5 +121,9 @@ export const Login = styled.button`
   &:hover {
     opacity: 0.8;
     transition: 0.4s ease-in-out;
+  }
+
+  @media (max-width: 425px) {
+    width: 100px;
   }
 `;

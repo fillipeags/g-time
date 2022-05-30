@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable class-methods-use-this */
-import useAuth from '../hooks/useAuth';
+
 import { firestore } from './firebase';
 
 const db = firestore.collection('games');

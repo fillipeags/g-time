@@ -23,7 +23,6 @@ export const Container = styled.div`
 
   @media (min-width: 425px) and (max-width: 768px) {
     width: 90%;
-    padding: 14px;
   }
 `;
 
@@ -62,14 +61,6 @@ export const Content = styled.div`
 
   @media (min-width: 425px) and (max-width: 768px) {
     h1 {
-      font-size: 40px;
-      max-width: 400px;
-    }
-    padding: 20px 0px 20px 30px;
-  }
-
-  @media (min-width: 425px) and (max-width: 768px) {
-    h1 {
       display: flex;
       justify-content: center;
       font-size: 32px;
@@ -77,6 +68,14 @@ export const Content = styled.div`
     }
 
     padding: 90px 0px 10px 10px;
+  }
+
+  @media (max-width: 425px) {
+    h1 {
+      font-size: 30px;
+    }
+
+    padding: 60px 0px 20px 20px;
   }
 `;
 
@@ -111,6 +110,11 @@ export const Button = styled.button`
     width: 100%;
     font-size: 16px;
     margin-left: -5px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 14px;
+    width: 50%;
   }
 `;
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import requests from '../../services/api/requests';
 
@@ -11,6 +11,7 @@ import {
   Filter,
   FilterButton,
   FilterIcon,
+  FilterIconContainer,
   HeaderContainer,
   ResetButton,
 } from './styles';
@@ -19,7 +20,7 @@ export interface ISearchProps {
   target: HTMLInputElement;
 }
 
-const Search: React.FC = () => {
+export default function Search() {
   const filterOptions = ['Popular', 'New Games', 'Upcoming Games'];
 
   const filterTranslation = {
@@ -30,7 +31,6 @@ const Search: React.FC = () => {
   };
 
   const [active, setActive] = useState('');
-
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchInput = (event: ISearchProps) => {
@@ -48,8 +48,10 @@ const Search: React.FC = () => {
       </HeaderContainer>
 
       <Filter>
-        <FilterIcon size={28} color="#DEE3ED" />
-        <p>Quick Filter</p>
+        <FilterIconContainer>
+          <FilterIcon size={28} color="#DEE3ED" />
+          <p>Quick Filter</p>
+        </FilterIconContainer>
 
         {filterOptions.map(type => (
           <FilterButton
@@ -74,6 +76,4 @@ const Search: React.FC = () => {
       />
     </Container>
   );
-};
-
-export default Search;
+}

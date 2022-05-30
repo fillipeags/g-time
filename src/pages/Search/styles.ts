@@ -18,6 +18,10 @@ export const HeaderContainer = styled.div`
   gap: 40px;
 
   margin-bottom: 20px;
+
+  @media (max-width: 425px) {
+    gap: 18px;
+  }
 `;
 
 export const FilterIcon = styled(FiBarChart)`
@@ -35,6 +39,21 @@ export const Filter = styled.div`
     margin-left: -2px;
     margin-right: 10px;
   }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+export const FilterIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const FilterButton = styled.button<IFilterButtonProps>`

@@ -2,7 +2,7 @@ import { Routes as Switch, Route } from 'react-router-dom';
 
 import { Home, Search, MyGames, News } from '../pages';
 
-const Routes = () => {
+export default function Routes() {
   return (
     <Switch>
       <Route path="/" element={<Home />} />
@@ -11,6 +11,4 @@ const Routes = () => {
       <Route path="/news" element={<News />} />
     </Switch>
   );
-};
-
-export default Routes;
+}

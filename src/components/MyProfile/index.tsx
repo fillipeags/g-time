@@ -1,8 +1,15 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { FiChevronDown, FiSettings, FiUser, FiLogOut } from 'react-icons/fi';
+
+import {
+  FiChevronDown,
+  FiSettings,
+  FiUser,
+  FiLogOut,
+  FiX,
+} from 'react-icons/fi';
 
 import useAuth from '../../hooks/useAuth';
 
@@ -18,21 +25,22 @@ import {
 
 const MyProfile = () => {
   const [dropdown, setDropdown] = useState(false);
+
   const { signInWithGoogle, signOut, user } = useAuth();
 
-  async function handleSignIn() {
+  const handleSignIn = async () => {
     if (!user) {
       await signInWithGoogle();
     }
-  }
+  };
 
-  function handleSignOut() {
+  const handleSignOut = () => {
     signOut();
-  }
+  };
 
-  function handleDropdownClick() {
+  const handleDropdownClick = () => {
     setDropdown(!dropdown);
-  }
+  };
 
   return (
     <AvatarContainer>
@@ -68,9 +76,12 @@ const MyProfile = () => {
             </DropDownContainer>
           )}
 
-          <img src={user ? user.avatar : defaultAvatarImg} alt="User Avatar" />
+          <img
+            src={user.avatar !== '' ? user.avatar : defaultAvatarImg}
+            alt="User Avatar"
+          />
 
-          <FiChevronDown size={24} />
+          {dropdown ? <FiX size={24} /> : <FiChevronDown size={24} />}
         </AvatarContent>
       ) : (
         <Login onClick={() => handleSignIn()}>Sign In</Login>

@@ -1,8 +1,4 @@
-import {
-  currentDate,
-  lastYear,
-  nextYear,
-} from '../../utils/date-query-request';
+import { currentDate, lastYear, nextYear } from '../../utils/dateFilters';
 
 const apiKey = process.env.REACT_APP_RAWG_API_KEY;
 
@@ -11,6 +7,7 @@ const requests = {
   upcomingGames: `games?key=${apiKey}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`,
   newGames: `games?key=${apiKey}&dates=${lastYear},${currentDate}&ordering=-released&page_size=10`,
   searchGame: `games?key=${apiKey}&search=`,
+  getSpecificGame: `games/:id?key=${apiKey}`,
   gameByGenre: `games?key=${apiKey}&genres=`,
   gamesByPlatform: `games?key=${apiKey}&platforms=`,
   gameDetails: `games?key=${apiKey}`,

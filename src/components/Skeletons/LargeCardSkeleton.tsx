@@ -1,9 +1,9 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+
 import Slider from 'react-slick';
 
 import { mediumCardSlider } from '../../utils/slider/sliderSettings';
-
 import { CardsContainer } from '../Cards/MediumCard/styles';
 
 const LargeCardSkeleton = () => {

@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
-import LoadingSpinner from '../../components/LoadingSpinner';
+
 import useAuth from '../../hooks/useAuth';
 import FireStoreService from '../../services/database';
+
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 interface IGamesCollection {
   id: number;
@@ -30,7 +32,7 @@ const MyGames = () => {
 
   return (
     <div>
-      {loading && <LoadingSpinner isLoading={loading} />}
+      {loading && <LoadingSpinner isLoading={loading} size={240} />}
       {gameList.map(game => (
         <div key={game.id}>
           <h1>{game.name}</h1>

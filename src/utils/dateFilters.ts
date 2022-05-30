@@ -1,12 +1,11 @@
-// Getting the date to get the popular, upcoming and recent games
-const getCurrentMonth = () => {
+export const getCurrentMonth = () => {
   const month = new Date().getMonth() + 1;
   if (month < 10) {
     return `0${month}`;
   }
   return month;
 };
-const getCurrentDay = () => {
+export const getCurrentDay = () => {
   const day = new Date().getDate();
   if (day < 10) {
     return `0${day}`;
