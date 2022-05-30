@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const MediumCardSkeleton = () => {
-  const mock = [1, 2, 3, 4, 5];
+  const mock = [1, 2, 3, 4];
 
   return (
     <SkeletonTheme baseColor="#fafafa22" highlightColor="#ffffff">
@@ -26,7 +26,7 @@ const MediumCardSkeleton = () => {
           <Slider {...mediumCardSlider}>
             {mock.map(index => (
               <Skeleton
-                width="280px"
+                width="250px"
                 height={400}
                 style={{ marginRight: '40px' }}
                 key={index}

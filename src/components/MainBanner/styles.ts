@@ -23,7 +23,6 @@ export const Container = styled.div`
 
   @media (min-width: 425px) and (max-width: 768px) {
     width: 90%;
-    padding: 14px;
   }
 `;
 
@@ -76,7 +75,7 @@ export const Content = styled.div`
       font-size: 30px;
     }
 
-    padding: 60px 0px 20px 10px;
+    padding: 60px 0px 20px 20px;
   }
 `;
 

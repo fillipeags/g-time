@@ -67,4 +67,8 @@ export const Content = styled.main`
   margin: 40px 40px;
 
   justify-content: start;
+
+  @media (max-width: 425px) {
+    margin: 20px;
+  }
 `;

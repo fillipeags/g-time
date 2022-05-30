@@ -11,6 +11,10 @@ export const Container = styled.div`
     transform: scaleY(0.4);
     transform-origin: bottom;
     transition: transform 0.4s ease-out;
+
+    @media (max-width: 425px) {
+      transform: scaleY(0.95);
+    }
   }
 
   &:hover {
@@ -46,7 +50,7 @@ export const Content = styled.div`
   background-position: center center;
 
   @media (max-width: 425px) {
-    width: 260px;
+    width: 280px;
   }
 `;
 
