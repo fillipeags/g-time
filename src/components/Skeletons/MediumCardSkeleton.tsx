@@ -1,11 +1,11 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import styled from 'styled-components';
+
 import 'react-loading-skeleton/dist/skeleton.css';
+
 import Slider from 'react-slick';
 
-import styled from 'styled-components';
 import { mediumCardSlider } from '../../utils/slider/sliderSettings';
-
 import { CardsContainer } from '../Cards/MediumCard/styles';
 
 const Wrapper = styled.div`

@@ -21,8 +21,15 @@ const Container = styled.header`
   @media (min-width: 425px) and (max-width: 1024px) {
     h1 {
       margin-top: 20px;
-      font-size: 24px;
+      font-size: 22px;
       margin-right: 40px;
+    }
+  }
+
+  @media (max-width: 425px) {
+    h1 {
+      font-size: 20px;
+      width: 180px;
     }
   }
 `;

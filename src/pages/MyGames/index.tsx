@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
-import LoadingSpinner from '../../components/LoadingSpinner';
+
 import useAuth from '../../hooks/useAuth';
 import FireStoreService from '../../services/database';
+
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 interface IGamesCollection {
   id: number;

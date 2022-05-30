@@ -19,6 +19,11 @@ export const Content = styled.div`
   padding: 0px 20px;
 
   gap: 4px;
+
+  @media (max-width: 425px) {
+    gap: 10px;
+    height: 300px;
+  }
 `;
 
 export const PlayContainer = styled.div`

@@ -1,16 +1,15 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { useEffect, useState } from 'react';
-
 import { Toaster } from 'react-hot-toast';
 
 import Slider from 'react-slick';
-import MainBannerItem from './MainBannerItem';
-import MainBannerSkeleton from '../Skeletons/MainBannerSkeleton';
-import { MainBannerContainer } from './styles';
-
 import api from '../../services/api';
 import ErrorHandler from '../../helpers/Toast/Error';
 import IGamesApiDTO from '../../dtos/apiDTO';
+
+import MainBannerItem from './MainBannerItem';
+import MainBannerSkeleton from '../Skeletons/MainBannerSkeleton';
+
+import { MainBannerContainer } from './styles';
 import { mainBannerSlider } from '../../utils/slider/sliderSettings';
 
 interface IMainBannerProps {

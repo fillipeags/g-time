@@ -44,6 +44,10 @@ export const Content = styled.div`
   align-items: flex-end;
 
   background-position: center center;
+
+  @media (max-width: 425px) {
+    width: 260px;
+  }
 `;
 
 export const GameInfo = styled.div`
@@ -65,6 +69,13 @@ export const GameInfo = styled.div`
   }
 
   margin-bottom: 10px;
+
+  @media (max-width: 425px) {
+    h4 {
+      font-size: 20px;
+      width: 220px;
+    }
+  }
 `;
 
 export const Rating = styled.div`

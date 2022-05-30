@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+
 import {
   FiChevronDown,
   FiSettings,
@@ -75,7 +76,10 @@ const MyProfile = () => {
             </DropDownContainer>
           )}
 
-          <img src={user ? user.avatar : defaultAvatarImg} alt="User Avatar" />
+          <img
+            src={user.avatar !== '' ? user.avatar : defaultAvatarImg}
+            alt="User Avatar"
+          />
 
           {dropdown ? <FiX size={24} /> : <FiChevronDown size={24} />}
         </AvatarContent>
