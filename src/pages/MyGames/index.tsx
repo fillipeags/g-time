@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
+import { MdVideogameAssetOff } from 'react-icons/md';
 import LargeCard from '../../components/Cards/LargeCard';
+import Header from '../../components/Header';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import useAuth from '../../hooks/useAuth';
 import api from '../../services/api';
 import requests from '../../services/api/requests';
 import FireStoreService from '../../services/database';
-import { Container, Content } from './styles';
+import { Container, Content, Unauthorized } from './styles';
 
 interface IDatabaseInfo {
   id: number;
@@ -22,11 +24,12 @@ interface IGamesList {
 
 const MyGames = () => {
   const [gameList, setGameList] = useState<IGamesList[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const { user } = useAuth();
 
   const getGamesList = useCallback(async () => {
+    setLoading(true);
     const firebaseData: IDatabaseInfo[] = await FireStoreService.getAll(
       user?.id,
     );
@@ -43,17 +46,21 @@ const MyGames = () => {
           setLoading(false);
         }
       });
+
+      setLoading(false);
     }
   }, [user?.id]);
 
   useEffect(() => {
-    setLoading(true);
-    getGamesList();
-  }, [getGamesList]);
+    if (user) {
+      getGamesList();
+    }
+  }, [getGamesList, user]);
 
   return (
     <Container>
-      <h1>My Games</h1>
+      <Header />
+      {user && <h1>My Games</h1>}
       {loading && <LoadingSpinner isLoading={loading} size={240} />}
       <Content>
         {gameList.map(({ id, name, background_image, rating }) => (
@@ -64,6 +71,12 @@ const MyGames = () => {
             rating={rating}
           />
         ))}
+        {!loading && gameList.length === 0 && (
+          <Unauthorized>
+            <h1>Login First To See Your Games</h1>
+            <MdVideogameAssetOff size={180} />
+          </Unauthorized>
+        )}
       </Content>
     </Container>
   );
