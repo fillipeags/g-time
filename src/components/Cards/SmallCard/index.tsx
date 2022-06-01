@@ -1,17 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
-
 import { MdError } from 'react-icons/md';
-import SmallCardItem from './SmallCardItem';
-import LoadingSpinner from '../../LoadingSpinner';
-
-import { CardsContainer, ItemNotFoundContainer } from './styles';
-
+import IGamesApiDTO from '../../../dtos/apiDTO';
+import ErrorHandler from '../../../helpers/Toast/Error';
 import useDebounce from '../../../hooks/useDebounce';
 import api from '../../../services/api';
-import ErrorHandler from '../../../helpers/Toast/Error';
 import requests from '../../../services/api/requests';
-import IGamesApiDTO from '../../../dtos/apiDTO';
+import LoadingSpinner from '../../LoadingSpinner';
+import SmallCardItem from './SmallCardItem';
+import { CardsContainer, ItemNotFoundContainer } from './styles';
 
 interface ISmallCardProps {
   searchTerm: string;
@@ -66,6 +63,7 @@ const SmallCard = ({ searchTerm, fetchUrl, filter }: ISmallCardProps) => {
           name={name}
           rating={rating}
           background_image={background_image}
+          id={id}
         />
       ))}
 

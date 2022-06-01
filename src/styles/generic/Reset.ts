@@ -66,7 +66,7 @@ export const Content = styled.main`
 
   margin: 40px 40px;
 
-  justify-content: start;
+  justify-content: space-between;
 
   @media (max-width: 425px) {
     margin: 20px;
