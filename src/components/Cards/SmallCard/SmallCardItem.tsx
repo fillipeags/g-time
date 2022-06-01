@@ -1,12 +1,15 @@
 import { AiOutlineStar } from 'react-icons/ai';
-
+import IGamesApiDTO from '../../../dtos/apiDTO';
+import truncate from '../../../utils/trucate';
 import SmallCardDetails from './Details';
 import { Container, GameInfo, Rating } from './styles';
 
-import truncate from '../../../utils/trucate';
-import IGamesApiDTO from '../../../dtos/apiDTO';
-
-const SmallCardItem = ({ name, rating, background_image }: IGamesApiDTO) => {
+const SmallCardItem = ({
+  id,
+  name,
+  rating,
+  background_image,
+}: IGamesApiDTO) => {
   return (
     <Container
       style={{
@@ -21,7 +24,7 @@ const SmallCardItem = ({ name, rating, background_image }: IGamesApiDTO) => {
           <AiOutlineStar size={24} color="yellow" />
         </Rating>
       </GameInfo>
-      <SmallCardDetails id="cardHover" />
+      <SmallCardDetails id="cardHover" gameId={id!} name={name} />
     </Container>
   );
 };
