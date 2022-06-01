@@ -4,7 +4,7 @@ export const Container = styled.main``;
 
 export const Content = styled.section`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
 `;
 

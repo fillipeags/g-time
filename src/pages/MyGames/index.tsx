@@ -29,7 +29,6 @@ const MyGames = () => {
   const { user } = useAuth();
 
   const getGamesList = useCallback(async () => {
-    setLoading(true);
     const firebaseData: IDatabaseInfo[] = await FireStoreService.getAll(
       user?.id,
     );
@@ -46,13 +45,12 @@ const MyGames = () => {
           setLoading(false);
         }
       });
-
-      setLoading(false);
     }
   }, [user?.id]);
 
   useEffect(() => {
     if (user) {
+      setLoading(true);
       getGamesList();
     }
   }, [getGamesList, user]);

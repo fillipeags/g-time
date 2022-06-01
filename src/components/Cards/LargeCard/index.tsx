@@ -1,5 +1,6 @@
 import { AiOutlineStar } from 'react-icons/ai';
 import IGamesApiDTO from '../../../dtos/apiDTO';
+import truncate from '../../../utils/trucate';
 import { Button, CardBanner, Container, Description, GameInfo } from './styles';
 
 const LargeCard = ({ background_image, name, rating }: IGamesApiDTO) => {
@@ -11,7 +12,7 @@ const LargeCard = ({ background_image, name, rating }: IGamesApiDTO) => {
 
       <GameInfo>
         <Description>
-          <p>{name} </p>
+          <p>{truncate(name, 18)} </p>
           <p>{rating}</p>
           <AiOutlineStar size={24} color="yellow" />
         </Description>

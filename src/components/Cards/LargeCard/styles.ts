@@ -1,19 +1,23 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 600px;
+  width: 400px;
+
+  @media (max-width: 425px) {
+    width: 280px;
+  }
 `;
 
 export const CardBanner = styled.div`
   img {
-    width: 600px;
+    width: 400px;
     border-radius: 20px;
     box-shadow: 1px 0px 20px 1px rgba(255, 255, 255, 0.2);
-    height: 350px;
+    height: 250px;
 
     @media (max-width: 425px) {
-      width: 350px;
-      height: 200px;
+      width: 280px;
+      height: 150px;
     }
   }
 `;
@@ -35,7 +39,7 @@ export const GameInfo = styled.div`
 export const Description = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 4px;
 `;
 
 export const Button = styled.button`
