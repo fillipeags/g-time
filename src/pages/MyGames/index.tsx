@@ -1,12 +1,11 @@
-/* eslint-disable array-callback-return */
 import { useCallback, useEffect, useState } from 'react';
-import LargeCardItem from '../../components/Cards/LargeCard/LargeCardItem';
+import LargeCard from '../../components/Cards/LargeCard';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import useAuth from '../../hooks/useAuth';
 import api from '../../services/api';
 import requests from '../../services/api/requests';
 import FireStoreService from '../../services/database';
-import Container from './styles';
+import { Container, Content } from './styles';
 
 interface IDatabaseInfo {
   id: number;
@@ -53,20 +52,20 @@ const MyGames = () => {
   }, [getGamesList]);
 
   return (
-    <div>
+    <Container>
       <h1>My Games</h1>
       {loading && <LoadingSpinner isLoading={loading} size={240} />}
-      <Container>
+      <Content>
         {gameList.map(({ id, name, background_image, rating }) => (
-          <LargeCardItem
+          <LargeCard
             key={id}
             background_image={background_image}
             name={name}
             rating={rating}
           />
         ))}
-      </Container>
-    </div>
+      </Content>
+    </Container>
   );
 };
 

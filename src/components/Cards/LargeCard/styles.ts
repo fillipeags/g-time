@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 40px;
-`;
-
-export const Content = styled.div`
   width: 600px;
-  height: 100%;
 `;
 
 export const CardBanner = styled.div`
   img {
     width: 600px;
     border-radius: 20px;
-    box-shadow: 1px 0px 20px 1px rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 0px 20px 1px rgba(255, 255, 255, 0.2);
     height: 350px;
+
+    @media (max-width: 425px) {
+      width: 350px;
+      height: 200px;
+    }
   }
 `;
 
@@ -22,35 +22,34 @@ export const GameInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  gap: 20px;
+  margin-bottom: 40px;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    gap: 0px;
+  }
 `;
 
-export const Title = styled.div`
+export const Description = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
 `;
 
-export const CardsContainer = styled.div`
-  width: 72vw;
+export const Button = styled.button`
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.colors.primary.medium};
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
 
-  margin-top: 40px;
+  transition: 0.6s ease-in-out;
 
-  h1 {
-    font-size: 28px;
-    font-weight: medium;
-    color: ${({ theme }) => theme.colors.gray[100]};
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0;
-  }
-
-  h3 {
-    font-size: 20px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.colors.gray[500]};
-    text-transform: capitalize;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 20px;
+  &:hover {
+    opacity: 0.6;
+    transition: 0.6s ease-in-out;
   }
 `;

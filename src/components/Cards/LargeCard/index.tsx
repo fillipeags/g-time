@@ -1,53 +1,23 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { useEffect, useState } from 'react';
-
-import Slider from 'react-slick';
-import LargeCardItem from './LargeCardItem';
-import { CardsContainer } from './styles';
-
+import { AiOutlineStar } from 'react-icons/ai';
 import IGamesApiDTO from '../../../dtos/apiDTO';
-import api from '../../../services/api';
-import requests from '../../../services/api/requests';
-import ErrorHandler from '../../../helpers/Toast/Error';
-import { largeCardSlider } from '../../../utils/slider/sliderSettings';
+import { Button, CardBanner, Container, Description, GameInfo } from './styles';
 
-const LargeCard = () => {
-  const [games, setGames] = useState<IGamesApiDTO[]>([]);
-
-  useEffect(() => {
-    async function fetchGames() {
-      try {
-        setGames([]);
-        const res = await api.get(requests.popularGames);
-        setGames(res.data.results);
-
-        // eslint-disable-next-line no-console
-        // console.log(res);
-      } catch (error) {
-        ErrorHandler('Oops, Something Went Wrong in our Servers');
-      }
-    }
-
-    fetchGames();
-  }, []);
-
+const LargeCard = ({ background_image, name, rating }: IGamesApiDTO) => {
   return (
-    <CardsContainer>
-      <h1>Best Scored Games</h1>
-      <h3>The best games to be played according to the community</h3>
-      <section>
-        <Slider {...largeCardSlider}>
-          {games.map(({ id, name, rating, background_image }) => (
-            <LargeCardItem
-              key={id}
-              background_image={background_image}
-              name={name}
-              rating={rating}
-            />
-          ))}
-        </Slider>
-      </section>
-    </CardsContainer>
+    <Container>
+      <CardBanner>
+        <img src={background_image} alt="large card" />
+      </CardBanner>
+
+      <GameInfo>
+        <Description>
+          <p>{name} </p>
+          <p>{rating}</p>
+          <AiOutlineStar size={24} color="yellow" />
+        </Description>
+        <Button>Go to Game Page</Button>
+      </GameInfo>
+    </Container>
   );
 };
 
