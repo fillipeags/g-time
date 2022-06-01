@@ -1,31 +1,26 @@
+/* eslint-disable prettier/prettier */
+import { useCallback, useEffect, useState } from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
-
-import { useCallback, useEffect, useState } from 'react';
 import { RotatingLines } from 'react-loader-spinner';
-import toast from 'react-hot-toast';
+import IGamesApiDTO from '../../../../dtos/apiDTO';
+import useGamesStore from '../../../../hooks/useGamesStore';
 import FireStoreService from '../../../../services/database';
-import PlatformsIcons from '../../../PlatformsIcons';
-
 import truncate from '../../../../utils/trucate';
-
+import Modal from '../../../Modal';
+import PlatformsIcons from '../../../PlatformsIcons';
 import {
+  ActionContainer,
+  Button,
   Container,
   Content,
   GameDetails,
   Heading,
   PlayButton,
   PlayContainer,
-  Wrapper,
   Rating,
-  ActionContainer,
-  Button,
+  Wrapper
 } from './styles';
-
-import Modal from '../../../Modal';
-import IGamesApiDTO from '../../../../dtos/apiDTO';
-import ErrorHandler from '../../../../helpers/Toast/Error';
-import useAuth from '../../../../hooks/useAuth';
 
 interface IMediumCardDetailsProps extends IGamesApiDTO {
   hoverId: string;
@@ -45,13 +40,16 @@ const MediumCardDetails = ({
 
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [savedToList, setSavedToList] = useState(false);
+  // const [savedToList, setSavedToList] = useState(false);
 
   const toggleModal = useCallback(() => {
     setModal(prevState => !prevState);
   }, []);
 
-  const { user } = useAuth();
+  // const { user } = useAuth();
+
+  const { user, setSavedToList, savedToList, handleStoreGame } = useGamesStore(id!, name)
+
 
   const filterStoredGames = useCallback(async () => {
     const gameAlreadySaved = await FireStoreService.getOne(id, user?.id);
@@ -61,50 +59,51 @@ const MediumCardDetails = ({
     }
 
     setLoading(false);
-  }, [id, user?.id]);
+  }, [id, setSavedToList, user?.id]);
 
   useEffect(() => {
     filterStoredGames();
   }, [filterStoredGames]);
 
-  const handleStoreGame = async () => {
-    const data = {
-      id,
-      name,
-    };
 
-    const gameAlreadySaved = await FireStoreService.getOne(id, user?.id);
+  // const handleStoreGame = async () => {
+  //   const data = {
+  //     id,
+  //     name,
+  //   };
 
-    if (!user) {
-      ErrorHandler('Sign-in required');
-    } else if (gameAlreadySaved[0]) {
-      try {
-        await FireStoreService.delete(gameAlreadySaved[0], user?.id);
-        setSavedToList(false);
-        toast.success('Jogo removido com sucesso', {
-          style: {
-            backgroundColor: '#F65F5F',
-            color: '#FFF',
-          },
-        });
-      } catch (e) {
-        ErrorHandler(`Oops - ${e}`);
-      }
-    } else {
-      try {
-        await FireStoreService.create(data, user!.id);
-        setSavedToList(true);
-        toast.success('Jogo adicionado com sucesso', {
-          style: {
-            backgroundColor: '#4316DB',
-            color: '#FFF',
-          },
-        });
-      } catch (e) {
-        ErrorHandler(`Oops - ${e}`);
-      }
-    }
-  };
+  //   const gameAlreadySaved = await FireStoreService.getOne(id, user?.id);
+
+  //   if (!user) {
+  //     ErrorHandler('Sign-in required');
+  //   } else if (gameAlreadySaved[0]) {
+  //     try {
+  //       await FireStoreService.delete(gameAlreadySaved[0], user?.id);
+  //       setSavedToList(false);
+  //       toast.success('Jogo removido com sucesso', {
+  //         style: {
+  //           backgroundColor: '#F65F5F',
+  //           color: '#FFF',
+  //         },
+  //       });
+  //     } catch (e) {
+  //       ErrorHandler(`Oops - ${e}`);
+  //     }
+  //   } else {
+  //     try {
+  //       await FireStoreService.create(data, user!.id);
+  //       setSavedToList(true);
+  //       toast.success('Jogo adicionado com sucesso', {
+  //         style: {
+  //           backgroundColor: '#4316DB',
+  //           color: '#FFF',
+  //         },
+  //       });
+  //     } catch (e) {
+  //       ErrorHandler(`Oops - ${e}`);
+  //     }
+  //   }
+  // };
 
   return (
     <>
@@ -139,7 +138,7 @@ const MediumCardDetails = ({
             </GameDetails>
 
             <ActionContainer>
-              <Button>See More</Button>
+              <Button>View Details</Button>
               <>
                 {loading ? (
                   <Button disabled={loading}>
