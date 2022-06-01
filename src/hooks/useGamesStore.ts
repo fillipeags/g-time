@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import toast from 'react-hot-toast';
 import ErrorHandler from '../helpers/Toast/Error';
 import FireStoreService from '../services/database';
@@ -6,6 +6,7 @@ import useAuth from './useAuth';
 
 function useGamesStore(id: number, name: string) {
   const [savedToList, setSavedToList] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const { user } = useAuth();
 
@@ -48,11 +49,21 @@ function useGamesStore(id: number, name: string) {
     }
   };
 
+  const filterStoredGames = useCallback(async () => {
+    const gameAlreadySaved = await FireStoreService.getOne(id, user?.id);
+
+    if (gameAlreadySaved[0]) {
+      setSavedToList(true);
+    }
+
+    setLoading(false);
+  }, [id, setSavedToList, user?.id]);
+
   return {
-    user,
-    setSavedToList,
+    loading,
     savedToList,
     handleStoreGame,
+    filterStoredGames,
   };
 }
 
