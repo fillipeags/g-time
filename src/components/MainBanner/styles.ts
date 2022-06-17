@@ -114,7 +114,7 @@ export const Button = styled.button`
 
   @media (max-width: 425px) {
     font-size: 14px;
-    width: 50%;
+    width: 250px;
   }
 `;
 

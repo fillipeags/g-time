@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
 import { FiPlay } from 'react-icons/fi';
 import { RotatingLines } from 'react-loader-spinner';
+import { Link } from 'react-router-dom';
 import IGamesApiDTO from '../../../../dtos/apiDTO';
 import useGamesStore from '../../../../hooks/useGamesStore';
 import truncate from '../../../../utils/trucate';
@@ -83,7 +84,9 @@ const MediumCardDetails = ({
             </GameDetails>
 
             <ActionContainer>
-              <Button>View Details</Button>
+              <Link to={`game/${id}`}>
+                <Button>View Details</Button>
+              </Link>
               <>
                 {loading ? (
                   <Button disabled={loading}>
