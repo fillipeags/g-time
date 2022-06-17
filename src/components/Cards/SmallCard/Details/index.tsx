@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { RotatingLines } from 'react-loader-spinner';
+import { Link } from 'react-router-dom';
 import useGamesStore from '../../../../hooks/useGamesStore';
 import { ActionContainer, Button, Container, Content } from './styles';
 
@@ -21,7 +22,9 @@ const SmallCardDetails = ({ id, gameId, name }: ISmallCardDetailsProps) => {
     <Container id={id}>
       <Content>
         <ActionContainer>
-          <Button>See More</Button>
+          <Link to={`/game/${gameId}`}>
+            <Button>See More</Button>
+          </Link>
           {loading ? (
             <Button disabled={loading}>
               <RotatingLines width="26" strokeColor="#FFF" />
