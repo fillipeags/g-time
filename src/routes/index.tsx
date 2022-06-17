@@ -11,7 +11,7 @@ export default function Routes() {
       <Route path="/mygames" element={<MyGames />} />
       <Route path="/news" element={<News />} />
       <Route path="*" element={<PageNotFound />} />
-      <Route path="/game/:id" element={<GameDetails />} />
+      <Route path="game/:id" element={<GameDetails />} />
     </Switch>
   );
 }

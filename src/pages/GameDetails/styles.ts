@@ -22,6 +22,11 @@ export const Content = styled.div`
     font-size: 24px;
     font-weight: 500;
     text-transform: uppercase;
+    margin: 40px 0px 20px 0px;
+
+    &:first-of-type {
+      margin: 10px 0px 20px 0px;
+    }
   }
 
   h3 {
@@ -44,6 +49,21 @@ export const Content = styled.div`
     font-weight: 300;
     color: ${({ theme }) => theme.colors.gray[300]};
   }
+
+  ul {
+    list-style: none;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 300;
+    color: ${({ theme }) => theme.colors.gray[300]};
+
+    li {
+      p {
+        margin-left: 20px;
+        word-wrap: break-word;
+      }
+    }
+  }
 `;
 
 export const GridContainer = styled.div`
@@ -58,14 +78,6 @@ export const GridContainer = styled.div`
 `;
 
 export const LeftContent = styled.section`
-  h2 {
-    margin: 40px 0px 20px 0px;
-
-    &:first-of-type {
-      margin: 10px 0px 20px 0px;
-    }
-  }
-
   h3 {
     padding: 20px 0px;
   }
