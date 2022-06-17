@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
 import { useParams } from 'react-router-dom';
 import { Rating } from '../../components/Cards/SmallCard/styles';
-import WideCard from '../../components/Cards/WideCard';
 import Header from '../../components/Header';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import Pill from '../../components/Pills';
+import useGamesStore from '../../hooks/useGamesStore';
 import api from '../../services/api';
 import requests from '../../services/api/requests';
 import {
@@ -16,33 +16,40 @@ import {
   GameBanner,
   GridContainer,
   LeftContent,
+  Requirements,
   RightContent,
+  ScreenShotsContainer,
 } from './styles';
 
+interface ScreenShot {
+  id: number;
+  image: string;
+}
+
 const GameDetails = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [gameInfo, setGameInfo] = useState<any>([]);
-  const [screenshots, setScreenshots] = useState<any>([]);
+  const [screenshots, setScreenshots] = useState<ScreenShot[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const { id } = useParams();
 
+  const { savedToList, loading, handleStoreGame, filterStoredGames } =
+    useGamesStore(Number(id!), gameInfo.name);
+
+  const getGameDetails = useCallback(async () => {
+    const gameData = await api.get(requests.getSpecificGame(Number(id)));
+    const screenshotsLinks = await api.get(requests.getScreenshots(Number(id)));
+    setGameInfo(gameData.data);
+    setScreenshots(screenshotsLinks.data.results);
+    setIsLoading(false);
+  }, [id]);
+
   useEffect(() => {
     setIsLoading(true);
-
-    const getGameDetails = async () => {
-      const gameData = await api.get(requests.getSpecificGame(Number(id)));
-      const screenshotsLinks = await api.get(
-        requests.getScreenshots(Number(id)),
-      );
-
-      setGameInfo(gameData.data);
-      console.log('Game Info: ', { gameInfo });
-      setScreenshots(screenshotsLinks.data.results);
-      setIsLoading(false);
-    };
-
+    filterStoredGames();
     getGameDetails();
-  }, [id]);
+  }, [filterStoredGames, getGameDetails]);
 
   return (
     <Container>
@@ -51,6 +58,7 @@ const GameDetails = () => {
       {!isLoading && (
         <>
           <Header />
+
           <Content>
             <GridContainer>
               <LeftContent>
@@ -72,17 +80,23 @@ const GameDetails = () => {
               <RightContent>
                 <GameBanner>
                   <img src={gameInfo.background_image} alt="" />
-                  <button type="button">Add to my games</button>
+                  <button
+                    type="button"
+                    disabled={loading}
+                    onClick={handleStoreGame}
+                  >
+                    {savedToList ? 'Remove from List' : 'Add To My Games'}
+                  </button>
                 </GameBanner>
                 <h3>
                   Average Playtime <span>{gameInfo.playtime} Hours</span>
                 </h3>
                 <h3>
-                  Release Date{' '}
+                  Release Date
                   <span>
                     {gameInfo.released === null
                       ? 'Upcoming'
-                      : gameInfo.released}
+                      : new Date(gameInfo.released).toLocaleDateString('en-us')}
                   </span>
                 </h3>
 
@@ -113,28 +127,33 @@ const GameDetails = () => {
             </GridContainer>
 
             <br />
-            <h2>Trailers and screenshots</h2>
-            <WideCard screenshots={screenshots} />
+            <h2>Screenshots</h2>
+            <ScreenShotsContainer>
+              {screenshots.map(({ id: ScreenShotId, image }) => (
+                <div key={ScreenShotId}>
+                  <img src={image} alt={image} />
+                </div>
+              ))}
+            </ScreenShotsContainer>
 
-            <h2>Platforms</h2>
+            <h2>Available Platforms</h2>
 
             {gameInfo.platforms.map(({ platform, requirements }) => (
-              <ul key={platform.id}>
-                <li>
-                  {platform.name}
-                  {platform.slug === 'pc' && (
-                    <>
-                      <p>{requirements?.minimum}</p>
-                      <br />
-                      <p>{requirements?.recommended}</p>
-                      <br />
-                    </>
-                  )}
-                </li>
-              </ul>
+              <Requirements>
+                <ul key={platform.id}>
+                  <li>
+                    {platform.name}
+                    {platform.slug === 'pc' && (
+                      <>
+                        <p>{requirements?.minimum}</p>
+                        <br />
+                        <p>{requirements?.recommended}</p>
+                      </>
+                    )}
+                  </li>
+                </ul>
+              </Requirements>
             ))}
-
-            <h2>Games Recomendation</h2>
           </Content>
         </>
       )}

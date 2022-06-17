@@ -49,21 +49,6 @@ export const Content = styled.div`
     font-weight: 300;
     color: ${({ theme }) => theme.colors.gray[300]};
   }
-
-  ul {
-    list-style: none;
-    font-size: 18px;
-    text-transform: capitalize;
-    font-weight: 300;
-    color: ${({ theme }) => theme.colors.gray[300]};
-
-    li {
-      p {
-        margin-left: 20px;
-        word-wrap: break-word;
-      }
-    }
-  }
 `;
 
 export const GridContainer = styled.div`
@@ -74,6 +59,10 @@ export const GridContainer = styled.div`
   span {
     margin-right: 10px;
     margin-bottom: 20px;
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -131,6 +120,27 @@ export const GameBanner = styled.div`
   }
 
   margin-bottom: 60px;
+
+  @media (min-width: 1921px) {
+    img {
+      width: 900px;
+    }
+
+    button {
+      width: 400px;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    img {
+      width: 300px;
+    }
+
+    button {
+      width: 200px;
+      padding: 10px;
+    }
+  }
 `;
 
 export const BoxInfo = styled.div`
@@ -156,4 +166,56 @@ export const AlignContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+`;
+
+export const Requirements = styled.div`
+  ul {
+    list-style: none;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 300;
+    color: ${({ theme }) => theme.colors.gray[300]};
+  }
+
+  margin: 20px 0px;
+
+  p {
+    word-break: break-all;
+    line-height: 30px;
+  }
+
+  li {
+    font-weight: bold;
+  }
+`;
+
+export const ScreenShotsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  gap: 20px;
+
+  img {
+    width: 400px;
+  }
+
+  @media (min-width: 1921px) {
+    img {
+      width: 600px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1920px) {
+    img {
+      width: 300px;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    img {
+      width: 250px;
+    }
+  }
 `;

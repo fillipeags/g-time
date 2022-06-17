@@ -67,8 +67,10 @@ const MyGames = () => {
             background_image={background_image}
             name={name}
             rating={rating}
+            id={id}
           />
         ))}
+
         {!loading && gameList.length === 0 && (
           <Unauthorized>
             <h1>Login First To See Your Games</h1>
