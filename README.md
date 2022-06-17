@@ -7,9 +7,13 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/fillipeags/g-time)
 
 ### G-time is a platform where you can track all games launched and to be launched and also add those games to your gamelist
-#
 
-### [GO TO G-TIME WEBSITE](https://g-time-7e52e.web.app/)
+<p align="center">
+  <a href="https://g-time-7e52e.web.app/" target="_blank">
+    <img alt="Demo on Netlify" src="https://user-images.githubusercontent.com/38387593/174386941-01aa1818-fb77-48dc-8407-54fff2ba172c.svg" width="450px">
+  </a>
+</p>
+
 
 ![Desktop Image](https://user-images.githubusercontent.com/38387593/167464091-0d900ff1-9be7-4579-b5b8-4079adcf6c1d.png)
 
@@ -39,20 +43,19 @@
     - ✅  Games list with add to games to your list option and details about the game
     - ✅  Search bar for querying a specific game
     - ✅  Filters to help you get more games alike
+- [ ]  My Games page cards
+    - ✅ See More page about specific games for helping users view full info about the required game
 
 
 ---
-
+<!--
 ### Backlog:
 
-- [ ]  See More page about specific games for helping users view full info about the required game
 - [ ]  Filter Games based on genres
-- [ ]  My Games page cards
 - [ ]  About my Profile page
 - [ ]  News about the gaming world
-- [ ]  Create tests
 
----
+--- -->
 
 ### Wanna Help ?
 
