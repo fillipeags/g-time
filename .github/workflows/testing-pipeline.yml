@@ -17,19 +17,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-			- name: Checkout repository
-				uses: actions/checkout@v2
-				with:
-					fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-			- name: Setup Node
-				uses: actions/setup-node@v1
-				with:
-					node-version: 16.14.x
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.14.x
 
-			- name: Install Dependencies
-				run: yarn
+      - name: Install dependencies
+        run: yarn install
 
-			- name: Run Jest tests
-				run: yarn test
+      - name: Run Unit Tests
+        run: yarn test:unit
+
+      - name: Run Integration Tests
+        run: yarn test:integration
 
