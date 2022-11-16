@@ -28,10 +28,8 @@ jobs:
 					node-version: 16.14.x
 
 			- name: Install Dependencies
-				run: yarn --frozen-lockfile --prefer-offline
+				run: yarn
 
 			- name: Run Jest tests
 				run: yarn test
 
-			- name: Run Linter
-				run: yarn lint
