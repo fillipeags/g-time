@@ -3,9 +3,14 @@ import { useCallback, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { Overlay, Container } from './styles';
 
+interface ModalProps {
+  toggleModal: () => void;
+  showModal: boolean;
+}
+
 const portal = document.getElementById('youtube-modal')!;
 
-export default function Modal({ toggleModal, showModal }) {
+export default function Modal({ toggleModal, showModal }: ModalProps) {
   const wrapperRef = useRef<HTMLIFrameElement>(null);
 
   const closeModal = useCallback(
