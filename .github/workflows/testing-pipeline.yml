@@ -15,12 +15,24 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout
+        with:
+          fetch-depth: 0
 
-      - name: Install Dependencies
-        run: yarn
-	
-      - name: Run Jest
-        uses: stefanoeb/jest-action@1.0.4
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.14.x
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run Unit Tests
+        run: yarn test:unit
+
+      - name: Run Integration Tests
+        run: yarn test:integration
+
