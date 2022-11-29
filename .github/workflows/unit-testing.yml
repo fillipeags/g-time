@@ -23,16 +23,14 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.14.x
+          node-version: '16'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn --prefer-offline
 
       - name: Run Unit Tests
         run: yarn test:unit
-
-      - name: Run Integration Tests
-        run: yarn test:integration
 
